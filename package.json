@@ -11,7 +11,7 @@
   "dependencies": {
     "@datocms/cda-client": "^0.2.9",
     "motion": "^12.23.26",
-    "next": "16.0.10",
+    "next": "^16.1.1",
     "react": "19.2.1",
     "react-datocms": "^7.2.4",
     "react-dom": "19.2.1"
@@ -22,6 +22,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
-    "typescript": "^5"
+    "typescript": "5.9.3"
   }
 }
