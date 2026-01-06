@@ -1,45 +1,32 @@
 import { getDatoCmsData } from "@/util/util";
-
+import { AnimationImagesBlockFragment } from "@/fragments/AnimationImagesBlockFragment";
+import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
+import { HomepageQuery } from "@/queries/HomepageQuery";
 export default async function Home() {
+  const query = HomepageQuery;
   const data = await getDatoCmsData({ query });
-  const homepageData = data.homepage;
+  const homepageData = data?.homepage;
   const { content, seo } = homepageData;
+  console.log(content);
 
-  return <main>this is test</main>;
+  const GetModularHomePageBlock = (type: string) => {};
+
+  return <main></main>;
 }
 //make icons link to projects they are in
-const query = `
-{
-  homepage {
-      id
-      internalTitle
-      seo {
-        title
-        description
-      }
-      content {
-        ... on HeroBlockRecord {
-          id
-          hero {
-            ... on LayoutOptionBlockRecord {
-              id
-              _modelApiKey
-              bottomPadding
-              backgroundColor
-              rowReverse
-              textAlign
-              topPadding
-            }
-            ... on BodyBlockRecord {
-              id
-              _modelApiKey
-              body {
-                value
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// const query = `
+// {
+//   homepage {
+//       id
+//       internalTitle
+//       seo {
+//         title
+//         description
+//       }
+//       content {
+//         ${HeroBlockFragment}
+//         ${AnimationImagesBlockFragment}
+//       }
+//     }
+//   }
+// `;
