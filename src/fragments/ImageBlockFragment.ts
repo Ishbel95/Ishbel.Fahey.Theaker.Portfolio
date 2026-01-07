@@ -1,5 +1,6 @@
 export const ImageBlockFragment = `
   fragment ImageBlockFragment on ImageBlockRecord {
+    __typename
     id
     image {
       responsiveImage {

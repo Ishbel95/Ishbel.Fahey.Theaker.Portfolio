@@ -3,9 +3,9 @@ import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { ImageBlockFragment } from "@/fragments/ImageBlockFragment";
 import { LayoutOptionsBlockFragment } from "@/fragments/LayoutOptionsFragment";
 
-export const ModularTemplatePageQuery = `
-  query ModularTemplatePageQuery {
-    allModularTemplates {
+export const AllModularTemplatePageQuery = `
+  query ModularTemplatePageQuery($slug: String!) {
+    modularTemplate(filter: { slug: { eq: $slug } }) {
       id
       internalTitle
       slug
@@ -13,22 +13,71 @@ export const ModularTemplatePageQuery = `
         title
         description
       }
-
-      hero {
+      modularContent {
         ... on HeroBlockRecord {
+          __typename
+          id
           ...HeroBlockFragment
         }
+        ... on ContentBlockRecord {
+          __typename
+          id
+          content {
+            ... on BodyBlockRecord {
+              __typename
+              ...BodyBlockFragment
+            }
+            ... on ImageBlockRecord {
+              __typename
+              ...ImageBlockFragment
+            }
+            ... on LayoutOptionBlockRecord {
+              __typename
+              ...LayoutOptionBlockFragment
+            }
+          }
+        }
       }
+    }
+  }
 
-      content {
-        ... on BodyBlockRecord {
-          ...BodyBlockFragment
+  ${HeroBlockFragment}
+  ${BodyBlockFragment}
+  ${ImageBlockFragment}
+  ${LayoutOptionsBlockFragment}
+`;
+
+export const ModularTemplatePageQuery = `
+  query ModularTemplatePageQuery($slug: String!) {
+    modularTemplate(filter: { slug: { eq: $slug } }) {
+      id
+      internalTitle
+      slug
+      seo {
+        title
+        description
+      }
+      modularContent {
+        ... on HeroBlockRecord {
+          __typename
+          ...HeroBlockFragment
         }
-        ... on ImageBlockRecord {
-          ...ImageBlockFragment
-        }
-        ... on LayoutOptionBlockRecord {
-          ...LayoutOptionBlockFragment
+        ... on ContentBlockRecord {
+          __typename
+          content {
+            ... on BodyBlockRecord {
+              __typename
+              ...BodyBlockFragment
+            }
+            ... on ImageBlockRecord {
+              __typename
+              ...ImageBlockFragment
+            }
+            ... on LayoutOptionBlockRecord {
+              __typename
+              ...LayoutOptionBlockFragment
+            }
+          }
         }
       }
     }

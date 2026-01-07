@@ -1,5 +1,6 @@
 export const PathFragment = `
   fragment PathFragment on PathRecord {
+    __typename
     id
     isInline
     color
@@ -8,6 +9,7 @@ export const PathFragment = `
       value
       links {
         ... on ModularTemplateRecord {
+          __typename
           id
           slug
         }

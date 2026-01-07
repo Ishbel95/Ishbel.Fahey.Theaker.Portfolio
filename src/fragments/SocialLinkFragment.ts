@@ -3,6 +3,7 @@ import { PathFragment } from "./PathFragment";
 
 export const SocialLinkFragment = `
 fragment SocialLinkFragment on SocialLinkRecord {
+  __typename
   id
   link {
     value

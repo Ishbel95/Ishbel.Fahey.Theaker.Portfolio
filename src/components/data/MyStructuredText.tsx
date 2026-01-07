@@ -1,4 +1,6 @@
 import { StructuredText } from "react-datocms";
+import Link from "next/link";
+import MyImage from "./MyImage";
 
 export default function MyStructuredText({
   data,
@@ -26,8 +28,8 @@ export default function MyStructuredText({
     children: any;
   }) => {
     switch (record.__typename) {
-      case "BlogPostRecord":
-        return <a href={`/blog/${record.slug}`}>{children}</a>;
+      case "ModularTemplateRecord":
+        return <Link href={`/details/${record.slug}`}>{children}</Link>;
       default:
         return null;
     }
@@ -35,8 +37,11 @@ export default function MyStructuredText({
 
   const getBlockRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {
-      case "ImageBlockRecord":
-        return <img src={record.image.url} alt={record.image.alt} />;
+      case "PathRecord":
+        return <MyStructuredText data={record.path} />;
+      //font awesome implimentation
+      // case "IconBlockRecord":
+      //   return <MyImage  />
       default:
         return null;
     }
