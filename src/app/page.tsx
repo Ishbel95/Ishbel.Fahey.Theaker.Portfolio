@@ -4,6 +4,7 @@ import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import ModularHero from "@/components/modular/ModularHero";
 import Loading from "@/components/Loading";
+
 export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query });

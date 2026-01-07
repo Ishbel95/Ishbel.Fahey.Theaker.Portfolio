@@ -19,7 +19,7 @@ export default function ModularHero({
   return (
     <div className="modular-hero-container" key={key}>
       <div className="modular-hero-inner">
-        {data.hero.map((component: any) => {
+        {data?.hero?.map((component: any) => {
           return GetModularHeroBlock(component.__typename, component);
         })}
       </div>
