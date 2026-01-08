@@ -1,8 +1,15 @@
-export const ImageBlockFragment = `
-  fragment ImageBlockFragment on ImageBlockRecord {
+export const ImageGalleryBlockFragment = `
+  fragment ImageGalleryBlockFragment on ImageGalleryBlockRecord {
     __typename
     id
-    image {
+    layoutOptions {
+      bottomPadding
+      backgroundColor
+      rowReverse
+      textAlign
+      topPadding
+    }
+    imageGallery {
        url
        title
        alt
@@ -23,4 +30,6 @@ export const ImageBlockFragment = `
       }
     }
   }
+
+
 `;

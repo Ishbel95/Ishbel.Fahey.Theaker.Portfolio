@@ -1,5 +1,127 @@
+@import "variables.scss";
+
 @mixin desktop {
-  @media (min-width: 758px) {
+  @media (min-width: $desktopBreakpoint) {
     @content;
+  }
+}
+
+//can include at breakpoint etc
+
+@mixin flexBox(
+  $flexDirection: null,
+  $alignItems: null,
+  $justifyContent: null,
+  $flexWrap: null
+) {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @if ($flexDirection) {
+    flex-direction: $flexDirection;
+  }
+  @if ($alignItems) {
+    align-items: $alignItems;
+  }
+  @if ($justifyContent) {
+    justify-content: $justifyContent;
+  }
+  @if ($flexWrap) {
+    flex-wrap: $flexWrap;
+  }
+}
+
+@mixin grid($templateColumns, $templateRows, $templateWidth) {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  @if ($templateColumns) {
+    grid-template-columns: repeat($templateColumns, $templateWidth);
+  }
+  @if ($templateRows) {
+    grid-template-rows: repeat($templateRows, $templateWidth);
+  }
+}
+
+@mixin alignText($textAlign) {
+  text-align: center;
+  margin: 0 auto;
+  @if ($textAlign == "left") {
+    @include desktop() {
+      text-align: left;
+      margin-right: auto;
+    }
+  } @else if ($textAlign == "right") {
+    @include desktop() {
+      text-align: right;
+      margin-left: auto;
+    }
+  }
+}
+
+@mixin padding($paddingTop: true, $paddingBottom: true) {
+  padding: $mobilePadding;
+  @include desktop() {
+    padding: $desktopPadding;
+  }
+  @if ($paddingTop and $paddingBottom == false) {
+    padding: $mobileTopPaddingOnly;
+    @include desktop() {
+      padding: $desktopTopPaddingOnly;
+    }
+  }
+  @if ($paddingBottom and $paddingTop == false) {
+    padding: $mobileBottomPaddingOnly;
+    @include desktop() {
+      padding: $desktopBottomPaddingOnly;
+    }
+  }
+}
+.display-flex-row-desktop {
+  @include desktop() {
+    @include flexBox();
+  }
+}
+
+.display-flex-row-reverse-desktop {
+  @include desktop() {
+    @include flexBox(row-reverse, center, space-between);
+  }
+}
+.display-flex-wrap {
+  @include flexBox(row, center, space-evenly, wrap);
+}
+
+.align-left {
+  @include alignText(left);
+}
+.align-center {
+  @include alignText(center);
+}
+.align-right {
+  @include alignText(right);
+}
+
+.padding-top-bottom {
+  @include padding();
+}
+.padding-top-only {
+  @include padding(true, false);
+}
+.padding-bottom-only {
+  @include padding(false, true);
+}
+
+.blockCenter {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.card-padding {
+  padding: $cardPaddingMobile;
+  @include desktop() {
+    padding: $cardPaddingDesktop;
   }
 }

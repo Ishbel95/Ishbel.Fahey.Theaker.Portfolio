@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactNode } from "react";
 import MyStructuredText from "../data/MyStructuredText";
-import ModularContent from "./ModularContent";
+import ModularContent from "./ModularContentBlock";
+import StarryBackground from "../animation/starryBackground";
 export default function ModularHero({
   data,
   key,
@@ -17,12 +18,14 @@ export default function ModularHero({
   };
 
   return (
-    <div className="modular-hero-container" key={key}>
-      <div className="modular-hero-inner">
-        {data?.hero?.map((component: any) => {
-          return GetModularHeroBlock(component.__typename, component);
-        })}
+    <StarryBackground>
+      <div className="modular-hero-container" key={key}>
+        <div className="modular-hero-inner">
+          {data?.hero?.map((component: any) => {
+            return GetModularHeroBlock(component.__typename, component);
+          })}
+        </div>
       </div>
-    </div>
+    </StarryBackground>
   );
 }

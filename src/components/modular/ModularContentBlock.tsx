@@ -10,8 +10,8 @@ export default function ModularContent({
 }) {
   const isDataArray = data?.content?.length > 0;
   return isDataArray ? (
-    data?.content?.map((data: any) => (
-      <div className="modular-content-container" key={key}>
+    data?.content?.map((data: any, index: number) => (
+      <div className="modular-content-container" key={index}>
         <div className="modular-content-inner">
           <MyStructuredText data={data.body} />
         </div>

@@ -4,6 +4,6 @@ export default interface LayoutOptionsBlockFragmentQuery {
   bottomPadding?: Boolean;
   backgroundColor?: String;
   rowReverse?: Boolean;
-  textAlign?: Boolean;
+  textAlign?: String;
   topPadding?: Boolean;
 }

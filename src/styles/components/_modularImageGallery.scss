@@ -1,0 +1,18 @@
+.modular-image-gallery {
+  max-width: 800px;
+  margin: 0 auto;
+  @extend .display-flex-wrap;
+  @include desktop() {
+    @include grid(4, 4, max-content);
+  }
+  .tech-stack-image {
+    margin: 0.3em;
+    @include desktop() {
+      margin: 0.5em;
+    }
+    .image-container {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
