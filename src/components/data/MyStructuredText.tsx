@@ -9,7 +9,7 @@ export default function MyStructuredText({
   data: any;
   key?: string;
 }) {
-  if (!data.value) return null;
+  if (!data?.value) return null;
 
   const getInlineRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {

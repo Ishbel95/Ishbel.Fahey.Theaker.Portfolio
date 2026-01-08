@@ -1,0 +1,135 @@
+//backgrounds
+$primaryGradient: linear-gradient(
+  90deg,
+  rgba(0, 1, 8, 1) 23%,
+  rgba(0, 20, 57, 1) 54%,
+  rgba(1, 32, 79, 0.98) 74%,
+  rgba(1, 55, 140, 1) 100%
+);
+$radialGradient: radial-gradient(
+  ellipse at bottom,
+  rgba(0, 1, 8, 1) 15%,
+  #001439 64%,
+  #01204ffa 86%,
+  rgba(1, 55, 140, 1) 100%
+);
+
+//colors
+$darkestBlue: #000108;
+$darkBlue: #001439;
+$blue: #01204ffa;
+$white: #fdfdfd;
+$black: #010204;
+
+//spacing
+$globalWidth: min(90%, 1000px);
+
+$mobilePadding: 3em 0;
+$desktopPadding: 6em 0;
+
+$mobileTopPaddingOnly: 3em 0 0;
+$desktopTopPaddingOnly: 6em 0 0;
+
+$mobileBottomPaddingOnly: 3em 0 0;
+$desktopBottomPaddingOnly: 6em 0 0;
+
+$borderRadius: 15px;
+$cardPaddingMobile: 0.6em;
+$cardPaddingDesktop: 0.8em;
+
+//breakpoints
+
+$desktopBreakpoint: 758px;
+
+//glass
+
+//glow
+$shadowPixels: 0px 0px 106px 41px;
+$darkShadow: $shadowPixels $darkBlue;
+$mediumShadow: $shadowPixels $blue;
+$lightShadow: $shadowPixels $white;
+
+// text
+
+$lineHeight: 1.5em;
+
+.dark-glow {
+  -webkit-box-shadow: $darkShadow;
+  -moz-box-shadow: $darkShadow;
+  box-shadow: $darkShadow;
+}
+
+.medium-glow {
+  -webkit-box-shadow: $mediumShadow;
+  -moz-box-shadow: $mediumShadow;
+  box-shadow: $mediumShadow;
+}
+
+.light-glow {
+  -webkit-box-shadow: $lightShadow;
+  -moz-box-shadow: $lightShadow;
+  box-shadow: $lightShadow;
+}
+
+.glass-dark {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 1, 8, 0.85);
+  backdrop-filter: blur(14.9px);
+  -webkit-backdrop-filter: blur(14.9px);
+}
+.glass-light {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(253, 253, 253, 0.61);
+  backdrop-filter: blur(14.9px);
+  -webkit-backdrop-filter: blur(14.9px);
+}
+
+.glass-text-dark {
+  @extend .glass-dark;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.glass-text-light {
+  color: transparent;
+  @extend .glass-light;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.glass-card-dark {
+  border-radius: $borderRadius;
+  border: 1px solid rgba(0, 1, 8, 1);
+  @extend .glass-dark;
+  @extend .card-padding;
+}
+
+.glass-card-light {
+  border-radius: $borderRadius;
+  border: 1px solid rgba(253, 253, 253, 1);
+  @extend .glass-light;
+  @extend .card-padding;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  @extend .glass-text-light;
+}
+h2 {
+  font-size: 4rem;
+  font-weight: 400;
+}
+h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5em;
+}
+p {
+  font-size: 1rem;
+  line-height: $lineHeight;
+}
+
+.modular-container {
+}
+.modular-inner {
+  width: $globalWidth;
+  margin: 0 auto;
+}

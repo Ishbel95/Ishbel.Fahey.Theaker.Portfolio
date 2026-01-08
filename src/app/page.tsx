@@ -2,8 +2,10 @@ import { getDatoCmsData } from "@/util/util";
 import { AnimationImagesBlockFragment } from "@/fragments/AnimationImagesBlockFragment";
 import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { HomepageQuery } from "@/queries/HomepageQuery";
-import ModularHero from "@/components/modular/ModularHero";
+import ModularHero from "@/components/modular/ModularHeroBlock";
 import Loading from "@/components/Loading";
+import ModularImageGallery from "@/components/modular/ModularImageGallery";
+import ModularContent from "@/components/modular/ModularContentBlock";
 export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query });
@@ -16,6 +18,10 @@ export default async function Home() {
     switch (type) {
       case "HeroBlockRecord":
         return <ModularHero data={component} key={component.id} />;
+      case "ImageGalleryBlockRecord":
+        return <ModularImageGallery data={component} key={component.id} />;
+      case "ContentBlockRecord":
+        return <ModularContent data={component} key={component.id} />;
     }
   };
 

@@ -4,8 +4,8 @@ import {
   ModularTemplatePageQuery,
 } from "@/queries/ModularTemplateQuery";
 import { getDatoCmsData } from "@/util/util";
-import ModularHero from "@/components/modular/ModularHero";
-import ModularContent from "@/components/modular/ModularContent";
+import ModularHero from "@/components/modular/ModularHeroBlock";
+import ModularContent from "@/components/modular/ModularContentBlock";
 export async function generateStaticParams() {
   const data = await getDatoCmsData({ query: AllModularTemplatePageQuery });
   const allModularTemplatesData = data?.allModularTemplates ?? [];
