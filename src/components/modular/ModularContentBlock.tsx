@@ -1,6 +1,8 @@
 import React from "react";
 import MyStructuredText from "../data/MyStructuredText";
-
+import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
+import MyImage from "../data/MyImage";
+import { getBlockData } from "@/util/util";
 export default function ModularContent({
   data,
   key,
@@ -8,20 +10,16 @@ export default function ModularContent({
   data: any;
   key: string;
 }) {
-  const isDataArray = data?.content?.length > 0;
-  return isDataArray ? (
-    data?.content?.map((data: any, index: number) => (
-      <div className="modular-content-container" key={index}>
-        <div className="modular-content-inner">
-          <MyStructuredText data={data.body} />
-        </div>
+  const modularData = getBlockData(data.content);
+
+  return (
+    <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord} key={key}>
+      <div className="modular-content-container">
+        <MyStructuredText data={modularData.BodyBlockRecord?.body} />
       </div>
-    ))
-  ) : (
-    <div className="modular-content-container" key={key}>
-      <div className="modular-content-inner">
-        <MyStructuredText data={data.body} />
-      </div>
-    </div>
+      {modularData.ImageBlockRecord?.image && (
+        <MyImage img={modularData.ImageBlockRecord.image} />
+      )}
+    </ModularLayoutWrapper>
   );
 }

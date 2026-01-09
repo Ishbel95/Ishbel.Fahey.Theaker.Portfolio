@@ -24,6 +24,6 @@ export interface ImageFragmentQuery {
 export default interface ImageGalleryFragmentQuery {
   __typename: String;
   id: String;
-  LayoutOptionsBlockRecord: LayoutOptionsBlockFragmentQuery;
+  layoutOptions: LayoutOptionsBlockFragmentQuery;
   imageGallery: ImageFragmentQuery[];
 }

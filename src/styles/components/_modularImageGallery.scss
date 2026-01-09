@@ -1,9 +1,9 @@
-.modular-image-gallery {
+.modular-image-gallery-container {
   max-width: 800px;
   margin: 0 auto;
   @extend .display-flex-wrap;
   @include desktop() {
-    @include grid(4, 4, max-content);
+    @include grid(8, 2, max-content);
   }
   .tech-stack-image {
     margin: 0.3em;

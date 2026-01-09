@@ -4,6 +4,7 @@ export const LayoutOptionsBlockFragment = `
     id
     bottomPadding
     backgroundColor
+    backgroundGradient
     rowReverse
     textAlign
     topPadding
