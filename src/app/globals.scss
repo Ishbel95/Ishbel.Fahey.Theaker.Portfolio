@@ -13,18 +13,6 @@
   font-optical-sizing: auto;
 }
 
-:root {
-  @extend .secondaryFont;
-  font-size: 16px;
-  h1,
-  h3 {
-    @extend .primaryFont;
-  }
-  @include desktop() {
-    font-size: 18px;
-  }
-}
-
 *,
 *::before,
 *::after {

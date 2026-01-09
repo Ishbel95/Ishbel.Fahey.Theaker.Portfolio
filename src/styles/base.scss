@@ -1,0 +1,163 @@
+:root {
+  @extend .secondaryFont;
+  font-size: 16px;
+  h1,
+  h3 {
+    @extend .primaryFont;
+  }
+  @include desktop() {
+    font-size: 18px;
+  }
+}
+
+.display-flex-row-desktop {
+  @include desktop() {
+    @include flexBox();
+  }
+}
+
+.display-flex-row-reverse-desktop {
+  @include desktop() {
+    @include flexBox(row-reverse, center, space-between);
+  }
+}
+.display-flex-wrap {
+  @include flexBox(row, center, space-evenly, wrap);
+}
+
+.align-left {
+  @include alignText(left);
+}
+.align-center {
+  @include alignText(center);
+}
+.align-right {
+  @include alignText(right);
+}
+
+.padding-top-bottom {
+  @include padding();
+}
+.padding-top-only {
+  @include padding(true, false);
+}
+.padding-bottom-only {
+  @include padding(false, true);
+}
+
+.blockCenter {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.card-padding {
+  padding: $cardPaddingMobile;
+  @include desktop() {
+    padding: $cardPaddingDesktop;
+  }
+}
+
+.dark-glow {
+  -webkit-box-shadow: $darkShadow;
+  -moz-box-shadow: $darkShadow;
+  box-shadow: $darkShadow;
+}
+
+.medium-glow {
+  -webkit-box-shadow: $mediumShadow;
+  -moz-box-shadow: $mediumShadow;
+  box-shadow: $mediumShadow;
+}
+
+.light-glow {
+  -webkit-box-shadow: $lightShadow;
+  -moz-box-shadow: $lightShadow;
+  box-shadow: $lightShadow;
+}
+
+.glass-dark {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 1, 8, 0.85);
+  backdrop-filter: blur(14.9px);
+  -webkit-backdrop-filter: blur(14.9px);
+}
+.glass-light {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(253, 253, 253, 0.61);
+  backdrop-filter: blur(14.9px);
+  -webkit-backdrop-filter: blur(14.9px);
+}
+
+.glass-text-dark {
+  @extend .glass-dark;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.glass-text-light {
+  color: transparent;
+  @extend .glass-light;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.glass-card-dark {
+  border-radius: $borderRadius;
+  border: 1px solid rgba(0, 1, 8, 1);
+  @extend .glass-dark;
+  @extend .card-padding;
+}
+
+.glass-card-light {
+  border-radius: $borderRadius;
+  border: 1px solid rgba(253, 253, 253, 1);
+  @extend .glass-light;
+  @extend .card-padding;
+}
+
+.modular-inner {
+  width: $globalWidth;
+  margin: 0 auto;
+}
+
+.background-color-darkest-blue {
+  background-color: $darkestBlue;
+}
+.background-color-dark-blue {
+  background-color: $darkBlue;
+}
+.background-color-blue {
+  background-color: $blue;
+}
+.background-color-black {
+  background-color: $black;
+}
+.background-color-white {
+  background-color: $white;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.2em;
+  line-height: $smallLineHeight;
+  @include desktop() {
+    line-height: $lineHeight;
+  }
+}
+h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  @extend .glass-text-light;
+}
+h2 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+p {
+  font-size: 1.3rem;
+  line-height: $lineHeight;
+}

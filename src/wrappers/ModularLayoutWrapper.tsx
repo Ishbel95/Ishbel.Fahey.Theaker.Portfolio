@@ -3,38 +3,41 @@ import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInt
 import { layoutWrapperClassNames } from "@/util/util";
 export default function ModularLayoutWrapper({
   data,
+  key,
   children,
 }: {
   data: LayoutOptionsBlockFragmentQuery;
+  key: string;
   children: React.ReactNode;
 }) {
-  const { bottomPadding, backgroundColor, rowReverse, textAlign, topPadding } =
-    data;
-
   const getPadding = (bottomPadding?: Boolean, topPadding?: Boolean) => {
-    if (bottomPadding && topPadding)
-      return layoutWrapperClassNames.paddingTopBottom;
-    else if (!bottomPadding && topPadding)
-      return layoutWrapperClassNames.paddingTopBottom;
-    else if (!topPadding && bottomPadding)
+    if (!bottomPadding && topPadding)
       return layoutWrapperClassNames.paddingTopOnly;
-    else return undefined;
+    else if (!topPadding && bottomPadding)
+      return layoutWrapperClassNames.paddingBottomOnly;
+    else if (topPadding && bottomPadding)
+      layoutWrapperClassNames.paddingTopBottom;
+    else return "";
   };
 
-  const paddingClassName = getPadding(bottomPadding, topPadding);
+  const paddingClassName = getPadding(data?.bottomPadding, data?.topPadding);
 
-  const rowClassName = rowReverse
+  const rowClassName = data?.rowReverse
     ? layoutWrapperClassNames.rowReverse
     : layoutWrapperClassNames.row;
 
-  const textAlignClassName = Object.keys(layoutWrapperClassNames).filter(
-    (className) => className === textAlign
+  const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
+    (className) => className === data?.textAlign
   );
 
   return (
-    <div className={`modular-layout-wrapper  `}>
+    <div
+      key={key}
+      className={`modular-layout-wrapper background-${data?.backgroundColor} `}
+      style={{ background: `${data?.backgroundGradient}` }}
+    >
       <div
-        className={`${rowClassName} ${textAlignClassName} ${paddingClassName}`}
+        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} modular-inner`}
       >
         {children}
       </div>

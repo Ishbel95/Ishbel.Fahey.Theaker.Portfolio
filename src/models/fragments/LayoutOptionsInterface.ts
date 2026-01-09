@@ -3,6 +3,7 @@ export default interface LayoutOptionsBlockFragmentQuery {
   id: String;
   bottomPadding?: Boolean;
   backgroundColor?: String;
+  backgroundGradient?: String;
   rowReverse?: Boolean;
   textAlign?: String;
   topPadding?: Boolean;

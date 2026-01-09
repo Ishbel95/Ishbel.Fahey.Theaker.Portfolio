@@ -1,7 +1,10 @@
 import React from "react";
 import { ReactNode } from "react";
 import MyStructuredText from "../data/MyStructuredText";
-import ModularContent from "./ModularContentBlock";
+import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
+import MyImage from "../data/MyImage";
+import { blockTypes } from "@/util/util";
+import { getBlockData } from "@/util/util";
 import StarryBackground from "../animation/starryBackground";
 export default function ModularHero({
   data,
@@ -10,22 +13,21 @@ export default function ModularHero({
   data?: any;
   key: string;
 }) {
-  const GetModularHeroBlock = (type: string, component: any) => {
-    switch (type) {
-      case "BodyBlockRecord":
-        return <ModularContent data={component} key={component.id} />;
-    }
-  };
+  const modularData = getBlockData(data?.hero);
 
   return (
     <StarryBackground>
-      <div className="modular-hero-container" key={key}>
-        <div className="modular-hero-inner">
-          {data?.hero?.map((component: any) => {
-            return GetModularHeroBlock(component.__typename, component);
-          })}
+      <ModularLayoutWrapper
+        data={modularData?.LayoutOptionBlockRecord}
+        key={key}
+      >
+        <div className="modular-hero-container">
+          <MyStructuredText data={modularData?.BodyBlockRecord?.body} />
         </div>
-      </div>
+        {modularData?.ImageBlockRecord?.image && (
+          <MyImage img={modularData?.ImageBlockRecord.image} />
+        )}
+      </ModularLayoutWrapper>
     </StarryBackground>
   );
 }
