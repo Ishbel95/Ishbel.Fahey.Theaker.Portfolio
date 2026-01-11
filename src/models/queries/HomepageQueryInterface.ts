@@ -11,9 +11,5 @@ export default interface HomepagePageQuery {
   };
   content: {
     HeroBlockRecord: HeroBlockFragmentQuery;
-    AnimationImagesBlockRecord: {
-      id: String;
-      images: ImageBlockFragmentQuery[];
-    };
   };
 }

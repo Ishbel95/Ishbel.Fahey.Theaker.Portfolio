@@ -135,6 +135,19 @@
   background-color: $white;
 }
 
+.button-light {
+  @include pathMode(true, false);
+}
+.button-dark {
+  @include pathMode(true, true);
+}
+.link-light {
+  @include pathMode(false, false);
+}
+.link-dark {
+  @include pathMode(false, true);
+}
+
 h1,
 h2,
 h3 {

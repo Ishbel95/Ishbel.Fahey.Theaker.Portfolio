@@ -4,7 +4,6 @@ import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import ModularHero from "@/components/modular/ModularHeroBlock";
 import Loading from "@/components/Loading";
-import ModularImageGallery from "@/components/modular/ModularImageGallery";
 import ModularContent from "@/components/modular/ModularContentBlock";
 export default async function Home() {
   const query = HomepageQuery;
@@ -18,22 +17,18 @@ export default async function Home() {
     switch (type) {
       case "HeroBlockRecord":
         return <ModularHero data={component} key={component.id} />;
-      case "ImageGalleryBlockRecord":
-        return <ModularImageGallery data={component} key={component.id} />;
       case "ContentBlockRecord":
         return <ModularContent data={component} key={component.id} />;
     }
   };
 
   return (
-    <main>
-      <div className="homepage-container">
-        <div className="homepage-inner">
-          {homepageData?.content?.map((component: any) => {
-            return GetModularHomePageBlock(component.__typename, component);
-          })}
-        </div>
+    <div className="homepage-container">
+      <div className="homepage-inner">
+        {homepageData?.content?.map((component: any) => {
+          return GetModularHomePageBlock(component.__typename, component);
+        })}
       </div>
-    </main>
+    </div>
   );
 }

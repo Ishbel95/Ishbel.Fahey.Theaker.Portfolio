@@ -78,3 +78,55 @@
     }
   }
 }
+
+@mixin pathMode($isButton, $isDark) {
+  transition: $globalTransition;
+  cursor: pointer;
+  @if ($isButton) {
+    border-radius: $borderRadius;
+    padding: 1em 1.2em;
+    width: 100%;
+    display: block;
+    @include desktop() {
+      padding: 1em 1.4em;
+      width: fit-content;
+    }
+    @if ($isDark) {
+      background-color: $black;
+      color: $white;
+      &:hover,
+      &:focus {
+        background-color: $blue;
+      }
+    } @else {
+      background-color: $white;
+      color: $darkestBlue;
+      &:hover,
+      &:focus {
+        background-color: $darkestBlue;
+        color: $white;
+      }
+    }
+  }
+
+  @if ($isButton == false) {
+    display: inline;
+    @if ($isDark) {
+      color: $black;
+      border-bottom: solid 2px $black;
+      &:hover,
+      &:focus {
+        color: $darkBlue;
+        border-bottom: solid 2px $darkBlue;
+      }
+    } @else {
+      color: $white;
+      border-bottom: solid 2px $white;
+      &:hover,
+      &:focus {
+        color: $lightBlue;
+        border-bottom: solid 2px $lightBlue;
+      }
+    }
+  }
+}

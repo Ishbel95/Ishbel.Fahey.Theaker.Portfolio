@@ -22,10 +22,12 @@ const dedupedFetch = cache(
       method: "POST",
       headers,
       body,
+      cache: "no-store",
       //   next: { revalidate },
     });
-
+    //error handling sort out please
     const responseBody = await response.json();
+    console.log(responseBody);
     if (!response.ok) {
       throw new Error(
         `${response.status} ${response.statusText}: ${JSON.stringify(

@@ -16,7 +16,7 @@ export default function ModularLayoutWrapper({
     else if (!topPadding && bottomPadding)
       return layoutWrapperClassNames.paddingBottomOnly;
     else if (topPadding && bottomPadding)
-      layoutWrapperClassNames.paddingTopBottom;
+      return layoutWrapperClassNames.paddingTopBottom;
     else return "";
   };
 
@@ -32,8 +32,9 @@ export default function ModularLayoutWrapper({
 
   return (
     <div
+      id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper background-${data?.backgroundColor} `}
+      className={`modular-layout-wrapper background-${data?.backgroundColor}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div
