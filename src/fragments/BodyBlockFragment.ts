@@ -1,3 +1,5 @@
+import { CardCarouselBlockFragment } from "./CardCarouselFragment";
+import { ImageGalleryBlockFragment } from "./ImageGalleyFragment";
 import { PathFragment } from "./PathFragment";
 
 export const BodyBlockFragment = `
@@ -17,9 +19,17 @@ export const BodyBlockFragment = `
         ... on PathRecord {
           ...PathFragment
         }
+        ... on ImageGalleryBlockRecord {
+         ...ImageGalleryBlockFragment
+        }
+        ... on CardCarouselBlockRecord {
+         ...CardCarouselBlockFragment
+        }
       }
     }
   }
 
   ${PathFragment}
+  ${ImageGalleryBlockFragment}
+  ${CardCarouselBlockFragment}
 `;
