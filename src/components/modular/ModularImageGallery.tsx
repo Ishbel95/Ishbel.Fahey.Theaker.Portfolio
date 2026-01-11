@@ -13,7 +13,7 @@ export default function ModularImageGallery({
   const gallery = data?.imageGallery;
 
   return (
-    <ModularLayoutWrapper data={data?.layoutOptions}>
+    <ModularLayoutWrapper data={data?.layoutOptions} key={key}>
       <div className="modular-image-gallery-container">
         {gallery.map((img: ImageFragmentQuery) => (
           <div className="glass-card-dark tech-stack-image">

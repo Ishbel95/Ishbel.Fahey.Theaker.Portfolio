@@ -19,10 +19,6 @@ export const HomepageQuery = `
           __typename
        ...HeroBlockFragment
         }
-        ... on ImageGalleryBlockRecord{
-        __typename
-        ...ImageGalleryBlockFragment
-        }
         ... on ContentBlockRecord {
           __typename
           content {
@@ -45,7 +41,6 @@ export const HomepageQuery = `
   }
 
   ${HeroBlockFragment}
-  ${ImageGalleryBlockFragment}
   ${BodyBlockFragment}
   ${ImageBlockFragment}
   ${LayoutOptionsBlockFragment}

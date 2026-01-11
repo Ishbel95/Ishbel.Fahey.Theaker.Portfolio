@@ -1,6 +1,9 @@
 import { StructuredText } from "react-datocms";
 import Link from "next/link";
 import MyImage from "./MyImage";
+import MyPath from "./MyPath";
+import ModularImageGallery from "../modular/ModularImageGallery";
+import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
 
 export default function MyStructuredText({
   data,
@@ -9,6 +12,15 @@ export default function MyStructuredText({
   data: any;
   key?: string;
 }) {
+  function getPathChildren(record: any) {
+    switch (record) {
+      case record?.isExternalPath:
+        return <a href={record?.buttonPath}>{record?.buttonText}</a>;
+      default:
+        return <Link href={record?.buttonPath}>{record?.buttonText}</Link>;
+    }
+  }
+
   if (!data?.value) return null;
 
   const getInlineRecord = ({ record }: { record: any }) => {
@@ -29,7 +41,11 @@ export default function MyStructuredText({
   }) => {
     switch (record.__typename) {
       case "ModularTemplateRecord":
-        return <Link href={`/details/${record.slug}`}>{children}</Link>;
+        return (
+          <MyPath color={"light"} key={record.id}>
+            <Link href={`/details/${record.slug}`}>{children}</Link>
+          </MyPath>
+        );
       default:
         return null;
     }
@@ -38,7 +54,20 @@ export default function MyStructuredText({
   const getBlockRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {
       case "PathRecord":
-        return <MyStructuredText data={record.path} />;
+        return (
+          <MyPath
+            key={record?.id}
+            color={record?.color}
+            buttonPath={record?.buttonPath}
+          >
+            {getPathChildren(record)}
+          </MyPath>
+        );
+      case "ImageGalleryBlockRecord":
+        return <ModularImageGallery data={record} key={record.id} />;
+
+      case "CardCarouselBlockRecord":
+        return <ModularCardCarouselBlock data={record} key={record.id} />;
       //font awesome implimentation
       // case "IconBlockRecord":
       //   return <MyImage  />

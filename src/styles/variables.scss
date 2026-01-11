@@ -24,15 +24,15 @@ $radialGradient: radial-gradient(
 
 //spacing
 $globalWidth: min(90%, 1000px);
-
+$globalTransition: all 250ms ease-in-out;
 $mobilePadding: 3em 0;
 $desktopPadding: 6em 0;
 
-$mobileTopPaddingOnly: 3em 0 0;
-$desktopTopPaddingOnly: 6em 0 0;
+$mobileTopPaddingOnly: 3em 0 0 0;
+$desktopTopPaddingOnly: 6em 0 0 0;
 
-$mobileBottomPaddingOnly: 3em 0 0;
-$desktopBottomPaddingOnly: 6em 0 0;
+$mobileBottomPaddingOnly: 0 0 3em 0;
+$desktopBottomPaddingOnly: 0 0 6em 0;
 
 $borderRadius: 15px;
 $cardPaddingMobile: 0.6em;

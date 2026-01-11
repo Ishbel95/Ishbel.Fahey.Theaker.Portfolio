@@ -23,19 +23,10 @@ export const HeroBlockFragment = `
             ... on PathRecord {
                __typename
               id
-              isInline
+              buttonText
+              buttonPath
               color
               isExternalPath
-              path {
-                value
-                links {
-                  ... on ModularTemplateRecord {
-                    __typename
-                    id
-                    slug
-                  }
-                }
-              }
             }
           }
         }
