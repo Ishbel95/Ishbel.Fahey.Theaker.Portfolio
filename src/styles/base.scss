@@ -34,6 +34,12 @@
 .align-right {
   @include alignText(right);
 }
+.align-left-opposite-position {
+  @include alignText(left, true);
+}
+.align-right-opposite-position {
+  @include alignText(right, true);
+}
 
 .padding-top-bottom {
   @include padding();

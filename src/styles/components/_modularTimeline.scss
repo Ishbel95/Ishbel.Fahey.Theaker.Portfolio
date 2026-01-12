@@ -1,0 +1,41 @@
+.modular-timeline-container-left,
+.modular-timeline-container-right {
+  .timeline-circle {
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    top: 50%;
+    bottom: 0;
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+  @include desktop() {
+    width: 50.1%;
+  }
+  .timeline-line {
+  }
+  .timeline-body {
+    position: relative;
+  }
+}
+
+.modular-timeline-container-left {
+  @include desktop() {
+    padding-left: 1.5em;
+    border-left: solid 2px white;
+    .timeline-circle {
+      left: -2.5em;
+    }
+  }
+}
+
+.modular-timeline-container-right {
+  @include desktop() {
+    padding-right: 1.5em;
+    border-right: solid 2px white;
+    .timeline-circle {
+      right: -2.5em;
+    }
+  }
+}
