@@ -2,6 +2,7 @@ import CardCarouselFragmentQuery from "./CardCarouselBlockInterface";
 import ImageBlockFragmentQuery from "./ImageBlockInterface";
 import ImageGalleryFragmentQuery from "./ImageGalleryBlockInterface";
 import PathFragmentQuery from "./PathInterface";
+import TimelineFragmentQuery from "./TimelineBlockInterface";
 export default interface BodyBlockFragmentQuery {
   __typename: "BodyBlockRecord";
   id: String;
@@ -16,6 +17,7 @@ export default interface BodyBlockFragmentQuery {
       ImageBlockFragment?: ImageBlockFragmentQuery;
       ImageGalleryBlockFragment?: ImageGalleryFragmentQuery;
       CardCarouselBlockFragment?: CardCarouselFragmentQuery;
+      TimelineBlockFragment?: TimelineFragmentQuery;
     };
   };
 }
