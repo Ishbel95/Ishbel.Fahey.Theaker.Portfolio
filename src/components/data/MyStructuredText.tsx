@@ -4,6 +4,7 @@ import MyImage from "./MyImage";
 import MyPath from "./MyPath";
 import ModularImageGallery from "../modular/ModularImageGallery";
 import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MyStructuredText({
   data,
@@ -68,9 +69,9 @@ export default function MyStructuredText({
 
       case "CardCarouselBlockRecord":
         return <ModularCardCarouselBlock data={record} key={record.id} />;
-      //font awesome implimentation
-      // case "IconBlockRecord":
-      //   return <MyImage  />
+      case "IconBlockRecord":
+        return <FontAwesomeIcon icon={record.icon} key={record.id} />;
+
       default:
         return null;
     }

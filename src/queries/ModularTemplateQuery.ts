@@ -88,3 +88,13 @@ export const ModularTemplatePageQuery = `
   ${ImageBlockFragment}
   ${LayoutOptionsBlockFragment}
 `;
+
+export const AllModularTemplateSlugsQuery = `
+query allModularTemplateSlugsQuery {
+  allModularTemplates {
+    internalTitle
+    id
+    slug
+  }
+}
+`;

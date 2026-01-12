@@ -3,16 +3,12 @@ import { AnimationImagesBlockFragment } from "@/fragments/AnimationImagesBlockFr
 import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import ModularHero from "@/components/modular/ModularHeroBlock";
-import Loading from "@/components/Loading";
+
 import ModularContent from "@/components/modular/ModularContentBlock";
 export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query });
   const homepageData = data?.homepage ?? [];
-  if (!homepageData) {
-    return <Loading />;
-  }
-
   const GetModularHomePageBlock = (type: string, component: any) => {
     switch (type) {
       case "HeroBlockRecord":
