@@ -33,6 +33,12 @@
 }
 .align-right {
   @include alignText(right);
+  @include desktop() {
+    .button-dark,
+    .button-light {
+      margin-left: auto;
+    }
+  }
 }
 .align-left-opposite-position {
   @include alignText(left, true);
