@@ -12,6 +12,7 @@ export default function ModularTimelineBlock({
 }) {
   return (
     <div
+      key={key}
       className={`modular-timeline-container-${data.sideOfLine} align-${data.sideOfLine}-opposite-position display-flex-row-desktop`}
     >
       <div className="timeline-body">

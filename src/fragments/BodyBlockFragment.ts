@@ -1,4 +1,5 @@
 import { CardCarouselBlockFragment } from "./CardCarouselFragment";
+import { FormBlockFragment } from "./FormBlockFragment";
 import { ImageGalleryBlockFragment } from "./ImageGalleyFragment";
 import { PathFragment } from "./PathFragment";
 import { TimelineBlockFragment } from "./TimelineBlockFragment";
@@ -29,6 +30,9 @@ export const BodyBlockFragment = `
         ... on TimelineBlockRecord {
          ...TimelineBlockFragment
         }
+        ... on FormBlockRecord {
+         ...FormBlockFragment
+        }
       }
     }
   }
@@ -37,4 +41,5 @@ export const BodyBlockFragment = `
   ${ImageGalleryBlockFragment}
   ${CardCarouselBlockFragment}
   ${TimelineBlockFragment}
+  ${FormBlockFragment}
 `;
