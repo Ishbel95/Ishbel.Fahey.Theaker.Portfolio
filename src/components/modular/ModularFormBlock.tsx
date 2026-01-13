@@ -1,8 +1,13 @@
 import React from "react";
 import Form from "../Form";
-export default function ModularFormBlock({ data }: { data: any }) {
+import FormBlockFragmentQuery from "@/models/fragments/FormBlockInterface";
+export default function ModularFormBlock({
+  data,
+}: {
+  data: FormBlockFragmentQuery;
+}) {
   return (
-    <div className="modular-form-container">
+    <div className={`modular-form-container neumorphism-card-${data.formMode}`}>
       <Form data={data} key={data.id} />
     </div>
   );

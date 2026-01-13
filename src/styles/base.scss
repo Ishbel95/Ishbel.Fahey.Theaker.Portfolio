@@ -10,6 +10,10 @@
   }
 }
 
+.display-flex {
+  @include flexBox();
+}
+
 .display-flex-row-desktop {
   @include desktop() {
     @include flexBox();
@@ -25,6 +29,21 @@
   @include flexBox(row, center, space-evenly, wrap);
 }
 
+.display-grid-3-columns {
+  @include customColumnGrid(45% 5% 45%);
+}
+.column-1 {
+  grid-column: 1 / 2;
+}
+.column-2 {
+  grid-column: 2 / 3;
+}
+.column-3 {
+  grid-column: 3 / 4;
+}
+.column-span {
+  grid-column: 1 / 4;
+}
 .align-left {
   @include alignText(left);
 }
@@ -117,6 +136,12 @@
   border: 1px solid rgba(0, 1, 8, 1);
   @extend .glass-dark;
   @extend .card-padding;
+}
+
+.neumorphism-card-dark {
+  border-radius: $borderRadius;
+  background: linear-gradient(145deg, #00153d, #001233);
+  box-shadow: 5px 5px 5px #000817, -5px -5px 5px #00205b;
 }
 
 .glass-card-light {

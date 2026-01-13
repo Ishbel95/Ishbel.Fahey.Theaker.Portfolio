@@ -8,7 +8,7 @@ export default function MyPath({
 }: {
   color?: string;
   buttonPath?: string;
-  key: string;
+  key?: string;
   children: React.ReactNode;
 }) {
   return (
