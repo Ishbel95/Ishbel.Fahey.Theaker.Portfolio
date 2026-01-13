@@ -13,17 +13,45 @@ export default function Form({
   key: string;
 }) {
   function getFormInput(data: FormInputInterface) {
-    let inputType;
-    switch (data.inputType) {
-      case InputTypes.Text:
-        inputType = (
-          <div>
-            <label>{data.label}</label>
-            <input type={data.inputType} placeholder={data.placeholder} />
-          </div>
-        );
-    }
-    return <FormInputWrapper data={data}>{inputType}</FormInputWrapper>;
+    const getInputType = () => {
+      switch (data.inputType) {
+        case InputTypes.Textarea:
+          return (
+            <textarea
+              id={data.name}
+              name={data.name}
+              placeholder={data.placeholder}
+              rows={data.rows}
+              maxLength={data.maximumCharacters}
+              minLength={data.minimumCharacters}
+            />
+          );
+        case InputTypes.Select:
+          return (
+            <select id={data.name} name={data.name}>
+              {data.selectOptions.map(({ string, id }) => (
+                <option key={id}>{string}</option>
+              ))}
+            </select>
+          );
+        default:
+          return (
+            <input
+              id={data.name}
+              name={data.name}
+              type={data.inputType}
+              placeholder={data.placeholder}
+            />
+          );
+      }
+    };
+
+    return (
+      <div className="form-input-inner">
+        <label htmlFor={data.name}>{data.label}</label>
+        {getInputType()}
+      </div>
+    );
   }
 
   return (
@@ -38,7 +66,13 @@ export default function Form({
     >
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {
-        return <div key={input.id}>{getFormInput(input)}</div>;
+        return (
+          <div key={input.id}>
+            <FormInputWrapper data={input}>
+              {getFormInput(input)}
+            </FormInputWrapper>
+          </div>
+        );
       })}
     </form>
   );
