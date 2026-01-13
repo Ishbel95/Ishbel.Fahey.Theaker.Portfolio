@@ -6,6 +6,7 @@ import ModularImageGallery from "../modular/ModularImageGallery";
 import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
 import ModularTimelineBlock from "../modular/ModularTimelineBlock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ModularFormBlock from "../modular/ModularFormBlock";
 
 export default function MyStructuredText({
   data,
@@ -71,6 +72,8 @@ export default function MyStructuredText({
         return <ModularCardCarouselBlock data={record} key={record.id} />;
       case "TimelineBlockRecord":
         return <ModularTimelineBlock data={record} key={record.id} />;
+      case "FormBlockRecord":
+        return <ModularFormBlock data={record} key={record.id} />;
       case "IconBlockRecord":
         return <FontAwesomeIcon icon={record.icon} key={record.id} />;
       default:

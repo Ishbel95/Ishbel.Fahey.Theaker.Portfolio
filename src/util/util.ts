@@ -22,14 +22,11 @@ export function getBlockData(data: any) {
     const key = Object.values(blockTypes).find(
       (type) => type === block.__typename
     );
-
     if (key) {
       acc[key] = block;
     }
-
     return acc;
   }, {});
-
   return result;
 }
 
