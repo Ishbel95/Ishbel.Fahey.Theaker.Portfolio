@@ -1,18 +1,18 @@
 export default interface ImageBlockFragmentQuery {
   __typename: "ImageBlockRecord";
-  id: String;
-  image: {
-    responsiveImage: {
-      srcSet: String;
-      webpSrcSet: String;
-      sizes: String;
-      src: String;
-      width: number;
-      height: number;
-      aspectRatio?: number;
-      alt?: String;
-      title?: String;
-      base64?: String;
-    };
-  };
+  id: string;
+  image: { responsiveImage: ResponsiveImage };
+}
+
+export interface ResponsiveImage {
+  srcSet: string;
+  webpSrcSet: string;
+  sizes: string;
+  src: string;
+  width?: number;
+  height?: number;
+  aspectRatio?: number;
+  alt: string;
+  title?: string;
+  base64?: string;
 }

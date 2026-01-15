@@ -5,12 +5,12 @@ import PathFragmentQuery from "./PathInterface";
 import TimelineFragmentQuery from "./TimelineBlockInterface";
 export default interface BodyBlockFragmentQuery {
   __typename: "BodyBlockRecord";
-  id: String;
+  id: string;
   body: {
     value: JSON;
     links?: {
-      id: String;
-      slug: String;
+      id: string;
+      slug: string;
     };
     blocks?: {
       PathFragment?: PathFragmentQuery;

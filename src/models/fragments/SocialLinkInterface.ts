@@ -3,9 +3,9 @@ import PathFragmentQuery from "./PathInterface";
 
 export default interface SocialLinkFragmentQuery {
   __typename: "SocialLinkRecord";
-  id: String;
+  id: string;
   link: {
-    value: String;
+    value: string;
     blocks?: {
       IconBlockRecord?: IconBlockFragmentQuery;
       PathRecord?: PathFragmentQuery;

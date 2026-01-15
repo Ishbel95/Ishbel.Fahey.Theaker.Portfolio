@@ -6,26 +6,26 @@ import MyImage from "../data/MyImage";
 import { blockTypes } from "@/util/util";
 import { getBlockData } from "@/util/util";
 import StarryBackground from "../animation/starryBackground";
+import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 export default function ModularHero({
   data,
   key,
 }: {
-  data?: any;
+  data: HeroBlockFragmentQuery;
   key: string;
 }) {
   const modularData = getBlockData(data?.hero);
-
   return (
     <StarryBackground>
       <ModularLayoutWrapper
-        data={modularData?.LayoutOptionBlockRecord}
+        data={modularData.LayoutOptionBlockRecord}
         key={key}
       >
         <div className="modular-hero-container">
-          <MyStructuredText data={modularData?.BodyBlockRecord?.body} />
+          <MyStructuredText data={modularData.BodyBlockRecord.body} />
         </div>
         {modularData?.ImageBlockRecord?.image && (
-          <MyImage img={modularData?.ImageBlockRecord.image} />
+          <MyImage img={modularData.ImageBlockRecord.image} />
         )}
       </ModularLayoutWrapper>
     </StarryBackground>

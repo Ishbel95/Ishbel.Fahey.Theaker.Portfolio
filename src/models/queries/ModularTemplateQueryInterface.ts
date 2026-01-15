@@ -1,30 +1,18 @@
 import BodyBlockFragmentQuery from "../fragments/BodyBlockInterface";
+import ModularContentQuery from "../fragments/ContentBlockFragmentInterface";
+import HeroBlockFragmentQuery from "../fragments/HeroBlockFragmentInterface";
 import ImageBlockFragmentQuery from "../fragments/ImageBlockInterface";
 import LayoutOptionsBlockFragmentQuery from "../fragments/LayoutOptionsInterface";
 
 export default interface ModularTemplateQuery {
   __typename: "ModularTemplateRecord";
-  id: String;
-  internalTitle: String;
-  slug: String;
+  id: string;
+  internalTitle: string;
+  slug: string;
   seo: {
-    title: String;
-    description: String;
+    title: string;
+    description: string;
   };
-  hero: {
-    id: String;
-    hero: {
-      LayoutOptionBlockRecord: LayoutOptionsBlockFragmentQuery;
-      ImageBlockRecord: ImageBlockFragmentQuery;
-      BodyBlockRecord: BodyBlockFragmentQuery;
-    };
-  };
-  content: {
-    id: String;
-    content: {
-      LayoutOptionBlockRecord: LayoutOptionsBlockFragmentQuery;
-      ImageBlockRecord: ImageBlockFragmentQuery;
-      BodyBlockRecord: BodyBlockFragmentQuery;
-    };
-  };
+  hero: HeroBlockFragmentQuery;
+  content: ModularContentQuery;
 }

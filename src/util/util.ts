@@ -1,25 +1,9 @@
 import { performRequest } from "@/lib/datoCms";
-
-export const layoutWrapperClassNames = {
-  row: "display-flex-row-desktop",
-  rowReverse: "display-flex-row-reverse-desktop",
-  left: "align-left",
-  right: "align-right",
-  center: "align-center",
-  paddingTopBottom: "padding-top-bottom",
-  paddingTopOnly: "padding-top-only",
-  paddingBottomOnly: "padding-bottom-only",
-};
-
-export const blockTypes = {
-  layoutWrapperBlock: "LayoutOptionBlockRecord",
-  imageBlock: "ImageBlockRecord",
-  bodyBlock: "BodyBlockRecord",
-};
+import { BlockTypes } from "@/models/enums/BlockTypes";
 
 export function getBlockData(data: any) {
   const result = data.reduce((acc: any, block?: any) => {
-    const key = Object.values(blockTypes).find(
+    const key = Object.values(BlockTypes).find(
       (type) => type === block.__typename
     );
     if (key) {

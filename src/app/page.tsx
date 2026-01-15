@@ -5,6 +5,8 @@ import { HomepageQuery } from "@/queries/HomepageQuery";
 import ModularHero from "@/components/modular/ModularHeroBlock";
 
 import ModularContent from "@/components/modular/ModularContentBlock";
+import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
+import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
 export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query });
@@ -21,9 +23,11 @@ export default async function Home() {
   return (
     <div className="homepage-container">
       <div className="homepage-inner">
-        {homepageData?.content?.map((component: any) => {
-          return GetModularHomePageBlock(component.__typename, component);
-        })}
+        {homepageData?.content?.map(
+          (component: HeroBlockFragmentQuery | ModularContentQuery) => {
+            return GetModularHomePageBlock(component.__typename, component);
+          }
+        )}
       </div>
     </div>
   );
