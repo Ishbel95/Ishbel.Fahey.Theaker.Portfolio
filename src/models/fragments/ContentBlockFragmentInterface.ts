@@ -2,12 +2,13 @@ import BodyBlockFragmentQuery from "./BodyBlockInterface";
 import ImageBlockFragmentQuery from "./ImageBlockInterface";
 import LayoutOptionsBlockFragmentQuery from "./LayoutOptionsInterface";
 
-export default interface HeroBlockFragmentQuery {
-  __typename: "HeroBlockRecord";
+export default interface ModularContentQuery {
+  __typename: "ContentBlockRecord";
   id: string;
-  hero: {
-    BodyBlockRecord: BodyBlockFragmentQuery;
+
+  content: {
+    LayoutOptionBlockRecord: LayoutOptionsBlockFragmentQuery;
     ImageBlockRecord: ImageBlockFragmentQuery;
-    LayoutOptionsBlockRecord: LayoutOptionsBlockFragmentQuery;
+    BodyBlockRecord: BodyBlockFragmentQuery;
   };
 }

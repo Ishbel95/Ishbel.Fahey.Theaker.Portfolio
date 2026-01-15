@@ -4,7 +4,7 @@ import { ImageBlockFragment } from "@/fragments/ImageBlockFragment";
 import { LayoutOptionsBlockFragment } from "@/fragments/LayoutOptionsFragment";
 
 export const AllModularTemplatePageQuery = `
-  query ModularTemplatePageQuery($slug: String!) {
+  query ModularTemplatePageQuery($slug: string!) {
     modularTemplate(filter: { slug: { eq: $slug } }) {
       id
       internalTitle

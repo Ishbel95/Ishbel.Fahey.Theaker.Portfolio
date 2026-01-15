@@ -40,7 +40,7 @@ export default function MyStructuredText({
     children,
   }: {
     record: any;
-    children: any;
+    children: React.ReactNode;
   }) => {
     switch (record.__typename) {
       case "ModularTemplateRecord":

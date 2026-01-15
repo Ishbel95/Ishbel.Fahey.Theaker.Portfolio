@@ -3,15 +3,15 @@ import MyStructuredText from "../data/MyStructuredText";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "../data/MyImage";
 import { getBlockData } from "@/util/util";
+import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
 export default function ModularContent({
   data,
   key,
 }: {
-  data: any;
+  data: ModularContentQuery;
   key: string;
 }) {
   const modularData = getBlockData(data.content);
-
   return (
     <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord} key={key}>
       <div className="modular-content-container">

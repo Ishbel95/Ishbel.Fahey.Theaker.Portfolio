@@ -1,4 +1,6 @@
-import CardCarouselFragmentQuery from "@/models/fragments/CardCarouselBlockInterface";
+import CardCarouselFragmentQuery, {
+  CardBlockInterface,
+} from "@/models/fragments/CardCarouselBlockInterface";
 import React from "react";
 import Card from "../Card";
 
@@ -14,7 +16,7 @@ export default function ModularCardCarouselBlock({
       key={key}
       className="modular-card-carousel-container display-flex-row-desktop"
     >
-      {data.card.map((cardData: any, index: number) => (
+      {data.card.map((cardData: CardBlockInterface, index: number) => (
         <Card data={cardData} key={index} />
       ))}
     </div>

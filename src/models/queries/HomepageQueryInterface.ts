@@ -3,11 +3,11 @@ import ImageBlockFragmentQuery from "../fragments/ImageBlockInterface";
 
 export default interface HomepagePageQuery {
   __typename: "HomepageRecord";
-  id: String;
-  internalTitle: String;
+  id: string;
+  internalTitle: string;
   seo?: {
-    title?: String;
-    description?: String;
+    title?: string;
+    description?: string;
   };
   content: {
     HeroBlockRecord: HeroBlockFragmentQuery;

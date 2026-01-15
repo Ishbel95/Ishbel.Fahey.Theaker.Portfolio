@@ -1,8 +1,8 @@
 export default interface PathFragmentQuery {
   __typename: "PathRecord";
-  id: String;
-  color: String;
+  id: string;
+  color: string;
   isExternalPath?: Boolean;
-  buttonText: String;
-  buttonPath: String;
+  buttonText: string;
+  buttonPath: string;
 }

@@ -1,11 +1,11 @@
 export default interface LayoutOptionsBlockFragmentQuery {
   __typename: "LayoutOptionsBlockRecord";
-  id: String;
+  id: string;
   customId: string;
   bottomPadding?: Boolean;
-  backgroundColor?: String;
-  backgroundGradient?: String;
+  backgroundColor?: string;
+  backgroundGradient?: string;
   rowReverse?: Boolean;
-  textAlign?: String;
+  textAlign?: string;
   topPadding?: Boolean;
 }

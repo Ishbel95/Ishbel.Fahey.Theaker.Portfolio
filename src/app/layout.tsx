@@ -9,7 +9,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  //context set up draft mode with draftMode() func from next
   return (
     <html lang="en">
       <body>

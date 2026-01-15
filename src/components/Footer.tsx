@@ -1,7 +1,6 @@
 import { FooterQuery } from "@/queries/FooterQuery";
 import { getDatoCmsData } from "@/util/util";
 import React from "react";
-import MyImage from "./data/MyImage";
 import MyStructuredText from "./data/MyStructuredText";
 
 export default async function Footer() {

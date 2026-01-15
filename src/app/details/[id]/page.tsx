@@ -6,6 +6,9 @@ import {
 import { getDatoCmsData } from "@/util/util";
 import ModularHero from "@/components/modular/ModularHeroBlock";
 import ModularContent from "@/components/modular/ModularContentBlock";
+import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
+import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
+
 export async function generateStaticParams() {
   const data = await getDatoCmsData({ query: AllModularTemplatePageQuery });
   const allModularTemplatesData = data?.allModularTemplates ?? [];
@@ -43,9 +46,11 @@ export default async function ModularTemplatePage({
 
   return (
     <main>
-      {modularTemplateData.modularContent.map((component: any) => {
-        return GetModularTemplateBlock(component.__typename, component);
-      })}
+      {modularTemplateData.modularContent.map(
+        (component: HeroBlockFragmentQuery | ModularContentQuery) => {
+          return GetModularTemplateBlock(component.__typename, component);
+        }
+      )}
     </main>
   );
 }

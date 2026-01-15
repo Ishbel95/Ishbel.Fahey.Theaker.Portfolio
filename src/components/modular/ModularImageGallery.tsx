@@ -10,7 +10,7 @@ export default function ModularImageGallery({
   data: ImageGalleryFragmentQuery;
   key: string;
 }) {
-  const gallery = data?.imageGallery;
+  const gallery = data.imageGallery;
 
   return (
     <ModularLayoutWrapper data={data?.layoutOptions} key={key}>
