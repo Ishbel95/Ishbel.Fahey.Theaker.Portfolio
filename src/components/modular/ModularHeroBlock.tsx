@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import MyStructuredText from "../data/MyStructuredText";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "../data/MyImage";
-import { blockTypes } from "@/util/util";
 import { getBlockData } from "@/util/util";
 import StarryBackground from "../animation/starryBackground";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";

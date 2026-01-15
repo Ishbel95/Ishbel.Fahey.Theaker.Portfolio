@@ -1,10 +1,11 @@
-export enum LayoutWrapperClassNames {
-  Row = "display-flex-row-desktop",
-  RowReverse = "display-flex-row-reverse-desktop",
-  Left = "align-left",
-  Right = "align-right",
-  Center = "align-center",
-  PaddingTopBottom = "padding-top-bottom",
-  PaddingTopOnly = "padding-top-only",
-  PaddingBottomOnly = "padding-bottom-only",
-}
+export const layoutWrapperClassNames = {
+  row: "display-flex-row-desktop",
+  rowReverse: "display-flex-row-reverse-desktop",
+  left: "align-left",
+  right: "align-right",
+  center: "align-center",
+  paddingTopBottom: "padding-top-bottom",
+  paddingTopOnly: "padding-top-only",
+  paddingBottomOnly: "padding-bottom-only",
+  paddingNone: "padding-none",
+};

@@ -1,6 +1,5 @@
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
-
-import { LayoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
+import { layoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
 export default function ModularLayoutWrapper({
   data,
   key,
@@ -12,21 +11,21 @@ export default function ModularLayoutWrapper({
 }) {
   const getPadding = (bottomPadding?: Boolean, topPadding?: Boolean) => {
     if (!bottomPadding && topPadding)
-      return LayoutWrapperClassNames.PaddingTopOnly;
+      return layoutWrapperClassNames.paddingTopOnly;
     else if (!topPadding && bottomPadding)
-      return LayoutWrapperClassNames.PaddingBottomOnly;
+      return layoutWrapperClassNames.paddingBottomOnly;
     else if (topPadding && bottomPadding)
-      return LayoutWrapperClassNames.PaddingTopBottom;
-    else return null;
+      return layoutWrapperClassNames.paddingTopBottom;
+    else return layoutWrapperClassNames.paddingNone;
   };
 
   const paddingClassName = getPadding(data?.bottomPadding, data?.topPadding);
 
   const rowClassName = data?.rowReverse
-    ? LayoutWrapperClassNames.RowReverse
-    : LayoutWrapperClassNames.Row;
+    ? layoutWrapperClassNames.rowReverse
+    : layoutWrapperClassNames.row;
 
-  const textAlignClassName = Object.keys(LayoutWrapperClassNames).find(
+  const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
     (className) => className === data?.textAlign
   );
 
