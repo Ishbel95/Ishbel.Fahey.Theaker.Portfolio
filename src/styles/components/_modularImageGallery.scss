@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   @extend .display-flex-wrap;
+
   @include desktop() {
     @include grid(8, 2, max-content);
   }

@@ -12,16 +12,11 @@ export default function Card({
   key: number;
 }) {
   return (
-    <div className="glass-card-dark" key={`${key + data.id}`}>
+    <div className="glass-card-medium" key={`${key + data.id}`}>
       <MyImage img={data?.previewImage} />
-      <div className="align-left">
+      {/* <div className="align-left">
         <MyStructuredText data={data.titleAndDescription} />
-      </div>
-      <div className="align-center">
-        <MyPath buttonPath={data.githubLink} color="dark" key={data.id}>
-          Discover
-        </MyPath>
-      </div>
+      </div> */}
     </div>
   );
 }

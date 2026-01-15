@@ -8,24 +8,29 @@ export default async function Navigation() {
   });
   return (
     <div className="navigation-container">
-      <Link href={"/"}>Home</Link>
-      {data.allModularTemplates.map(
-        ({
-          slug,
-          internalTitle,
-          id,
-        }: {
-          slug: string;
-          internalTitle: string;
-          id: string;
-        }) => {
-          return (
-            <Link href={`/details/${slug}`} key={id}>
-              {internalTitle}
-            </Link>
-          );
-        }
-      )}
+      <div className="navigation-inner modular-inner">
+        <div className="navigation-content">
+          <Link href={"/"}>Home</Link>
+          {data.allModularTemplates.map(
+            ({
+              slug,
+              internalTitle,
+              id,
+            }: {
+              slug: string;
+              internalTitle: string;
+              id: string;
+            }) => {
+              return (
+                <Link href={`/details/${slug}`} key={id}>
+                  {internalTitle}
+                </Link>
+              );
+            }
+          )}
+        </div>
+      </div>
+      <span className="navigation-burger" />
     </div>
   );
 }

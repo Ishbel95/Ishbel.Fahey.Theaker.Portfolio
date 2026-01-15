@@ -1,0 +1,16 @@
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  @extend .glass-dark;
+  padding: 1em 0;
+  .navigation-inner {
+    .navigation-content {
+      @include flexBox(column, center, space-evenly);
+      @include desktop() {
+        @include flexBox(row, center, space-evenly);
+      }
+    }
+  }
+  .navigation-burger {
+  }
+}

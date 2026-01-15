@@ -1,0 +1,13 @@
+@function generate-random-stars($screen-width, $color, $density) {
+  $h-shadow: random($screen-width);
+  $v-shadow: random($screen-width);
+
+  $stars: "#{$h-shadow}px #{$v-shadow}px #{$color}";
+  @for $i from 2 through $density {
+    $h-shadow: random($screen-width);
+    $v-shadow: random($screen-width);
+
+    $stars: "#{$stars}, #{$h-shadow}px #{$v-shadow}px #{$color}";
+  }
+  @return unquote($stars);
+}

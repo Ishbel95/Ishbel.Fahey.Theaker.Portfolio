@@ -1,7 +1,9 @@
+import { ImageFragmentQuery } from "./ImageGalleryBlockInterface";
+
 export default interface ImageBlockFragmentQuery {
   __typename: "ImageBlockRecord";
   id: string;
-  image: { responsiveImage: ResponsiveImage };
+  image: ImageFragmentQuery;
 }
 
 export interface ResponsiveImage {

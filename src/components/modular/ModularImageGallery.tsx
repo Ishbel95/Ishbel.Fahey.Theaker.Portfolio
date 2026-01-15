@@ -16,7 +16,7 @@ export default function ModularImageGallery({
     <ModularLayoutWrapper data={data?.layoutOptions} key={key}>
       <div className="modular-image-gallery-container">
         {gallery.map((img: ImageFragmentQuery) => (
-          <div className="glass-card-dark tech-stack-image">
+          <div className="glass-card-medium tech-stack-image">
             <MyImage img={img} />
           </div>
         ))}

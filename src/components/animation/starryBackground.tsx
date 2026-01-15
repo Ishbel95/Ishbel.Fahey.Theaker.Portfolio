@@ -7,9 +7,9 @@ export default function StarryBackground({
 }) {
   return (
     <div className="star-background-container">
-      <div className="star-one" />
-      <div className="star-two" />
-      <div className="star-three" />
+      <div className="star-group-one" />
+      <div className="star-group-two" />
+      <div className="star-group-three" />
       {children}
     </div>
   );

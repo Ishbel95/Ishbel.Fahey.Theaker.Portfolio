@@ -111,10 +111,19 @@
 }
 
 .glass-dark {
+  background: rgba(0, 1, 8, 0.55);
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  background: rgba(0, 1, 8, 0.85);
-  backdrop-filter: blur(14.9px);
-  -webkit-backdrop-filter: blur(14.9px);
+  backdrop-filter: blur(15.3px);
+  -webkit-backdrop-filter: blur(15.3px);
+  border: 1px solid rgba(0, 1, 8, 0.03);
+}
+.glass-medium {
+  background: rgba(42, 46, 72, 0.58);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.2px);
+  -webkit-backdrop-filter: blur(16.2px);
+  border: 1px solid rgba(42, 46, 72, 0.03);
 }
 .glass-light {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -128,6 +137,7 @@
   background-clip: text;
   -webkit-background-clip: text;
 }
+
 .glass-text-light {
   color: transparent;
   @extend .glass-light;
@@ -140,11 +150,11 @@
   @extend .glass-dark;
   @extend .card-padding;
 }
-
-.neumorphism-card-dark {
+.glass-card-medium {
   border-radius: $borderRadius;
-  background: linear-gradient(145deg, #00153d, #001233);
-  box-shadow: 5px 5px 5px #000817, -5px -5px 5px #00205b;
+  border: 1px solid rgba(0, 1, 8, 1);
+  @extend .glass-medium;
+  @extend .card-padding;
 }
 
 .glass-card-light {
@@ -152,6 +162,12 @@
   border: 1px solid rgba(253, 253, 253, 1);
   @extend .glass-light;
   @extend .card-padding;
+}
+
+.neumorphism-card-dark {
+  border-radius: $borderRadius;
+  background: linear-gradient(145deg, #00153d, #001233);
+  box-shadow: 5px 5px 5px #000817, -5px -5px 5px #00205b;
 }
 
 .modular-inner {
@@ -200,7 +216,7 @@ h3 {
 h1 {
   font-size: 4.5rem;
   font-weight: 900;
-  @extend .glass-text-light;
+  // @extend .glass-text-light;
 }
 h2 {
   font-size: 3rem;
@@ -211,6 +227,6 @@ h3 {
   margin-bottom: 0.5em;
 }
 p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: $lineHeight;
 }
