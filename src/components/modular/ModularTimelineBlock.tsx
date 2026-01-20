@@ -11,15 +11,19 @@ export default function ModularTimelineBlock({
   key: string;
 }) {
   return (
-    <div
-      key={key}
-      className={`modular-timeline-container-${data.sideOfLine} align-${data.sideOfLine}-opposite-position display-flex-row-desktop`}
-    >
-      <div className="timeline-body">
-        <div className="timeline-circle">
-          <FontAwesomeIcon icon={faCircle} />
-        </div>
-        <MyStructuredText data={data.timelineBody} />
+    <div key={key} className={`modular-timeline-container modular-inner`}>
+      <div className="gradient-overlay-blue-transparent-blue" />
+      <div className="timeline-inner">
+        {data.timelineData.map((timelineSection) => (
+          <div
+            className={`timeline-body-${timelineSection.sideOfLine} align-${timelineSection.sideOfLine}-opposite-position `}
+          >
+            <div className="timeline-circle">
+              <FontAwesomeIcon icon={faCircle} />
+            </div>
+            <MyStructuredText data={timelineSection.timelineBody} />
+          </div>
+        ))}
       </div>
     </div>
   );

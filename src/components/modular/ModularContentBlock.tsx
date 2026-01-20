@@ -12,7 +12,6 @@ export default function ModularContent({
   key: string;
 }) {
   const modularData = getBlockData(data.content);
-
   return (
     <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord} key={key}>
       <div className="modular-content-container">

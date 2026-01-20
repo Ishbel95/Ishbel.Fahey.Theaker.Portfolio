@@ -8,10 +8,9 @@ $white: #fff;
 $black: #010204;
 //swirls
 // $blue: #00d4e8;
-$highlightGlow: #2699c3;
+$highlightGlow: rgb(38, 153, 195);
 $coreGlow: #ffffff;
 $midToneGlow: #3fa9d6;
-
 //stars
 $blending: hard-light;
 
@@ -34,8 +33,8 @@ $gradient-mouse-glow: radial-gradient(
 $linearGradientTransparent: linear-gradient(
   0deg,
   $darkestBlue 0%,
-  $darkestBlue 10%,
-  transparent 100%
+  transparent 50%,
+  $darkestBlue 100%
 );
 //spacing
 $globalWidth: min(90%, 1000px);

@@ -7,6 +7,7 @@ import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
 import ModularTimelineBlock from "../modular/ModularTimelineBlock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModularFormBlock from "../modular/ModularFormBlock";
+import TimelineFragmentQuery from "@/models/fragments/TimelineBlockInterface";
 
 export default function MyStructuredText({
   data,
@@ -53,7 +54,7 @@ export default function MyStructuredText({
         return null;
     }
   };
-
+  let allTimeLinkBlock: TimelineFragmentQuery[] = [];
   const getBlockRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {
       case "PathRecord":
@@ -66,6 +67,7 @@ export default function MyStructuredText({
             {getPathChildren(record)}
           </MyPath>
         );
+
       case "ImageGalleryBlockRecord":
         return <ModularImageGallery data={record} key={record.id} />;
       case "CardCarouselBlockRecord":
@@ -80,7 +82,7 @@ export default function MyStructuredText({
         return null;
     }
   };
-
+  console.log(allTimeLinkBlock);
   return (
     <StructuredText
       data={data}
