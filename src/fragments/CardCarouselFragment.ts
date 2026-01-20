@@ -5,6 +5,7 @@ export const CardCarouselBlockFragment = `
         card {
            id
         githubLink
+        projectLink
             internalTitle
             position
              titleAndDescription {

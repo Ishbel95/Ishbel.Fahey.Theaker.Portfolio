@@ -1,20 +1,37 @@
+.form {
+  padding: 2em;
+  @include desktop() {
+    padding: 2.5em;
+  }
+  text-align: left;
+}
+
 .form-input {
+  label {
+    font-size: 0.8em;
+  }
   input,
   textarea,
   select {
+    background-color: $blue;
+    box-shadow: inset 0px 0px 15px $darkestBlue;
     width: 100%;
     border-radius: $borderRadius;
-    padding: 1em 2em;
-    margin: 1em auto 1.5em;
+    padding: 1.5em 4em;
+
     color: $white;
     border: none;
-
-    @extend .glass-card-dark;
+    margin: 0.5em 0;
+    @include desktop() {
+    }
+    margin: 1em 0;
+    // @extend .glass-card;
     &::placeholder {
       color: $white;
+      opacity: 0.7;
     }
   }
-  select {
-    border-right: solid transparent 2em;
-  }
+  // select {
+  //   border-right: solid transparent 2em;
+  // }
 }

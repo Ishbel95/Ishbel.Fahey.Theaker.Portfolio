@@ -1,8 +1,14 @@
-.navigation-container {
+.glass-navigation {
   position: fixed;
   width: 100%;
-  @extend .glass-dark;
-  padding: 1em 0;
+
+  z-index: 999;
+  .glass-inner {
+    border-radius: 0;
+  }
+}
+
+.navigation-container {
   .navigation-inner {
     .navigation-content {
       @include flexBox(column, center, space-evenly);

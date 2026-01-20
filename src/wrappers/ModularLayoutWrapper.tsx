@@ -23,7 +23,9 @@ export default function ModularLayoutWrapper({
 
   const rowClassName = data?.rowReverse
     ? layoutWrapperClassNames.rowReverse
-    : layoutWrapperClassNames.row;
+    : data?.row
+    ? layoutWrapperClassNames.row
+    : null;
 
   const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
     (className) => className === data?.textAlign
@@ -33,7 +35,7 @@ export default function ModularLayoutWrapper({
     <div
       id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper background-${data?.backgroundColor}`}
+      className={`modular-layout-wrapper `}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div

@@ -1,29 +1,45 @@
 //backgrounds
 //colors
-$darkestBlue: #000108;
-$darkBlue: #001439;
-$lightBlue: #01378c;
-$blue: #01204ffa;
-$white: #fdfdfd;
+$darkestBlue: rgb(3, 11, 20); //
+$darkBlue: #071c2e; //
+$blue: rgb(15, 63, 92); //
+$lightBlue: rgb(11, 47, 74);
+$white: #fff;
 $black: #010204;
+//swirls
+// $blue: #00d4e8;
+$highlightGlow: #2699c3;
+$coreGlow: #ffffff;
+$midToneGlow: #3fa9d6;
 
-$primaryGradient: linear-gradient(
-  90deg,
-  #000108 23%,
-  #001439 54%,
-  #01204ffa 74%,
-  #01378c 100%
-);
+//stars
+$blending: hard-light;
+
 $radialGradient: radial-gradient(
-  ellipse at bottom,
-  #000108 15%,
-  #001439 64%,
-  #01204ffa 86%,
-  #01378c 100%
+  ellipse at center,
+  $blue 0%,
+  $darkBlue 35%,
+  $darkestBlue 100%
 );
 
+$gradientCircleSize: 80%;
+
+$gradient-mouse-glow: radial-gradient(
+  600px circle at center,
+  $highlightGlow 0%,
+  $darkBlue 50%,
+  transparent 100%
+);
+
+$linearGradientTransparent: linear-gradient(
+  0deg,
+  $darkestBlue 0%,
+  $darkestBlue 10%,
+  transparent 100%
+);
 //spacing
 $globalWidth: min(90%, 1000px);
+$smallGlobalWidth: min(100%, 800px);
 $globalTransition: all 250ms ease-in-out;
 $mobilePadding: 3em 0;
 $desktopPadding: 6em 0;
@@ -34,7 +50,11 @@ $desktopTopPaddingOnly: 6em 0 0 0;
 $mobileBottomPaddingOnly: 0 0 3em 0;
 $desktopBottomPaddingOnly: 0 0 6em 0;
 
+$mobileMargin: 0.1em;
+$desktopMargin: 0.2em;
+
 $borderRadius: 10px;
+$borderBase: 2px solid;
 $cardPaddingMobile: 0.6em;
 $cardPaddingDesktop: 0.8em;
 

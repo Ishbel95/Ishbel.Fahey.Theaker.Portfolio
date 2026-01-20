@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "../Form";
 import FormBlockFragmentQuery from "@/models/fragments/FormBlockInterface";
+import Glass from "../animation/Glass";
 export default function ModularFormBlock({
   data,
   key,
@@ -9,11 +10,11 @@ export default function ModularFormBlock({
   key: string;
 }) {
   return (
-    <div
-      className={`modular-form-container neumorphism-card-${data.formMode}`}
+    <Glass
+      classNames={`modular-form-container glass-card small-global-width`}
       key={key}
     >
       <Form data={data} key={data.id} />
-    </div>
+    </Glass>
   );
 }

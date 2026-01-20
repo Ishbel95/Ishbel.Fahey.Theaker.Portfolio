@@ -57,6 +57,7 @@
 @mixin alignText($textAlign, $oppositeAlignPosition: false) {
   text-align: center;
   margin: 0 auto;
+
   @if ($textAlign == "left") {
     @include desktop() {
       text-align: left;
@@ -95,7 +96,7 @@
   }
 }
 
-@mixin pathMode($isButton, $isDark) {
+@mixin pathMode($isButton: true) {
   transition: $globalTransition;
   cursor: pointer;
   @if ($isButton) {
@@ -103,46 +104,21 @@
     padding: 1em 1.2em;
     width: 100%;
     display: block;
+    color: $white;
+    text-align: center;
+    margin-top: $mobileMargin;
     @include desktop() {
       padding: 1em 1.4em;
-      width: fit-content;
+      margin-top: $desktopMargin;
     }
-    @if ($isDark) {
-      background-color: $black;
-      color: $white;
-      &:hover,
-      &:focus {
-        background-color: $blue;
-      }
-    } @else {
-      background-color: $white;
-      color: $darkestBlue;
-      &:hover,
-      &:focus {
-        background-color: $darkestBlue;
-        color: $white;
-      }
-    }
-  }
-
-  @if ($isButton == false) {
+  } @else {
+    //neeed to sort this animation
     display: inline;
-    @if ($isDark) {
-      color: $black;
-      border-bottom: solid 2px $black;
-      &:hover,
-      &:focus {
-        color: $darkBlue;
-        border-bottom: solid 2px $darkBlue;
-      }
-    } @else {
-      color: $white;
-      border-bottom: solid 2px $white;
-      &:hover,
-      &:focus {
-        color: $lightBlue;
-        border-bottom: solid 2px $lightBlue;
-      }
+    border-bottom: $borderBase $white;
+    &:hover,
+    &:focus {
+      color: $darkBlue;
+      border-bottom: $borderBase $darkBlue;
     }
   }
 }
@@ -164,4 +140,35 @@
   box-shadow: generate-random-stars($screen-width, $color, $density);
   animation: glowing-stars $speed + s linear infinite alternate;
   animation-delay: $delay + s;
+}
+
+@mixin gradient(
+  $name,
+  $gradientColor,
+  $size: ($gradientCircleSize, $gradientCircleSize),
+  $position: (
+    calc(50% - $gradientCircleSize / 2),
+    calc(50% - $gradientCircleSize / 2)
+  ),
+  $gradientTransformOrigin: center center,
+  $gradientAnimation: moveVertical 30s ease infinite,
+  $opacity: 1
+) {
+  .gradient-#{$name} {
+    position: absolute;
+    background: radial-gradient(
+        circle at center,
+        rgba($gradientColor, 0.8) 0,
+        rgba($gradientColor, 0) 50%
+      )
+      no-repeat;
+    top: nth($position, 1);
+    left: nth($position, 2);
+    width: nth($size, 1);
+    height: nth($size, 2);
+    mix-blend-mode: $blending;
+    transform-origin: $gradientTransformOrigin;
+    animation: $gradientAnimation;
+    opacity: $opacity;
+  }
 }

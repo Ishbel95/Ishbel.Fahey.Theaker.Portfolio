@@ -7,6 +7,7 @@ export default interface CardCarouselFragmentQuery {
 export interface CardBlockInterface {
   id: string;
   githubLink: string;
+  projectLink: string;
   internalTitle: string;
   position: number;
   titleAndDescription: { value: JSON };

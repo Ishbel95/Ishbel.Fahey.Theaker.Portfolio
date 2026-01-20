@@ -15,18 +15,21 @@ export default function ModularHero({
 }) {
   const modularData = getBlockData(data?.hero);
   return (
-    <StarryBackground>
-      <ModularLayoutWrapper
-        data={modularData.LayoutOptionBlockRecord}
-        key={key}
-      >
-        <div className="modular-hero-container">
-          <MyStructuredText data={modularData.BodyBlockRecord.body} />
-        </div>
-        {modularData?.ImageBlockRecord?.image && (
-          <MyImage img={modularData.ImageBlockRecord.image} />
-        )}
-      </ModularLayoutWrapper>
-    </StarryBackground>
+    <div className="modular-hero-container">
+      <div className="modular-hero-inner">
+        <ModularLayoutWrapper
+          data={modularData.LayoutOptionBlockRecord}
+          key={key}
+        >
+          <div className="modular-hero-content">
+            <MyStructuredText data={modularData.BodyBlockRecord.body} />
+          </div>
+          {modularData?.ImageBlockRecord?.image && (
+            <MyImage img={modularData.ImageBlockRecord.image} />
+          )}
+        </ModularLayoutWrapper>
+      </div>
+      <StarryBackground />
+    </div>
   );
 }

@@ -64,10 +64,8 @@ export default function Form({
           </FormInputWrapper>
         );
       })}
-      <MyPath color="light" buttonPath="/">
-        <button type="submit" className="">
-          Submit
-        </button>
+      <MyPath color="dark" buttonPath="/" customClassNames={"column-span"}>
+        <button type="submit">Submit</button>
       </MyPath>
     </form>
   );

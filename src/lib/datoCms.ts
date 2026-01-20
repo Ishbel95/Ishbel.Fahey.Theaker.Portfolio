@@ -35,6 +35,7 @@ const dedupedFetch = cache(
         )}`
       );
     }
+    console.log(responseBody);
 
     return responseBody;
   }

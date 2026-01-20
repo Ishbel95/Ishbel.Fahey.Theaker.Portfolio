@@ -1,4 +1,5 @@
 import { BodyBlockFragment } from "./BodyBlockFragment";
+import { ImageGalleryBlockFragment } from "./ImageGalleyFragment";
 import { LayoutOptionsBlockFragment } from "./LayoutOptionsFragment";
 import { PathFragment } from "./PathFragment";
 
@@ -27,6 +28,37 @@ export const HeroBlockFragment = `
               buttonPath
               color
               isExternalPath
+            }
+            ... on ImageGalleryBlockRecord {
+                __typename
+                id
+                layoutOptions {
+                  bottomPadding
+                  backgroundColor
+                  rowReverse
+                  textAlign
+                  topPadding
+                }
+                imageGallery {
+                    url
+                    title
+                    alt
+                    id
+                    width
+                    height
+                  responsiveImage {
+                    srcSet
+                    webpSrcSet
+                    sizes
+                    src
+                    width
+                    height
+                    aspectRatio
+                    alt
+                    title
+                    base64
+                  }
+                }
             }
           }
         }

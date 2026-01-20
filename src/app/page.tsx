@@ -3,7 +3,6 @@ import { AnimationImagesBlockFragment } from "@/fragments/AnimationImagesBlockFr
 import { HeroBlockFragment } from "@/fragments/HeroBlockFragment";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import ModularHero from "@/components/modular/ModularHeroBlock";
-
 import ModularContent from "@/components/modular/ModularContentBlock";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";

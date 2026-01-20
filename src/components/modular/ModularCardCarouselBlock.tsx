@@ -3,6 +3,7 @@ import CardCarouselFragmentQuery, {
 } from "@/models/fragments/CardCarouselBlockInterface";
 import React from "react";
 import Card from "../Card";
+import { CardCarouselBlockFragment } from "@/fragments/CardCarouselFragment";
 
 export default function ModularCardCarouselBlock({
   data,
@@ -11,6 +12,7 @@ export default function ModularCardCarouselBlock({
   data: CardCarouselFragmentQuery;
   key: string;
 }) {
+  console.log(data);
   return (
     <div
       key={key}
