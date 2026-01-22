@@ -1,14 +1,23 @@
 @import "../keyFrames.scss";
+
+.modular-layout-wrapper {
+  .modular-layout-inner {
+    animation-timeline: scroll(root);
+    //image scroll in view and text affects
+  }
+}
+
 .modular-timeline-container {
-  height: 600px;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   overflow-y: scroll;
-  scroll-timeline-name: --timelineScroll;
+  height: 100vh;
+  -webkit-mask: $linearGradientTransparent;
+  mask: $linearGradientTransparent;
   .timeline-inner {
-    animation: timelineScroll linear;
-    animation-timeline: --timelineScroll;
-    animation-duration: 1s;
+    @include customColumnGrid(35% 1% 35%);
+    grid-row-gap: 7em;
+    position: relative;
   }
   .timeline-circle {
     svg {
@@ -18,23 +27,54 @@
   @include desktop() {
   }
   .timeline-line {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+
+    content: "";
+    width: 3px;
+    background-color: $white;
+    inset: 0;
+    height: 100%;
   }
 }
-
+.timeline-body-left,
+.timeline-body-right {
+  width: min(90%, 380px);
+  .glass-wrapper {
+    animation: timelineScrollGrow linear forwards;
+    animation-timeline: view();
+    animation-range-start: entry;
+    animation-range-end: exit;
+    h3,
+    p {
+      animation: timelineScrollRevealText linear forwards;
+      animation-timeline: view();
+      animation-range-start: entry;
+      animation-range-end: exit;
+    }
+  }
+}
 .timeline-body-left {
   @include desktop() {
-    padding-left: 1.5em;
-
-    .timeline-circle {
+    justify-self: start;
+    .glass-wrapper {
+      animation: timelineScrollGrowLeft linear forwards;
+      animation-timeline: view();
+      animation-range-start: entry;
+      animation-range-end: exit;
     }
   }
 }
 
 .timeline-body-right {
   @include desktop() {
-    padding-right: 1.5em;
-
-    .timeline-circle {
+    justify-self: end;
+    .glass-wrapper {
+      animation: timelineScrollGrowRight linear forwards;
+      animation-timeline: view();
+      animation-range-start: entry;
+      animation-range-end: exit;
     }
   }
 }

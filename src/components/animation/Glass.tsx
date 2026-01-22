@@ -32,7 +32,7 @@ export default function Glass({ children, classNames }: GlassProps) {
         {
           duration: 300,
           fill: "forwards",
-        }
+        },
       );
     };
 
@@ -42,13 +42,9 @@ export default function Glass({ children, classNames }: GlassProps) {
 
   return (
     <div ref={cardRef} className={`glass-wrapper ${classNames ?? ""}`}>
-      <div className="glass-outer">
-        <div className="glass-inner">{children}</div>
-
-        <div ref={blobRef} className="glass-glow-blob" />
-
-        <div ref={fakeBlobRef} className="glass-glow-fake-blob" />
-      </div>
+      <div className="glass-inner">{children}</div>
+      <div ref={blobRef} className="glass-glow-blob" />
+      <div ref={fakeBlobRef} className="glass-glow-fake-blob" />
     </div>
   );
 }

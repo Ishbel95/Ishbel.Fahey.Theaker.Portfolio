@@ -24,11 +24,11 @@ export default function ModularLayoutWrapper({
   const rowClassName = data?.rowReverse
     ? layoutWrapperClassNames.rowReverse
     : data?.row
-    ? layoutWrapperClassNames.row
-    : null;
+      ? layoutWrapperClassNames.row
+      : null;
 
   const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
-    (className) => className === data?.textAlign
+    (className) => className === data?.textAlign,
   );
 
   return (
@@ -39,7 +39,7 @@ export default function ModularLayoutWrapper({
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div
-        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} modular-inner`}
+        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} modular-inner modular-layout-inner`}
       >
         {children}
       </div>

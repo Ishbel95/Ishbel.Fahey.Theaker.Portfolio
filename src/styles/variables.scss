@@ -32,9 +32,10 @@ $gradient-mouse-glow: radial-gradient(
 
 $linearGradientTransparent: linear-gradient(
   0deg,
-  $darkestBlue 0%,
-  transparent 50%,
-  $darkestBlue 100%
+  transparent 0%,
+  $darkestBlue 15%,
+  $darkestBlue 85%,
+  transparent 100%
 );
 //spacing
 $globalWidth: min(90%, 1000px);
@@ -60,7 +61,9 @@ $cardPaddingDesktop: 0.8em;
 //breakpoints
 
 $desktopBreakpoint: 758px;
-
+$mobileBreakpoint: 757px;
+$largeDesktopBreakpoint: 1200x;
+$largeMobileBreakpoint: 1199px;
 //glass
 
 //glow
@@ -72,3 +75,7 @@ $lightShadow: $shadowPixels $white;
 // text
 $smallLineHeight: 1em;
 $lineHeight: 1.5em;
+
+//animation
+
+$easeInForwards: 300ms ease-in forwards;

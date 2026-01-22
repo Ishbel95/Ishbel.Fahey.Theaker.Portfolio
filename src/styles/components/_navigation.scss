@@ -1,22 +1,179 @@
+@import "../keyFrames.scss";
+
 .glass-navigation {
   position: fixed;
-  width: 100%;
-
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 999;
+  top: 20px;
   .glass-inner {
-    border-radius: 0;
+    .navigation-content {
+      @include mobile() {
+        height: 100%;
+        @include flexBox(column, space-evenly, space-evenly);
+      }
+    }
+    a {
+      font-size: 2.8em;
+      font-weight: 900;
+      text-shadow: 5px 5px 10px $black;
+      @include desktop() {
+        opacity: 1;
+        margin: 0 1em;
+        font-size: 1em;
+      }
+    }
+  }
+}
+.navigation-burger {
+  position: absolute;
+  top: 20px;
+
+  @include mobile() {
+    left: 0;
+    right: 0;
+  }
+  span,
+  span::after,
+  span::before {
+    content: "";
+    border-radius: $borderRadius;
+    position: absolute;
+    width: 40px;
+    opacity: 1;
+    margin: 0 auto;
+    height: 2px;
+    scale: 1 1;
+    background-color: $white;
+  }
+  span {
+    right: 0;
+    left: 0;
+    &::after {
+      top: -10px;
+    }
+    &::before {
+      top: 10px;
+    }
   }
 }
 
-.navigation-container {
-  .navigation-inner {
-    .navigation-content {
-      @include flexBox(column, center, space-evenly);
+.glass-navigation-open {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 996;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .glass-navigation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include desktop() {
+      position: fixed;
+      animation: navigationOpenContentMove 350ms linear forwards;
+    }
+    @include desktop() {
+      .glass-wrapper {
+        top: 0;
+      }
+    }
+    .glass-inner {
+      border-radius: 0;
+      box-shadow: none;
+
+      &:before {
+        --webkit-backdrop-filter: blur(0px);
+        backdrop-filter: blur(0px);
+        animation: blurIn $easeInForwards;
+      }
       @include desktop() {
-        @include flexBox(row, center, space-evenly);
+        position: relative;
+      }
+      .navigation-content {
+        a {
+          @include fadeInAnimation();
+          @include desktop() {
+            font-size: 2rem;
+          }
+        }
+        @include desktop() {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 20%;
+        }
       }
     }
   }
   .navigation-burger {
+    z-index: 999;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    box-shadow: inset 0 0 13px #fff6;
+    animation: navigationBurgerClosedToOpenMobile $easeInForwards;
+    @include desktop() {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 10%;
+      animation: navigationBurgerDesktopMove 350ms linear forwards;
+    }
+  }
+}
+
+.glass-navigation-closed {
+  .glass-wrapper {
+  }
+  .glass-inner {
+    margin: 0 auto;
+    @include mobile() {
+      // box-shadow: none;
+      // width: 200px;
+      // height: 200px;
+      // padding: 2em;
+      // border-radius: 50%;
+      animation: navigationGlassInnerOpenToCloseMobile $easeInForwards;
+    }
+    @include desktop() {
+      display: flex;
+      align-self: center;
+      justify-content: center;
+      padding: 3em 5em;
+      border-radius: 200px;
+      width: 40%;
+    }
+    .navigation-content {
+    }
+    @include desktop() {
+      animation: navigationInnerScroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-range-start: entry;
+    }
+  }
+  .navigation-burger {
+    top: 0;
+    bottom: 0;
+
+    @include desktop() {
+      opacity: 0;
+      scale: 0 1;
+      animation: navigationBurgerScroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-range-start: entry;
+      animation-range-end: 100px;
+    }
+  }
+  a {
+    @include fadeInAnimation(false, false);
+    animation-timing-function: 100ms;
+    @include desktop() {
+      animation: navigationTextScroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-range-start: 0px;
+    }
   }
 }

@@ -46,11 +46,202 @@
   }
 }
 
-@keyframes timelineScroll {
-  from {
+@keyframes timelineScrollGrowLeft {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  40% {
+    scale: 1.2;
+    opacity: 1;
+  }
+  60% {
+    scale: 1.2;
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes timelineScrollGrowLeft {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  40% {
+    scale: 1.2;
+    opacity: 1;
+  }
+  60% {
+    scale: 1.2;
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes timelineScrollRevealText {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes navigationInnerScroll {
+  20% {
+    border-radius: 50%;
+    padding: 2em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    border-radius: 50%;
+    padding: 2em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes navigationScroll {
+  20% {
+    top: 5px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+
+@keyframes navigationTextScroll {
+  10% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes navigationBurgerScroll {
+  12% {
+    opacity: 1;
+    width: 40px;
+    scale: 1 1;
+  }
+  100% {
+    opacity: 1;
+    width: 40px;
+    scale: 1 1;
+  }
+}
+
+@keyframes navigationOpenContentMove {
+  to {
+  }
+}
+
+@keyframes navigationBurgerDesktopMove {
+  to {
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeInAndDown {
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
+}
+@keyframes fadeOutAndUp {
   to {
-    transform: translateY(-500px);
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes blurIn {
+  to {
+    --webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes navigationOpenToClosedGlass {
+  to {
+    border-radius: 50%;
+    padding: 2em;
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0 0 13px #fff6;
+  }
+}
+
+@keyframes navigationClosedToOpenGlass {
+  to {
+    border-radius: 50%;
+    padding: 2em;
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0 0 13px #fff6;
+  }
+}
+
+@keyframes navigationBurgerClosedToOpenMobile {
+  to {
+    box-shadow: none;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes navigationBurgerOpenToClosedMobile {
+  to {
+    box-shadow: inset 0 0 13px #fff6;
+  }
+}
+
+@keyframes navigationGlassInnerOpenToCloseMobile {
+  0% {
+    box-shadow: none;
+    width: 200px;
+    height: 200px;
+    padding: 2em;
+    border-radius: 50%;
+  }
+  100% {
+    box-shadow: inset 0 0 13px #fff6;
+    width: 100px;
+    height: 100px;
+    padding: 2em;
+    border-radius: 50%;
+  }
+}
+@keyframes blurOut {
+  90% {
+    --webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    position: relative;
+    background: none;
+    box-shadow: none;
   }
 }

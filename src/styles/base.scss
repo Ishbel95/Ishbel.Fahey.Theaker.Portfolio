@@ -8,6 +8,10 @@
   @include desktop() {
     font-size: 18px;
   }
+  a,
+  button {
+    cursor: pointer;
+  }
 }
 
 .display-flex {
@@ -78,21 +82,14 @@
 }
 .gradient-overlay-blue-transparent-blue {
   background: $linearGradientTransparent;
+
   z-index: 5;
   position: absolute;
-  inset: 0;
+  top: 0;
   height: 100%;
   width: 100%;
 }
-.glass {
-  // background: linear-gradient(
-  //   145deg,
-  //   rgb(15, 63, 92, 0.7),
-  //   rgb(11, 47, 74, 0.7)
-  // );
 
-  // box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-}
 .glass-round {
   border-radius: 50%;
   position: relative;
@@ -106,12 +103,23 @@
   overflow: hidden;
 }
 
-.glass-outer,
 .glass-inner {
   position: relative;
   border-radius: $borderRadius;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0px 13px rgba(255, 255, 255, 0.4);
+  @extend .card-padding;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -123,23 +131,6 @@
     backdrop-filter: blur(8px);
     border-radius: $borderRadius;
     z-index: -2;
-  }
-}
-.glass-outer {
-  background: transparent;
-}
-.glass-inner {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px 0px 13px rgba(255, 255, 255, 0.4);
-  @extend .card-padding;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  & > * {
-    position: relative;
-    z-index: 1;
   }
 }
 
