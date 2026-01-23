@@ -14,26 +14,28 @@ export default function NavigationInner({ data }: { data: any }) {
     <div
       className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"}`}
     >
-      <Glass classNames={`glass-navigation `}>
+      <Glass classNames={`glass-navigation`}>
         <div className="navigation-content">
-          <Link href={"/"}>Home</Link>
-          {data.allModularTemplates.map(
-            ({
-              slug,
-              internalTitle,
-              id,
-            }: {
-              slug: string;
-              internalTitle: string;
-              id: string;
-            }) => {
-              return (
-                <Link href={`/details/${slug}`} key={id}>
-                  {internalTitle}
-                </Link>
-              );
-            },
-          )}
+          <div className="navigation-content-inner">
+            <Link href={"/"}>Home</Link>
+            {data.allModularTemplates.map(
+              ({
+                slug,
+                internalTitle,
+                id,
+              }: {
+                slug: string;
+                internalTitle: string;
+                id: string;
+              }) => {
+                return (
+                  <Link href={`/details/${slug}`} key={id}>
+                    {internalTitle}
+                  </Link>
+                );
+              },
+            )}
+          </div>
         </div>{" "}
         <button className="navigation-burger" onClick={handleBurgerClick}>
           <span />

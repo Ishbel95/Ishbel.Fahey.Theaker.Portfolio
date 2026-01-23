@@ -102,7 +102,17 @@
 .glass-wrapper {
   overflow: hidden;
 }
+.glass-basic-background {
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
 
+.glass-basic-background-clear {
+  background: transparent;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
 .glass-inner {
   position: relative;
   border-radius: $borderRadius;

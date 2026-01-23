@@ -121,8 +121,10 @@
 }
 
 @keyframes navigationTextScroll {
-  10% {
+  1% {
     opacity: 0;
+  }
+  5% {
     transform: translateY(-200px);
   }
   100% {
@@ -132,14 +134,14 @@
 }
 
 @keyframes navigationBurgerScroll {
-  12% {
+  5% {
     opacity: 1;
-    width: 40px;
+    // width: 40px;
     scale: 1 1;
   }
   100% {
     opacity: 1;
-    width: 40px;
+    // width: 40px;
     scale: 1 1;
   }
 }
@@ -167,7 +169,6 @@
 @keyframes fadeInAndDown {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 @keyframes fadeOutAndUp {
@@ -176,14 +177,33 @@
     transform: translateY(-100px);
   }
 }
-
+@keyframes moveUp {
+  to {
+    transform: translateY(-100vh);
+  }
+}
 @keyframes blurIn {
   to {
-    --webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
   }
 }
 
+@keyframes blurOut {
+  to {
+    background: transparent;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+}
+@keyframes blurOutDesktop {
+  to {
+    background: transparent;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+}
 @keyframes navigationOpenToClosedGlass {
   to {
     border-radius: 50%;
@@ -193,55 +213,18 @@
     box-shadow: inset 0 0 13px #fff6;
   }
 }
+@keyframes boxShadowFadeIn {
+  to {
+    box-shadow: inset 0 0 13px #fff6;
+  }
+}
 
 @keyframes navigationClosedToOpenGlass {
   to {
     border-radius: 50%;
     padding: 2em;
-    width: 100px;
-    height: 100px;
-    box-shadow: inset 0 0 13px #fff6;
-  }
-}
-
-@keyframes navigationBurgerClosedToOpenMobile {
-  to {
-    box-shadow: none;
     width: 200px;
     height: 200px;
-  }
-}
-
-@keyframes navigationBurgerOpenToClosedMobile {
-  to {
-    box-shadow: inset 0 0 13px #fff6;
-  }
-}
-
-@keyframes navigationGlassInnerOpenToCloseMobile {
-  0% {
-    box-shadow: none;
-    width: 200px;
-    height: 200px;
-    padding: 2em;
-    border-radius: 50%;
-  }
-  100% {
-    box-shadow: inset 0 0 13px #fff6;
-    width: 100px;
-    height: 100px;
-    padding: 2em;
-    border-radius: 50%;
-  }
-}
-@keyframes blurOut {
-  90% {
-    --webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
-  }
-  100% {
-    position: relative;
-    background: none;
     box-shadow: none;
   }
 }

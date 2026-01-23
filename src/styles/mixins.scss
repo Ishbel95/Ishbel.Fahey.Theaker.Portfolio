@@ -1,7 +1,6 @@
 @import "variables.scss";
-@import "keyFrames.scss";
 @import "functions.scss";
-
+@import "./keyFrames.scss";
 @mixin desktop {
   @media (min-width: $desktopBreakpoint) {
     @content;
@@ -198,7 +197,7 @@
     animation: fadeOut $easeInForwards;
   } @else if($fadeIn == true and $fadeUp == true) {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(300px);
     animation: fadeInAndDown $easeInForwards;
   } @else {
     opacity: 0;
