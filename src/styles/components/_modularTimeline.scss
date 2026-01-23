@@ -2,79 +2,60 @@
 
 .modular-layout-wrapper {
   .modular-layout-inner {
-    animation-timeline: scroll(root);
     //image scroll in view and text affects
   }
 }
 
 .modular-timeline-container {
-  position: relative;
-  overflow: clip;
-  overflow-y: scroll;
-  height: 100vh;
-  -webkit-mask: $linearGradientTransparent;
-  mask: $linearGradientTransparent;
-  .timeline-inner {
-    @include customColumnGrid(35% 1% 35%);
-    grid-row-gap: 7em;
-    position: relative;
-  }
-  .timeline-circle {
-    svg {
-      font-size: 1.5rem;
-    }
-  }
-  @include desktop() {
-  }
-  .timeline-line {
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
+  // -webkit-mask: $linearGradientTransparent;
+  // mask: $linearGradientTransparent;
+  // .timeline-inner {
+  //   @include customColumnGrid(35% 1% 35%);
+  //   grid-row-gap: 7em;
+  // }
 
-    content: "";
-    width: 3px;
-    background-color: $white;
-    inset: 0;
-    height: 100%;
-  }
+  // .timeline-line {
+  //   width: 100%;
+  //   margin: 0 auto;
+  //   height: 100%;
+
+  //   content: "";
+  //   width: 3px;
+  //   background-color: $white;
+  //   inset: 0;
+  //   height: 100%;
+  // }
 }
-.timeline-body-left,
-.timeline-body-right {
-  width: min(90%, 380px);
-  .glass-wrapper {
-    animation: timelineScrollGrow linear forwards;
-    animation-timeline: view();
-    animation-range-start: entry;
-    animation-range-end: exit;
-    h3,
-    p {
-      animation: timelineScrollRevealText linear forwards;
-      animation-timeline: view();
-      animation-range-start: entry;
-      animation-range-end: exit;
-    }
-  }
-}
-.timeline-body-left {
-  @include desktop() {
-    justify-self: start;
-    .glass-wrapper {
-      animation: timelineScrollGrowLeft linear forwards;
-      animation-timeline: view();
-      animation-range-start: entry;
-      animation-range-end: exit;
-    }
+
+.glass-morph {
+  .glass-inner {
+    animation: glass-morph $easeInForwards;
+    animation-delay: 350ms;
+    border-radius: 50%;
   }
 }
 
-.timeline-body-right {
-  @include desktop() {
-    justify-self: end;
-    .glass-wrapper {
-      animation: timelineScrollGrowRight linear forwards;
-      animation-timeline: view();
-      animation-range-start: entry;
-      animation-range-end: exit;
-    }
+.glass-un-morph {
+  .glass-inner {
+    animation: glass-un-morph $easeInForwards;
+    animation-delay: 350ms;
+    border-radius: $borderRadius;
+  }
+}
+
+.timeline-body {
+  margin: 3em auto;
+  width: min(95%, 550px);
+}
+
+@keyframes glass-morph {
+  to {
+    border-radius: $borderRadius;
+  }
+}
+
+@keyframes glass-un-morph {
+  to {
+    border-radius: 50%;
   }
 }
