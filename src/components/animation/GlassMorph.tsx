@@ -20,7 +20,6 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
       const rec = fakeBlobRef.current.getBoundingClientRect();
 
       blobRef.current.style.opacity = "1";
-
       blobRef.current.animate(
         [
           {
@@ -41,14 +40,14 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const morphGlass = useInView(cardRef);
+  const morphGlass = useInView(cardRef, "-100px", 1);
 
   return (
     <div
       ref={cardRef}
-      className={`glass-wrapper ${morphGlass ? "glass-morph" : "glass-un-morph"}`}
+      className={`glass-wrapper ${morphGlass ? "glass-morph-to-square" : "glass-morph-to-circle"} `}
     >
-      <div className="glass-inner">{children}</div>
+      <div className={`glass-inner ${classNames} `}>{children}</div>
       <div ref={blobRef} className="glass-glow-blob" />
       <div ref={fakeBlobRef} className="glass-glow-fake-blob" />
     </div>

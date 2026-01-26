@@ -14,13 +14,21 @@ export default function ModularTimelineBlock({
 }) {
   return (
     <div key={key} className={`modular-timeline-container modular-inner`}>
-      {/* <div className="gradient-overlay-blue-transparent-blue" /> */}
-
       {/* <span className="timeline-line column-2" /> */}
       {data.timelineData.map((timelineSection) => (
-        <div className={`timeline-body column-${timelineSection.column} `}>
+        <div
+          className={`timeline-section column-${timelineSection.column} `}
+          key={timelineSection.id}
+        >
           <GlassMorph>
-            <MyStructuredText data={timelineSection.timelineBody} />
+            <div className="timeline-section-inner ">
+              <h4 className="timeline-title">
+                {timelineSection.timelineSectionTitle}
+              </h4>
+              <div className="timeline-body">
+                <MyStructuredText data={timelineSection.timelineBody} />
+              </div>
+            </div>
           </GlassMorph>
         </div>
       ))}

@@ -82,7 +82,6 @@ export default function MyStructuredText({
         return null;
     }
   };
-  console.log(allTimeLinkBlock);
   return (
     <StructuredText
       data={data}

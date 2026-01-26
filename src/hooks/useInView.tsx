@@ -1,19 +1,27 @@
+"use client";
 import { useState, useEffect } from "react";
 
-export default function useInView(ref: any) {
+export default function useInView(
+  ref: any,
+  rootMarginValue?: string,
+  thresholdValue?: number,
+) {
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersecting(entry.isIntersecting),
+    if (!ref?.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIntersecting(entry.isIntersecting);
+      },
+      { rootMargin: rootMarginValue, threshold: thresholdValue ?? 0 },
     );
-
     observer.observe(ref.current);
 
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [ref, rootMarginValue, thresholdValue]);
 
   return isIntersecting;
 }

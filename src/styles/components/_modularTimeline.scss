@@ -27,35 +27,132 @@
   // }
 }
 
-.glass-morph {
-  .glass-inner {
-    animation: glass-morph $easeInForwards;
-    animation-delay: 350ms;
-    border-radius: 50%;
-  }
-}
-
-.glass-un-morph {
-  .glass-inner {
-    animation: glass-un-morph $easeInForwards;
-    animation-delay: 350ms;
-    border-radius: $borderRadius;
-  }
-}
-
-.timeline-body {
+.timeline-section {
   margin: 3em auto;
-  width: min(95%, 550px);
-}
-
-@keyframes glass-morph {
-  to {
-    border-radius: $borderRadius;
+  .glass-wrapper {
+    overflow: visible;
+  }
+  .timeline-section-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .glass-inner {
+    margin: 0 auto;
+    height: 50vw;
+    width: 50vw;
+    @include desktop {
+      height: 40vh;
+      width: 20vw;
+    }
+    .timeline-title {
+      font-size: 2rem;
+    }
+    .timeline-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h3,
+      h4,
+      p {
+        font-size: 1rem;
+      }
+    }
+    .timeline-title,
+    .timeline-body {
+      position: absolute;
+      animation-delay: 450ms;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      & > * {
+        margin: 0 auto;
+      }
+    }
   }
 }
 
-@keyframes glass-un-morph {
+.glass-morph-to-square {
+  .glass-inner {
+    border-radius: 50%;
+
+    animation: glass-morph-to-square $easeInOutLonger;
+    .timeline-body {
+      animation: text-morph-in $easeInOutLonger;
+    }
+    .timeline-title {
+      animation: text-morph-out $easeInOutLonger;
+    }
+  }
+}
+
+.glass-morph-to-circle {
+  .glass-inner {
+    border-radius: $borderRadius;
+
+    animation: glass-morph-to-circle $easeInOutLonger;
+    .timeline-body {
+      animation: text-morph-out $easeInOutLonger;
+    }
+    .timeline-title {
+      animation: text-morph-in $easeInOutLonger;
+    }
+  }
+}
+
+@keyframes text-morph-out {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+}
+
+@keyframes text-morph-in {
+  0% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes glass-morph-to-square {
+  to {
+    border-radius: $borderRadius;
+    opacity: 1;
+    scale: 1.1;
+    -webkit-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
+    -moz-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
+    box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
+  }
+}
+
+@keyframes glass-morph-to-circle {
   to {
     border-radius: 50%;
+    opacity: 0.7;
+    scale: 0.8;
+    -webkit-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 0.3);
+    -moz-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 0.3);
+    box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 0.3);
+  }
+}
+
+@keyframes glass-morph-text-hide {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glass-morph-text-show {
+  100% {
+    opacity: 1;
   }
 }
