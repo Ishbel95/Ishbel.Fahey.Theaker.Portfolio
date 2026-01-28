@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 999;
+  z-index: 9;
   top: 20px;
   .glass-inner {
     margin: 0 auto;
@@ -155,7 +155,8 @@
     @include desktop() {
       animation: navigationInnerScroll linear forwards;
       animation-timeline: scroll(root);
-      animation-range-start: entry;
+      animation-range-start: 2px;
+      animation-range-end: 1000px;
     }
   }
   .navigation-burger {
@@ -164,8 +165,8 @@
       scale: 0 1;
       animation: navigationBurgerScroll linear forwards;
       animation-timeline: scroll(root);
-      animation-range-start: entry;
-      animation-range-end: 100px;
+      animation-range-start: 2px;
+      animation-range-end: 1000px;
     }
   }
   .navigation-content-inner {

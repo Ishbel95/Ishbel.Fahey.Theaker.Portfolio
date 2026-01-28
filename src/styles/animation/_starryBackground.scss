@@ -1,23 +1,23 @@
 .modular-hero-container {
-  .modular-hero-inner {
-    position: absolute;
-    z-index: 10;
-    top: 25%;
-    left: 0;
-    right: 0;
-    bottom: 50%;
-    background-color: transparent;
-  }
+  padding-top: 9em;
+  // .modular-hero-inner {
+  //   position: absolute;
+  //   z-index: 10;
+  //   top: 25%;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 50%;
+  //   background-color: transparent;
+  // }
 }
 
 .gradient-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
-  overflow: hidden;
-  background: $radialGradient;
-  top: 0;
-  left: 0;
+  // overflow: hidden;
+  // top: 0;
+  // left: 0;
   // &::after {
   //   content: "";
   //   position: absolute;
@@ -31,27 +31,29 @@
   //   transition: $globalTransition;
   // }
   .gradient-inner {
-    filter: blur(70px);
-    width: 100%;
-    height: 100%;
+    // position: absolute;
+    // z-index: -1;
+    // filter: blur(70px);
+    // overflow: hidden;
+    // inset: 0;
   }
 }
 .gradient-interactive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 650px;
+  height: 650px;
+  border-radius: 100%;
+  background-image: linear-gradient($cyan 10%, $teal);
+  filter: blur(250px);
+  transition: all 450ms ease-out;
+  position: fixed;
   pointer-events: none;
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      $highlightGlow 0%,
-      $highlightGlow 50%
-    )
-    no-repeat;
-  mix-blend-mode: $blending;
-  width: 50%;
-  height: 50%;
-  top: -50%;
-  left: -50%;
-  border-radius: 50%;
-  opacity: 0.7;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: -1;
 }
 
 .star-group-one {
@@ -67,59 +69,59 @@
   @include stars-content(1800, $white, 200, 3, 0, 1, 1);
 }
 
-@include gradient($name: "1", $gradientColor: $darkBlue);
+// @include gradient($name: "1", $gradientColor: $darkBlue);
 
-@include gradient(
-  $name: "2",
-  $gradientColor: $lightBlue,
-  $gradientTransformOrigin: (
-    calc(50% - 400px),
-  ),
-  $gradientAnimation: (
-    moveInCircle 20s reverse infinite,
-  )
-);
+// @include gradient(
+//   $name: "2",
+//   $gradientColor: $lightBlue,
+//   $gradientTransformOrigin: (
+//     calc(50% - 400px),
+//   ),
+//   $gradientAnimation: (
+//     moveInCircle 20s reverse infinite,
+//   )
+// );
 
-@include gradient(
-  $name: "3",
-  $gradientColor: $blue,
-  $position: (
-    calc(50% - $gradientCircleSize / 2 + 200px),
-    calc(50% - $gradientCircleSize / 2 - 500px),
-  ),
-  $gradientTransformOrigin: (
-    calc(50% + 400px),
-  ),
-  $gradientAnimation: (
-    moveInCircle 40s linear infinite,
-  )
-);
+// @include gradient(
+//   $name: "3",
+//   $gradientColor: $blue,
+//   $position: (
+//     calc(50% - $gradientCircleSize / 2 + 200px),
+//     calc(50% - $gradientCircleSize / 2 - 500px),
+//   ),
+//   $gradientTransformOrigin: (
+//     calc(50% + 400px),
+//   ),
+//   $gradientAnimation: (
+//     moveInCircle 40s linear infinite,
+//   )
+// );
 
-@include gradient(
-  $name: "4",
-  $gradientColor: $highlightGlow,
-  $gradientTransformOrigin: (
-    calc(50% - 200px),
-  ),
-  $gradientAnimation: (
-    moveHorizontal 40s ease infinite,
-  ),
-  $opacity: 0.7
-);
+// @include gradient(
+//   $name: "4",
+//   $gradientColor: $highlightGlow,
+//   $gradientTransformOrigin: (
+//     calc(50% - 200px),
+//   ),
+//   $gradientAnimation: (
+//     moveHorizontal 40s ease infinite,
+//   ),
+//   $opacity: 0.7
+// );
 
-@include gradient(
-  $name: "5",
-  $gradientColor: $coreGlow,
+// @include gradient(
+//   $name: "5",
+//   $gradientColor: $coreGlow,
 
-  $position: (
-    calc($gradientCircleSize * 2),
-    calc($gradientCircleSize * 2),
-  ),
-  $gradientTransformOrigin: (
-    calc(50% - 800px),
-    calc(50% + 200px),
-  ),
-  $gradientAnimation: (
-    moveInCircle 20s ease infinite,
-  )
-);
+//   $position: (
+//     calc($gradientCircleSize * 2),
+//     calc($gradientCircleSize * 2),
+//   ),
+//   $gradientTransformOrigin: (
+//     calc(50% - 800px),
+//     calc(50% + 200px),
+//   ),
+//   $gradientAnimation: (
+//     moveInCircle 20s ease infinite,
+//   )
+// );

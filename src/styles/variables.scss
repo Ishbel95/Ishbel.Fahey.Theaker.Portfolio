@@ -8,10 +8,25 @@ $white: #fff;
 $black: #010204;
 //swirls
 // $blue: #00d4e8;
-$highlightGlow: rgb(38, 153, 195);
+$highlightGlow: #1fb6ff;
 $coreGlow: #ffffff;
 $midToneGlow: #3fa9d6;
 //stars
+
+$cyan: #4dfbff;
+$aqua: #2ee6e6;
+
+$teal: #1fb6ff;
+$blue: rgb(58, 123, 255);
+
+$deepBlue: #1a3d6f;
+$deepestBlue: #0b1c2d;
+
+$violet: #6a4cff;
+$purple: #8b5cf6;
+
+$glassBackground: rgba(58, 123, 255, 0.3);
+
 $blending: hard-light;
 
 $radialGradient: radial-gradient(
@@ -31,11 +46,11 @@ $gradient-mouse-glow: radial-gradient(
 );
 
 $linearGradientTransparent: linear-gradient(
-  0deg,
+  180deg,
   transparent 0%,
-  $darkestBlue 15%,
-  $darkestBlue 85%,
-  transparent 100%
+
+  $darkestBlue 95%,
+  $darkestBlue 100%
 );
 //spacing
 $globalWidth: min(90%, 1000px);

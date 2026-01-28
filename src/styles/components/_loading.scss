@@ -1,0 +1,64 @@
+@import "./../keyFrames.scss";
+.loading-container {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn $easeInForwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loading-text {
+    position: relative;
+    padding: 3em;
+    border-radius: 50%;
+
+    h3,
+    p {
+      font-weight: 900;
+      font-size: 2rem;
+    }
+    color: white;
+    z-index: 1;
+    text-align: center;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.5em;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        transparent,
+        #00f6ff,
+        #ff00f6,
+        transparent
+      );
+
+      animation: spin 3s linear infinite;
+      z-index: -1;
+
+      /* punch a hole in the middle */
+      mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 8px),
+        black 0
+      );
+      -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 8px),
+        black 0
+      );
+
+      filter: blur(4px);
+    }
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// .loading-container-remove {
+//   animation: fadeOut $easeInForwards;
+// }

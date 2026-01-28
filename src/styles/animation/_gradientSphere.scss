@@ -1,0 +1,53 @@
+.gradient-sphere-container {
+  position: fixed;
+  inset: 0;
+  z-index: 12;
+  height: 100vh;
+  .gradient-sphere-inner {
+    position: absolute;
+    inset: 0;
+    // background: radial-gradient(circle at center, $deepBlue, $deepestBlue);
+    background-color: $deepestBlue;
+    height: 100vh;
+    opacity: 1;
+  }
+  .gradient-sphere {
+    position: absolute;
+    width: 80vw;
+    height: 90vh;
+
+    @include desktop() {
+      width: 30vw;
+      height: 40vh;
+    }
+    animation: morph;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+
+    background: radial-gradient(circle at 0% 0%, $deepBlue, $deepestBlue);
+    border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+    box-shadow:
+      0 -20px 40px $cyan inset,
+      0 10px 40px $teal inset,
+      0 -20px 70px $deepBlue inset;
+
+    filter: drop-shadow(0 0 30px $aqua) drop-shadow(0 50px 40px $blue)
+      drop-shadow(20px -20px 150px $blue) drop-shadow(0 0 70px $deepestBlue);
+    z-index: 15;
+    overflow: hidden;
+  }
+}
+
+.gradient-sphere-container-enter {
+  animation: div-disappear 10ms forwards;
+  animation-delay: 320ms;
+  .gradient-sphere-inner {
+    animation: fadeOut $easeInForwards;
+  }
+  .gradient-sphere {
+    animation: morph-to-circle $easeInForwards;
+  }
+  .glass-wrapper {
+    animation: glassFadeOutScale $easeInForwards;
+  }
+}

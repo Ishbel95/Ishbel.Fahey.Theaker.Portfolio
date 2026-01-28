@@ -150,10 +150,10 @@
   width: $width;
   height: $height;
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 1;
   box-shadow: generate-random-stars($screen-width, $color, $density);
-  animation: glowing-stars $speed + s linear infinite alternate;
-  animation-delay: $delay + s;
+  // animation: glowing-stars $speed + s linear infinite alternate;
+  // animation-delay: $delay + s;
 }
 
 @mixin gradient(

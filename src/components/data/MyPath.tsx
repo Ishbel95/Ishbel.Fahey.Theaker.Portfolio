@@ -15,7 +15,7 @@ export default function MyPath({
   customClassNames?: string;
 }) {
   return (
-    <Glass classNames="glass-path">
+    <Glass classNames={`glass-path ${customClassNames}`}>
       <div
         className={`${buttonPath ? "button" : "link"} ${customClassNames}`}
         key={key}

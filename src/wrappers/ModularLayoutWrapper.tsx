@@ -1,5 +1,8 @@
+"use client";
+import React, { useRef } from "react";
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
 import { layoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
+import useInView from "@/hooks/useInView";
 export default function ModularLayoutWrapper({
   data,
   key,
@@ -9,6 +12,7 @@ export default function ModularLayoutWrapper({
   key: string;
   children: React.ReactNode;
 }) {
+  const modularLayoutDiv = useRef<HTMLDivElement>(null);
   const getPadding = (bottomPadding?: Boolean, topPadding?: Boolean) => {
     if (!bottomPadding && topPadding)
       return layoutWrapperClassNames.paddingTopOnly;
@@ -31,15 +35,18 @@ export default function ModularLayoutWrapper({
     (className) => className === data?.textAlign,
   );
 
+  const modularLayoutInView = useInView(modularLayoutDiv, "100px", 1);
+
   return (
     <div
+      ref={modularLayoutDiv}
       id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper `}
+      className={`modular-layout-wrapper ${modularLayoutInView ? "modular-layout-enter" : "modular-layout-exit"}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div
-        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} modular-inner modular-layout-inner`}
+        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} global-width modular-layout-inner`}
       >
         {children}
       </div>

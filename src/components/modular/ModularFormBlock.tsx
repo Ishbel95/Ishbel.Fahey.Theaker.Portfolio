@@ -11,7 +11,7 @@ export default function ModularFormBlock({
 }) {
   return (
     <Glass
-      classNames={`modular-form-container glass-card small-global-width`}
+      classNames={`modular-form-container glass-card global-width`}
       key={key}
     >
       <Form data={data} key={data.id} />

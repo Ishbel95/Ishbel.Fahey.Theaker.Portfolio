@@ -6,6 +6,7 @@ import MyImage from "../data/MyImage";
 import { getBlockData } from "@/util/util";
 import StarryBackground from "../animation/starryBackground";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
+import GradientScroll from "../animation/GradientScroll";
 export default function ModularHero({
   data,
   key,
@@ -16,6 +17,7 @@ export default function ModularHero({
   const modularData = getBlockData(data?.hero);
   return (
     <div className="modular-hero-container">
+      <GradientScroll />
       <div className="modular-hero-inner">
         <ModularLayoutWrapper
           data={modularData.LayoutOptionBlockRecord}
@@ -29,7 +31,6 @@ export default function ModularHero({
           )}
         </ModularLayoutWrapper>
       </div>
-      <StarryBackground />
     </div>
   );
 }

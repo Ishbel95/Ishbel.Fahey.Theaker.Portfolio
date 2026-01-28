@@ -1,5 +1,32 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 
 export default function LoadingScreen() {
-  return <div className="loading-container">Loading...</div>;
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const countInterval = setInterval(() => {
+      setCount((prev) => {
+        if (prev >= 100) {
+          clearInterval(countInterval);
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 40);
+
+    return () => clearInterval(countInterval);
+  }, []);
+
+  return (
+    <div className={` ${count === 100 && "loading-container-remove"}`}>
+      <div className="loading-container glass-basic-background">
+        <div className="loading-text">
+          <h3>Loading</h3>
+
+          <p>{count}</p>
+        </div>
+      </div>
+    </div>
+  );
 }

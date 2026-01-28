@@ -3,6 +3,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import StarryBackground from "@/components/animation/starryBackground";
+
+import LoadingScreen from "@/components/Loading";
 
 config.autoAddCss = false;
 export default function RootLayout({
@@ -12,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="gradient-container">
         <Navigation />
         <main>{children}</main>
         <Footer />

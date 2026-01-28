@@ -90,13 +90,9 @@
   width: 100%;
 }
 
-.glass-round {
-  border-radius: 50%;
-  position: relative;
-}
 .glass-path {
   .glass-inner {
-    background-color: rgba(3, 11, 20, 0.7);
+    background-color: rgba(3, 11, 20, 0.3);
   }
 }
 .glass-wrapper {
@@ -118,8 +114,13 @@
   border-radius: $borderRadius;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px 0px 13px rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0px 2px 1px rgba(255, 255, 255, 0.8),
+    inset 0px 40px 40px rgba(255, 255, 255, 0.24),
+    inset 0px 0-3px 6px rgba(255, 255, 255, 0.24),
+    inset 0px -6px 18px rgba(255, 255, 255, 0.24),
+    inset 0px -40px 40px rgba(0, 0, 0, 0.4),
+    inset 0px 6px 12px rgba(255, 255, 255, 0.4);
   @extend .card-padding;
   top: 0;
   left: 0;
@@ -145,7 +146,8 @@
 }
 
 .glass-card,
-.glass-path {
+.glass-path,
+.glass-round {
   // background: rgb(128 128 128 / 0.2);
   position: relative;
   border-radius: $borderRadius;
@@ -159,7 +161,7 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: rgb(255, 255, 255) 0.8;
+    background: $highlightGlow 0.9;
   }
   .glass-glow-fake-blob {
     display: hidden;
@@ -172,8 +174,21 @@
     border-radius: 50%;
   }
 }
+.glass-round {
+  border-radius: 50%;
+  position: relative;
+}
+.glass-card-wrapper {
+  position: relative;
+  .glass-reflection {
+    -webkit-mask: $linearGradientTransparent;
+    mask: $linearGradientTransparent;
+    transform: rotate(180deg);
+    margin-top: 10px;
+  }
+}
 
-.modular-inner {
+.global-width {
   width: $globalWidth;
   margin: 0 auto;
 }
@@ -269,4 +284,51 @@ p {
   -webkit-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
   -moz-box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
   box-shadow: 0px 0px 45px 10px rgba(38, 153, 195, 1);
+}
+// .image-container,
+// .modular-content-container {
+//   @include desktop() {
+//     width: 50%;
+//   }
+// }
+// .modular-layout-enter {
+//   .display-flex-row-desktop {
+//     .modular-content-container {
+//     }
+//     .image-container {
+//       /* Copy code to element you want to animate */
+//       transform: translateX(500px);
+//       animation: slide-in-left $easeInOutLonger;
+//     }
+//   }
+//   .display-flex-row-reverse-desktop {
+//     .modular-content-container {
+//     }
+//     .image-container {
+//     }
+//   }
+// }
+
+// .modular-layout-exit {
+//   .modular-layout-inner {
+//     .display-flex-row-desktop {
+//       .modular-content-container {
+//       }
+//       .image-container {
+//         animation: slide-in-left 2s ease 0s forwards normal none;
+//       }
+//     }
+//     .display-flex-row-reverse-desktop {
+//       .modular-content-container {
+//       }
+//       .image-container {
+//       }
+//     }
+//   }
+// }
+/* Copy this code after the above code */
+@keyframes slide-in-left {
+  to {
+    transform: translateX(0);
+  }
 }

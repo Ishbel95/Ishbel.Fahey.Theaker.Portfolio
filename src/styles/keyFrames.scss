@@ -182,6 +182,13 @@
     transform: translateY(-100vh);
   }
 }
+
+@keyframes div-disappear {
+  to {
+    transform: translateY(-10000vh);
+    display: none;
+  }
+}
 @keyframes blurIn {
   to {
     background: rgba(0, 0, 0, 0.2);
@@ -228,5 +235,97 @@
     width: 200px;
     height: 200px;
     box-shadow: none;
+  }
+}
+
+@keyframes glassFadeOutScale {
+  to {
+    scale: 1.2;
+    opacity: 0;
+  }
+}
+
+@keyframes swirl {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(0.92);
+  }
+}
+
+@keyframes morph-to-circle {
+  10% {
+    border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+    scale: 2;
+  }
+  50% {
+    scale: 4;
+    background: transparent;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+    box-shadow:
+      0 -20px 40px $cyan inset,
+      0 -40px 40px $teal inset,
+      0 -20px 70px $deepBlue inset;
+  }
+
+  10% {
+    border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+  }
+
+  20% {
+    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+  }
+
+  30% {
+    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+    box-shadow:
+      0 -40px 80px $aqua inset,
+      -10px -20px 60px $cyan inset,
+      -10px -20px 40px $teal inset,
+      10px 40px 80px $deepBlue inset;
+  }
+
+  40% {
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+  }
+
+  50% {
+    border-radius: 100%;
+    box-shadow:
+      0 40px 160px $violet inset,
+      0 20px 50px $cyan inset,
+      0 40px 40px $teal inset,
+      0 60px 80px $deepestBlue inset;
+  }
+
+  60% {
+    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+  }
+
+  70% {
+    border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+    box-shadow:
+      10px 10px 80px $cyan inset,
+      20px -10px 40px $teal inset,
+      -10px -10px 160px $deepestBlue inset;
+  }
+
+  80% {
+    border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+  }
+
+  90% {
+    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
   }
 }

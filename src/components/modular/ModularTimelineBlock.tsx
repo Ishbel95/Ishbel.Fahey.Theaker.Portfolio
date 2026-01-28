@@ -13,7 +13,7 @@ export default function ModularTimelineBlock({
   key: string;
 }) {
   return (
-    <div key={key} className={`modular-timeline-container modular-inner`}>
+    <div key={key} className={`modular-timeline-container global-width`}>
       {/* <span className="timeline-line column-2" /> */}
       {data.timelineData.map((timelineSection) => (
         <div

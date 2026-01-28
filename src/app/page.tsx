@@ -6,6 +6,8 @@ import ModularHero from "@/components/modular/ModularHeroBlock";
 import ModularContent from "@/components/modular/ModularContentBlock";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
+import GradientScroll from "@/components/animation/GradientScroll";
+import GradientSphere from "@/components/animation/GradientSphere";
 export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query });
@@ -21,11 +23,12 @@ export default async function Home() {
 
   return (
     <div className="homepage-container">
+      <GradientSphere />
       <div className="homepage-inner">
         {homepageData?.content?.map(
           (component: HeroBlockFragmentQuery | ModularContentQuery) => {
             return GetModularHomePageBlock(component.__typename, component);
-          }
+          },
         )}
       </div>
     </div>
