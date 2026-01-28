@@ -56,18 +56,18 @@
   z-index: -1;
 }
 
-.star-group-one {
-  @include stars-content(1800, $white, 200, 7, 0, 2, 2);
-}
+// .star-group-one {
+//   @include stars-content(1800, $white, 200, 7, 0, 2, 2);
+// }
 
-.star-group-two {
-  @include stars-content(1800, $white, 200, 10, 0, 3, 3);
-}
+// .star-group-two {
+//   @include stars-content(1800, $white, 200, 10, 0, 3, 3);
+// }
 
-.star-group-three {
-  width: 3px;
-  @include stars-content(1800, $white, 200, 3, 0, 1, 1);
-}
+// .star-group-three {
+//   width: 3px;
+//   @include stars-content(1800, $white, 200, 3, 0, 1, 1);
+// }
 
 // @include gradient($name: "1", $gradientColor: $darkBlue);
 

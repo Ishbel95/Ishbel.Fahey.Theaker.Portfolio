@@ -329,3 +329,52 @@
     border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
   }
 }
+
+@keyframes text-morph-out {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+}
+
+@keyframes text-morph-in {
+  0% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes glass-morph-to-square {
+  to {
+    border-radius: $borderRadius;
+    opacity: 1;
+    scale: 1.1;
+  }
+}
+
+@keyframes glass-morph-to-circle {
+  to {
+    border-radius: 50%;
+    opacity: 0.7;
+    scale: 0.8;
+  }
+}
+
+@keyframes glass-morph-text-hide {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glass-morph-text-show {
+  100% {
+    opacity: 1;
+  }
+}

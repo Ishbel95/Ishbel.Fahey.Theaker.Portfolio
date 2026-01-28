@@ -1,0 +1,130 @@
+.glass-path {
+  cursor: pointer;
+  margin-top: $mobileMargin;
+  .glass-inner {
+    background-color: rgba(3, 11, 20, 0.3);
+  }
+  @include desktop() {
+    margin-top: $desktopMargin;
+  }
+}
+
+.glass-wrapper {
+  overflow: clip;
+}
+.glass-basic-background {
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.glass-basic-background-clear {
+  background: transparent;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+.glass-inner {
+  position: relative;
+  border-radius: $borderRadius;
+  width: 100%;
+  height: 100%;
+  box-shadow:
+    inset 0px 2px 1px rgba(255, 255, 255, 0.8),
+    inset 0px 40px 40px rgba(255, 255, 255, 0.24),
+    inset 0px 0-3px 6px rgba(255, 255, 255, 0.24),
+    inset 0px -6px 18px rgba(255, 255, 255, 0.24),
+    inset 0px -40px 40px rgba(0, 0, 0, 0.4),
+    inset 0px 6px 12px rgba(255, 255, 255, 0.4);
+  @extend .card-padding;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: clip;
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: $borderRadius;
+    z-index: -2;
+  }
+}
+
+.glass-card,
+.glass-path,
+.glass-round {
+  // background: rgb(128 128 128 / 0.2);
+  position: relative;
+  border-radius: $borderRadius;
+  .glass-glow-blob {
+    filter: blur(40px);
+    position: absolute;
+    z-index: -3;
+    top: 5%;
+    left: 5%;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: $highlightGlow 0.9;
+  }
+  .glass-glow-fake-blob {
+    display: hidden;
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+}
+.glass-round {
+  border-radius: 50%;
+  position: relative;
+}
+.glass-card-wrapper {
+  position: relative;
+  .glass-reflection {
+    -webkit-mask: $linearGradientTransparent;
+    mask: $linearGradientTransparent;
+    transform: rotate(180deg);
+    margin-top: 10px;
+  }
+}
+.glass-morph-to-square {
+  .glass-inner {
+    border-radius: 50%;
+
+    animation: glass-morph-to-square $easeInOutLonger;
+    .timeline-body {
+      animation: text-morph-in $easeInOutLonger;
+    }
+    .timeline-title {
+      animation: text-morph-out $easeInOutLonger;
+    }
+  }
+}
+
+.glass-morph-to-circle {
+  .glass-inner {
+    border-radius: $borderRadius;
+
+    animation: glass-morph-to-circle $easeInOutLonger;
+    .timeline-body {
+      animation: text-morph-out $easeInOutLonger;
+    }
+    .timeline-title {
+      animation: text-morph-in $easeInOutLonger;
+    }
+  }
+}

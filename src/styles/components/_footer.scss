@@ -46,9 +46,16 @@
     animation: move-right-to-center 1s ease-in-out forwards;
   }
   .footer-links {
-    svg {
-      opacity: 1;
-      animation: fadeOut 1s ease-in-out forwards;
+    .social-link {
+      svg {
+        min-height: 30px;
+        min-width: 30px;
+        font-size: 1.4rem;
+        border-radius: $borderRadius;
+        color: $white;
+        opacity: 1;
+        animation: fadeOut 1s ease-in-out forwards;
+      }
     }
   }
 }

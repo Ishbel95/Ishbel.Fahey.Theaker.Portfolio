@@ -25,26 +25,28 @@
 
 //can include at breakpoint etc
 @mixin flexBox(
-  $flexDirection: null,
-  $alignItems: null,
-  $justifyContent: null,
-  $flexWrap: null
+  $name,
+  $flexDirection: "row",
+  $alignItems: "center",
+  $justifyContent: "space-evenly",
+  $flexWrap: "nowrap"
 ) {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  @if ($flexDirection) {
-    flex-direction: $flexDirection;
-  }
-  @if ($alignItems) {
-    align-items: $alignItems;
-  }
-  @if ($justifyContent) {
-    justify-content: $justifyContent;
-  }
-  @if ($flexWrap) {
-    flex-wrap: $flexWrap;
+  .display-#{$name} {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    @if ($flexDirection) {
+      flex-direction: $flexDirection;
+    }
+    @if ($alignItems) {
+      align-items: $alignItems;
+    }
+    @if ($justifyContent) {
+      justify-content: $justifyContent;
+    }
+    @if ($flexWrap) {
+      flex-wrap: $flexWrap;
+    }
   }
 }
 
@@ -67,7 +69,11 @@
     grid-template-columns: $customColumns;
   }
 }
-
+@mixin column($position, $start, $end) {
+  .column-#{$position} {
+    grid-column: $start / $end;
+  }
+}
 @mixin alignText($textAlign, $oppositeAlignPosition: false) {
   text-align: center;
   margin: 0 auto;
