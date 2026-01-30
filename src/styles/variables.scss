@@ -44,26 +44,31 @@ $gradient-mouse-glow: radial-gradient(
   $darkBlue 50%,
   transparent 100%
 );
-
-$linearGradientTransparent: linear-gradient(
-  180deg,
+$radialTransparentGradient: radial-gradient(
+  circle at center,
   transparent 0%,
-
-  $darkestBlue 95%,
+  transparent 10%,
+  $deepestBlue 70%
+);
+$linearGradientTransparent: linear-gradient(
+  0deg,
+  transparent 0%,
+  transparent 5%,
+  $darkestBlue 20%,
   $darkestBlue 100%
 );
 //spacing
 $globalWidth: min(90%, 1000px);
 $smallGlobalWidth: min(100%, 800px);
 $globalTransition: all 250ms ease-in-out;
-$mobilePadding: 3em 0;
-$desktopPadding: 6em 0;
+$mobilePadding: 4em 0;
+$desktopPadding: 8em 0;
 
-$mobileTopPaddingOnly: 3em 0 0 0;
-$desktopTopPaddingOnly: 6em 0 0 0;
+$mobileTopPaddingOnly: 4em 0 0 0;
+$desktopTopPaddingOnly: 8em 0 0 0;
 
-$mobileBottomPaddingOnly: 0 0 3em 0;
-$desktopBottomPaddingOnly: 0 0 6em 0;
+$mobileBottomPaddingOnly: 0 0 4em 0;
+$desktopBottomPaddingOnly: 0 0 8em 0;
 
 $mobileMargin: 0.1em;
 $desktopMargin: 0.2em;
@@ -95,3 +100,4 @@ $lineHeight: 1.5em;
 
 $easeInForwards: 300ms ease-in forwards;
 $easeInOutLonger: 500ms ease-in-out forwards;
+$easeInOut2Seconds: 2s ease-in-out forwards;

@@ -137,8 +137,6 @@
     border-bottom: $borderBase $white;
     &:hover,
     &:focus {
-      color: $darkBlue;
-      border-bottom: $borderBase $darkBlue;
     }
   }
 }
@@ -178,7 +176,7 @@
     position: absolute;
     background: radial-gradient(
         circle at center,
-        rgba($gradientColor, 0.8) 0,
+        rgba($gradientColor, 0.4) 0,
         rgba($gradientColor, 0) 50%
       )
       no-repeat;

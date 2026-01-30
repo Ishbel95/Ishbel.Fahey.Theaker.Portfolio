@@ -15,7 +15,7 @@ export default function FooterInner({ data }: { data: any }) {
     <div
       className={`footer-container display-flex padding-bottom-only ${expandFooter ? "footer-expanded" : "footer-closed"}`}
     >
-      <Glass classNames="glass-round footer-button">
+      {/* <Glass classNames="glass-round footer-button">
         <button
           onClick={() => {
             setExpandFooter(!expandFooter);
@@ -23,7 +23,7 @@ export default function FooterInner({ data }: { data: any }) {
         >
           Contact
         </button>
-      </Glass>
+      </Glass> */}
       {data.footer.footerLinks.map(
         ({
           id,

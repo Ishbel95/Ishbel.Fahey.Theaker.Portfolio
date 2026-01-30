@@ -90,17 +90,12 @@
 }
 .glass-round {
   border-radius: 50%;
-  position: relative;
-}
-.glass-card-wrapper {
-  position: relative;
-  .glass-reflection {
-    -webkit-mask: $linearGradientTransparent;
-    mask: $linearGradientTransparent;
-    transform: rotate(180deg);
-    margin-top: 10px;
+
+  .glass-inner {
+    border-radius: 50%;
   }
 }
+
 .glass-morph-to-square {
   .glass-inner {
     border-radius: 50%;
