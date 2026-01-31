@@ -1,15 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getDatoCmsData } from "@/util/util";
 import { AllModularTemplateSlugsQuery } from "@/queries/ModularTemplateQuery";
 import Link from "next/link";
 import Glass from "./animation/Glass";
+import { usePathname } from "next/navigation";
+
 export default function NavigationInner({ data }: { data: any }) {
+  const pathname = usePathname();
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const handleBurgerClick = () => {
     setNavIsOpen(!navIsOpen);
   };
+
+  useEffect(() => {
+    pathname && setNavIsOpen(false);
+  }, [pathname]);
   return (
     <div
       className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"}`}
@@ -38,7 +45,7 @@ export default function NavigationInner({ data }: { data: any }) {
           </div>
         </div>{" "}
         <button className="navigation-burger" onClick={handleBurgerClick}>
-          <span />
+          <div />
         </button>
       </Glass>
     </div>

@@ -9,6 +9,9 @@
   top: 20px;
   .glass-inner {
     margin: 0 auto;
+    width: 100px;
+    height: 100px;
+
     .navigation-content {
       position: fixed;
       top: 0;
@@ -16,16 +19,15 @@
         left: 0;
         right: 0;
         bottom: 0;
+        top: 0;
       }
       @include desktop() {
         left: 50%;
         width: 100%;
-
-        transform: translateY(-100px);
         transform: translateX(-50%);
       }
       .navigation-content-inner {
-        transform: translateY(60px);
+        // transform: translateY(60px);
         @include mobile() {
           height: 100%;
           @include flexBox(column, space-evenly, space-evenly);
@@ -40,67 +42,86 @@
       font-size: 2.8em;
       font-weight: 900;
       text-shadow: 5px 5px 10px $black;
+      position: relative;
+      transition: all 250ms;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $white;
+        height: 3px;
+        border-radius: $borderRadius;
+        width: 100%;
+        bottom: -5px;
+        left: 0;
+        scale: 0 0;
+        opacity: 0;
+        transition: all 300ms;
+      }
+      &:hover,
+      &:focus {
+        &::after {
+          scale: 1 1;
+          opacity: 1;
+        }
+      }
       @include desktop() {
         opacity: 1;
         margin: 0 1em;
         font-size: 1em;
       }
     }
-  }
-}
-.navigation-burger {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  @include mobile() {
-  }
-  span,
-  span::after,
-  span::before {
-    content: "";
-    border-radius: $borderRadius;
-    position: absolute;
-    width: 40px;
-    opacity: 1;
-    margin: 0 auto;
-    height: 2px;
-    scale: 1 1;
-    background-color: $white;
-  }
-  span {
-    right: 0;
-    left: 0;
-    &::after {
-      top: -10px;
+    .navigation-burger {
+      margin: 0 auto;
+      display: block;
+      width: 50px;
+      @include desktop() {
+        position: absolute;
+      }
     }
-    &::before {
-      top: 10px;
+    .navigation-burger::after,
+    .navigation-burger::before,
+    .navigation-burger div {
+      content: "";
+      background: #fff;
+      content: "";
+      display: block;
+      height: 4px;
+      border-radius: 3px;
+      margin: 7px 0;
+      transition: 0.5s;
     }
   }
 }
 
 .glass-navigation-open {
   .glass-navigation {
+    .navigation-burger::before {
+      transform: translateY(11px) rotate(135deg);
+    }
+    .navigation-burger::after {
+      transform: translateY(-10px) rotate(-135deg);
+    }
+    .navigation-burger div {
+      transform: scale(0);
+    }
+
     @include desktop() {
       position: fixed;
       animation: navigationOpenContentMove 350ms linear forwards;
     }
     .glass-inner {
       box-shadow: inset 0 0 13px #fff6;
-      width: 100px;
-      height: 100px;
       padding: 2em;
       border-radius: 50%;
       animation: navigationClosedToOpenGlass $easeInForwards;
-      @include desktop() {
-      }
       .navigation-content {
-        @extend .glass-basic-background-clear;
-        animation: blurIn $easeInForwards;
         height: 100%;
         .navigation-content-inner {
+          @include desktop() {
+            height: 100%;
+          }
+          @extend .glass-basic-background-clear;
+          animation: blurIn $easeInForwards;
         }
         a {
           @include mobile() {
@@ -112,13 +133,7 @@
             font-size: 2rem;
           }
         }
-        @include desktop() {
-        }
       }
-    }
-  }
-  .navigation-burger {
-    @include desktop() {
     }
   }
 }
@@ -126,35 +141,49 @@
 .glass-navigation-closed {
   .glass-inner {
     border-radius: 50%;
-    margin: 0 auto;
     min-height: 100px;
     @include mobile() {
-      height: 200px;
-      width: 200px;
-
       padding: 2em;
       animation: navigationOpenToClosedGlass $easeInForwards;
     }
     @include desktop() {
-      display: flex;
-      align-self: center;
-      justify-content: center;
       padding: 3em 5em;
       border-radius: 200px;
-      width: 40%;
+      width: 70%;
     }
     .navigation-content {
-      @extend .glass-basic-background;
-      animation: blurOut $easeInForwards;
-      height: 0%;
-      @include desktop() {
-        animation: blurOutDesktop $easeInForwards;
+      @include mobile() {
+        animation: navigation-shrink-height 10ms forwards;
+        animation-delay: 400ms;
+      }
+
+      .navigation-content-inner {
+        @include mobile() {
+          background: rgba(0, 0, 0, 0.2);
+          -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+          animation: blurOut $easeInForwards;
+          a {
+            @include fadeInAnimation(false, false);
+          }
+        }
+
+        @include desktop() {
+          opacity: 1;
+          transform: translateY(59px);
+          animation: navigationTextScroll linear forwards;
+          animation-timeline: scroll(root);
+          animation-duration: 1s;
+          animation-range-start: 2px;
+          animation-range-end: 1000px;
+        }
       }
     }
 
     @include desktop() {
       animation: navigationInnerScroll linear forwards;
       animation-timeline: scroll(root);
+      animation-duration: 1s;
       animation-range-start: 2px;
       animation-range-end: 1000px;
     }
@@ -165,22 +194,16 @@
       scale: 0 1;
       animation: navigationBurgerScroll linear forwards;
       animation-timeline: scroll(root);
+      animation-duration: 1s;
       animation-range-start: 2px;
       animation-range-end: 1000px;
     }
   }
-  .navigation-content-inner {
-    @include mobile() {
-      animation: moveUp 10ms ease forwards 400ms;
-      a {
-        @include fadeInAnimation(false, false);
-      }
-    }
+}
 
-    @include desktop() {
-      animation: navigationTextScroll linear forwards;
-      animation-timeline: scroll(root);
-      animation-range-start: 0px;
-    }
+@keyframes navigation-shrink-height {
+  to {
+    height: 0%;
+    transform: translateY(-100vh);
   }
 }

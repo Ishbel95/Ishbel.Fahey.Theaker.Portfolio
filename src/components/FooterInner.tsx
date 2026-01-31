@@ -36,8 +36,9 @@ export default function FooterInner({ data }: { data: any }) {
         }) => {
           return (
             <Glass classNames="glass-round footer-links">
+              <FontAwesomeIcon icon={socialIcon} />
               <a key={id} href={socialLink} className="social-link">
-                <FontAwesomeIcon icon={socialIcon} />
+                This is text
               </a>
             </Glass>
           );

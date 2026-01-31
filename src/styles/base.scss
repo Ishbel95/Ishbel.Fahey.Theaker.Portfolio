@@ -14,29 +14,23 @@
   }
 }
 
-@include flexBox($name: "flex");
-
-@include desktop() {
-  @include flexBox($name: "flex-row-desktop");
-}
-@include desktop() {
-  @include flexBox(
-    $name: "flex-row-reverse-desktop",
-    $flexDirection: row-reverse,
-    $alignItems: center,
-    $justifyContent: space-between
-  );
-}
-@include desktop() {
-  @include flexBox(
-    $name: "flex-wrap",
-    $flexDirection: row,
-    $alignItems: center,
-    $justifyContent: space-evenly,
-    $flexWrap: wrap
-  );
+.display-flex {
+  @include flexBox();
 }
 
+.display-flex-row-desktop {
+  @include desktop() {
+    @include flexBox();
+  }
+}
+.display-flex-row-reverse-desktop {
+  @include desktop() {
+    @include flexBox(row-reverse, center, space-between);
+  }
+}
+.display-flex-wrap {
+  @include flexBox(row, center, space-evenly, wrap);
+}
 .display-grid-3-columns {
   @include desktop() {
     @include customColumnGrid(49% 0% 49%);

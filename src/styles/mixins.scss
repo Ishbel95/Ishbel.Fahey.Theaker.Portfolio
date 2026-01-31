@@ -25,28 +25,25 @@
 
 //can include at breakpoint etc
 @mixin flexBox(
-  $name,
   $flexDirection: "row",
   $alignItems: "center",
   $justifyContent: "space-evenly",
   $flexWrap: "nowrap"
 ) {
-  .display-#{$name} {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    @if ($flexDirection) {
-      flex-direction: $flexDirection;
-    }
-    @if ($alignItems) {
-      align-items: $alignItems;
-    }
-    @if ($justifyContent) {
-      justify-content: $justifyContent;
-    }
-    @if ($flexWrap) {
-      flex-wrap: $flexWrap;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  @if ($flexDirection) {
+    flex-direction: $flexDirection;
+  }
+  @if ($alignItems) {
+    align-items: $alignItems;
+  }
+  @if ($justifyContent) {
+    justify-content: $justifyContent;
+  }
+  @if ($flexWrap) {
+    flex-wrap: $flexWrap;
   }
 }
 
@@ -201,7 +198,6 @@
     animation: fadeOut $easeInForwards;
   } @else if($fadeIn == true and $fadeUp == true) {
     opacity: 0;
-    transform: translateY(300px);
     animation: fadeInAndDown $easeInForwards;
   } @else {
     opacity: 0;
