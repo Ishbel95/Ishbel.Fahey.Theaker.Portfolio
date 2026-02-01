@@ -1,6 +1,7 @@
 "use client";
 
 import useInView from "@/hooks/useInView";
+import useScreenSize from "@/hooks/useScreenSize";
 import React, { useEffect, useRef } from "react";
 
 type GlassProps = {
@@ -30,7 +31,7 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
           },
         ],
         {
-          duration: 300,
+          duration: 500,
           fill: "forwards",
         },
       );
@@ -39,15 +40,19 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  const morphGlass = useInView(cardRef, "-100px", 1);
+  const screenSize = useScreenSize();
+  const morphGlass = useInView(
+    cardRef,
+    screenSize.width >= 756 ? "-100px" : "-200px 0px -200px 0px",
+    1,
+  );
 
   return (
     <div
       ref={cardRef}
       className={`glass-wrapper ${morphGlass ? "glass-morph-to-square" : "glass-morph-to-circle"} `}
     >
-      <div className={`glass-inner ${classNames} `}>{children}</div>
+      <div className={`glass-inner ${classNames}`}>{children}</div>
       <div ref={blobRef} className="glass-glow-blob" />
       <div ref={fakeBlobRef} className="glass-glow-fake-blob" />
     </div>

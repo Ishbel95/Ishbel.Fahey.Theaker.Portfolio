@@ -21,11 +21,11 @@ export default function ModularTimelineBlock({
           key={timelineSection.id}
         >
           <GlassMorph>
-            <div className="timeline-section-inner ">
-              <h4 className="timeline-title">
+            <div className="timeline-section-inner">
+              <h4 className="timeline-title display-flex">
                 {timelineSection.timelineSectionTitle}
               </h4>
-              <div className="timeline-body">
+              <div className="timeline-body display-flex-column-center">
                 <MyStructuredText data={timelineSection.timelineBody} />
               </div>
             </div>

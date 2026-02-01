@@ -2,27 +2,30 @@
   position: relative;
 
   .modular-card-carousel-inner {
-    transition: $globalTransition;
+    transition: 0.5s;
   }
   .card {
-    transition: $globalTransition;
+    transition: 0.5s;
     cursor: pointer;
     transition: 0.4s ease-out;
     position: relative;
-    scale: 1 1;
 
     .card-expanded-text {
       position: absolute;
-      transition: $globalTransition;
+      transition: 0.5s;
       opacity: 0;
       background: transparent;
       z-index: 35;
+      inset: 0;
+      transition: 0.5s;
       transform: translateY(-20px);
+      padding: 1em;
     }
     .card-overlay {
       position: absolute;
       inset: 0;
       z-index: 30;
+      transition: 0.5s;
       @extend .glass-basic-background-clear;
     }
     margin: 1em auto;
@@ -32,7 +35,7 @@
     &:hover,
     &:focus {
       z-index: 50;
-      scale: 1.2 1.2;
+
       @include desktop() {
         transform: translateY(-20px);
       }

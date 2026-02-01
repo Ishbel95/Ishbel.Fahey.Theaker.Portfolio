@@ -44,26 +44,7 @@
       text-shadow: 5px 5px 10px $black;
       position: relative;
       transition: all 250ms;
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: $white;
-        height: 3px;
-        border-radius: $borderRadius;
-        width: 100%;
-        bottom: -5px;
-        left: 0;
-        scale: 0 0;
-        opacity: 0;
-        transition: all 300ms;
-      }
-      &:hover,
-      &:focus {
-        &::after {
-          scale: 1 1;
-          opacity: 1;
-        }
-      }
+      @include linkHover;
       @include desktop() {
         opacity: 1;
         margin: 0 1em;

@@ -6,9 +6,11 @@
   }
   .glass-wrapper {
     cursor: pointer;
+    transition: 0.5s;
+    scale: 1 1;
     &:hover,
     &:focus {
-      animation: card-wobble $easeInOut2Seconds;
+      scale: 1.2 1.2;
     }
   }
   .tech-stack-image {

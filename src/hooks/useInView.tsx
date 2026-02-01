@@ -14,9 +14,13 @@ export default function useInView(
       ([entry]) => {
         setIntersecting(entry.isIntersecting);
       },
-      { rootMargin: rootMarginValue, threshold: thresholdValue ?? 0 },
+      {
+        rootMargin: rootMarginValue,
+        threshold: thresholdValue ?? 0,
+      },
     );
     observer.observe(ref.current);
+    console.log(ref.current.getBoundingClientRect());
 
     return () => {
       observer.disconnect();
