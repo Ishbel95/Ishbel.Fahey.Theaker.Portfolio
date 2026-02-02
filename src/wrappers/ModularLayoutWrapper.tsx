@@ -42,7 +42,7 @@ export default function ModularLayoutWrapper({
       ref={modularLayoutDiv}
       id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper ${modularLayoutInView ? "modular-layout-enter" : "modular-layout-exit"}`}
+      className={`modular-layout-wrapper ${modularLayoutInView ? "modular-layout-enter" : "modular-layout-exit"} background-${data?.backgroundColor}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div

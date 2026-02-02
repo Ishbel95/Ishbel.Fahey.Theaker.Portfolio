@@ -1,17 +1,21 @@
 "use client";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MyPath from "../data/MyPath";
-
+import getCookie from "@/util/serverFunctions";
 export default function GradientHero({
   animate,
   children,
+  visitedPortfolio,
 }: {
   animate?: boolean;
   children?: React.ReactNode;
+  visitedPortfolio?: Promise<boolean>;
 }) {
-  const [animateGradient, setAnimateGradient] = useState(true);
+  const [animateGradient, setAnimateGradient] = useState(
+    visitedPortfolio ?? false,
+  );
 
   return (
     <div className="gradient-hero-parallax">
@@ -21,9 +25,20 @@ export default function GradientHero({
         <div className={`gradient-hero-inner display-flex`}>
           {animate && (
             <div className="gradient-hero-text ">
-              <MyPath buttonPath="..">
-                <button onClick={() => setAnimateGradient(true)}>
-                  Click to enter
+              <MyPath
+                buttonPath=".."
+                customClassNames="glass-pill expanding-link-container display-flex-row-center"
+              >
+                <FontAwesomeIcon icon={faArrowUp} />
+                <button
+                  className="expanding-link"
+                  onClick={() => {
+                    setAnimateGradient(true);
+                    typeof window !== "undefined" &&
+                      window.scroll({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  Enter
                 </button>
               </MyPath>
             </div>

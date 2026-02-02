@@ -15,7 +15,6 @@
     position: absolute;
     width: 80vw;
     height: 90vh;
-
     @include desktop() {
       width: 30vw;
       height: 40vh;
@@ -23,7 +22,6 @@
     animation: morph;
     animation-duration: 20s;
     animation-iteration-count: infinite;
-
     background: radial-gradient(circle at 0% 0%, $deepBlue, $deepestBlue);
     border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
     box-shadow:
@@ -48,6 +46,6 @@
     animation: morph-to-circle $easeInForwards;
   }
   .glass-wrapper {
-    animation: glassFadeOutScale $easeInForwards;
+    animation: fadeOutScale $easeInForwards;
   }
 }

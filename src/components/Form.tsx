@@ -5,6 +5,7 @@ import FormBlockFragmentQuery, {
 import FormInputWrapper from "@/wrappers/FormInputWrapper";
 import React from "react";
 import MyPath from "./data/MyPath";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Form({
   data,
@@ -28,11 +29,17 @@ export default function Form({
         );
       case InputTypes.Select:
         return (
-          <select id={data.name} name={data.name}>
-            {data.selectOptions.map(({ string, id }) => (
-              <option key={id}>{string}</option>
-            ))}
-          </select>
+          <div className="custom-select display-flex">
+            {/* <span>{data.selectTitle}</span>{" "} */}
+            <FontAwesomeIcon icon={data.selectIcon} />
+            <select id={data.name} name={data.name}>
+              {data.selectOptions.map(({ string, id }) => (
+                <option key={id} value={string}>
+                  {string}
+                </option>
+              ))}
+            </select>
+          </div>
         );
       default:
         return (

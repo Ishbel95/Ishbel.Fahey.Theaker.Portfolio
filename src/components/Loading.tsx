@@ -13,7 +13,7 @@ export default function LoadingScreen() {
         }
         return prev + 1;
       });
-    }, 40);
+    }, 30);
 
     return () => clearInterval(countInterval);
   }, []);
@@ -23,7 +23,6 @@ export default function LoadingScreen() {
       <div className="loading-container glass-basic-background">
         <div className="loading-text">
           <h3>Loading</h3>
-
           <p>{count}</p>
         </div>
       </div>

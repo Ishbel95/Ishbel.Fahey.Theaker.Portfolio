@@ -1,3 +1,4 @@
+"use server";
 import React from "react";
 import { ReactNode } from "react";
 import MyStructuredText from "../data/MyStructuredText";
@@ -6,7 +7,9 @@ import MyImage from "../data/MyImage";
 import { getBlockData } from "@/util/util";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import GradientHero from "../animation/GradientHero";
-export default function ModularHero({
+import getCookie from "@/util/serverFunctions";
+
+export default async function ModularHero({
   data,
   key,
   siteEntryAnimation,
@@ -16,8 +19,15 @@ export default function ModularHero({
   siteEntryAnimation?: boolean;
 }) {
   const modularData = getBlockData(data?.hero);
+  const visitedPortfolioCookie = getCookie({
+    cookie: "Ishbel-Fahey-Theaker-Portfolio",
+    value: "true",
+  });
   return (
-    <GradientHero animate={siteEntryAnimation}>
+    <GradientHero
+      animate={siteEntryAnimation}
+      visitedPortfolio={visitedPortfolioCookie}
+    >
       <div className="modular-hero-container">
         <div className="modular-hero-inner">
           <ModularLayoutWrapper

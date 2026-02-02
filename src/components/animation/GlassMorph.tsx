@@ -2,6 +2,7 @@
 
 import useInView from "@/hooks/useInView";
 import useScreenSize from "@/hooks/useScreenSize";
+import { BreakPoints } from "@/models/enums/BreakPoints";
 import React, { useEffect, useRef } from "react";
 
 type GlassProps = {
@@ -43,7 +44,9 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
   const screenSize = useScreenSize();
   const morphGlass = useInView(
     cardRef,
-    screenSize.width >= 756 ? "-100px" : "-200px 0px -200px 0px",
+    screenSize.width >= BreakPoints.Desktop
+      ? "-100px"
+      : "-200px 0px -200px 0px",
     1,
   );
 

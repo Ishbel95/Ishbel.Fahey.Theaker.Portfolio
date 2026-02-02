@@ -6,10 +6,12 @@ import ModularHero from "@/components/modular/ModularHeroBlock";
 import ModularContent from "@/components/modular/ModularContentBlock";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
+import Loading from "./loading";
+import LoadingScreen from "@/components/Loading";
 
 export default async function Home() {
   const query = HomepageQuery;
-  const data = await getDatoCmsData({ query });
+  const data = await getDatoCmsData({ query }); //homepageinterface ??
   const homepageData = data?.homepage ?? [];
   const GetModularHomePageBlock = (type: string, component: any) => {
     switch (type) {
@@ -28,6 +30,7 @@ export default async function Home() {
 
   return (
     <div className="homepage-container">
+      <LoadingScreen />
       <div className="homepage-inner">
         {homepageData?.content?.map(
           (component: HeroBlockFragmentQuery | ModularContentQuery) => {

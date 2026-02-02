@@ -7,6 +7,9 @@
 }
 
 .form-input {
+  input,
+  textarea,
+  .custom-select,
   label {
     font-size: 0.8em;
   }
@@ -18,14 +21,55 @@
     border-radius: $borderRadius;
     padding: 1.5em 4em;
     color: $white;
-    border: none;
+    border: solid 1px transparent;
     margin: 1em auto;
-    &::placeholder {
+    transition: 0.5s;
+    &::placeholder,
+    option {
       color: $white;
       opacity: 0.7;
+      @extend .secondary-font;
+    }
+    &:hover,
+    &:focus {
+      border: solid 1px $white;
     }
   }
   select {
-    border-right: solid transparent 2em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .custom-select {
+    position: relative;
+    justify-content: space-between;
+    opacity: 0.7;
+
+    svg {
+      position: absolute;
+      right: 1.5em;
+      transition: 0.5s;
+      transform: rotate(0);
+      font-size: 1.2em;
+    }
+    // &:hover,
+    // &:focus {
+    //   svg {
+    //     transform: rotate(-180deg);
+    //   }
+    // }
+
+    select {
+      // opacity: 0;
+      // color: $white;
+    }
+
+    p {
+      opacity: 1;
+      font-size: 0.8em;
+      position: relative;
+      @extend .glass-basic-background;
+    }
   }
 }

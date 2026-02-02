@@ -5,6 +5,8 @@ import { AllModularTemplateSlugsQuery } from "@/queries/ModularTemplateQuery";
 import Link from "next/link";
 import Glass from "./animation/Glass";
 import { usePathname } from "next/navigation";
+import useScreenSize from "@/hooks/useScreenSize";
+import ModularTemplateQuery from "@/models/queries/ModularTemplateQueryInterface";
 
 export default function NavigationInner({ data }: { data: any }) {
   const pathname = usePathname();
@@ -17,6 +19,9 @@ export default function NavigationInner({ data }: { data: any }) {
   useEffect(() => {
     pathname && setNavIsOpen(false);
   }, [pathname]);
+
+  const screenSize = useScreenSize();
+  console.log(data.allModularTemplates);
   return (
     <div
       className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"}`}
@@ -28,17 +33,21 @@ export default function NavigationInner({ data }: { data: any }) {
             {data.allModularTemplates.map(
               ({
                 slug,
+                includeInNav,
                 internalTitle,
                 id,
               }: {
                 slug: string;
+                includeInNav: boolean;
                 internalTitle: string;
                 id: string;
               }) => {
                 return (
-                  <Link href={`/details/${slug}`} key={id}>
-                    {internalTitle}
-                  </Link>
+                  includeInNav && (
+                    <Link href={`/details/${slug}`} key={id}>
+                      {internalTitle}
+                    </Link>
+                  )
                 );
               },
             )}

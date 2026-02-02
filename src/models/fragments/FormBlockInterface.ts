@@ -1,3 +1,5 @@
+import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+
 export default interface FormBlockFragmentQuery {
   __typename: "FormBlockRecord";
   id: string;
@@ -19,6 +21,8 @@ export interface FormInputInterface {
   maximumCharacters: number;
   minimumCharacters: number;
   rows: number;
+  selectTitle: string;
+  selectIcon: any;
   selectOptions: {
     string: string;
     id: string;

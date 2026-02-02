@@ -27,9 +27,9 @@
         transform: translateX(-50%);
       }
       .navigation-content-inner {
+        height: 100%;
         // transform: translateY(60px);
         @include mobile() {
-          height: 100%;
           @include flexBox(column, space-evenly, space-evenly);
         }
 
@@ -40,7 +40,7 @@
     }
     a {
       font-size: 2.8em;
-      font-weight: 900;
+      font-weight: 300;
       text-shadow: 5px 5px 10px $black;
       position: relative;
       transition: all 250ms;
@@ -66,7 +66,7 @@
       background: #fff;
       content: "";
       display: block;
-      height: 4px;
+      height: 2px;
       border-radius: 3px;
       margin: 7px 0;
       transition: 0.5s;
@@ -77,10 +77,10 @@
 .glass-navigation-open {
   .glass-navigation {
     .navigation-burger::before {
-      transform: translateY(11px) rotate(135deg);
+      transform: translateY(9px) rotate(135deg);
     }
     .navigation-burger::after {
-      transform: translateY(-10px) rotate(-135deg);
+      transform: translateY(-9px) rotate(-135deg);
     }
     .navigation-burger div {
       transform: scale(0);
@@ -130,14 +130,13 @@
     @include desktop() {
       padding: 3em 5em;
       border-radius: 200px;
-      width: 70%;
+      width: 50%;
     }
     .navigation-content {
       @include mobile() {
         animation: navigation-shrink-height 10ms forwards;
         animation-delay: 400ms;
       }
-
       .navigation-content-inner {
         @include mobile() {
           background: rgba(0, 0, 0, 0.2);
@@ -148,7 +147,6 @@
             @include fadeInAnimation(false, false);
           }
         }
-
         @include desktop() {
           opacity: 1;
           transform: translateY(59px);
@@ -160,7 +158,6 @@
         }
       }
     }
-
     @include desktop() {
       animation: navigationInnerScroll linear forwards;
       animation-timeline: scroll(root);

@@ -10,7 +10,7 @@ import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterfac
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
 
 export async function generateStaticParams() {
-  const data = await getDatoCmsData({ query: AllModularTemplatePageQuery });
+  const data = await getDatoCmsData({ query: AllModularTemplatePageQuery }); ///modular template interface
   const allModularTemplatesData = data?.allModularTemplates ?? [];
   return allModularTemplatesData?.map((item: any) => ({
     params: { id: item.slug },
@@ -49,7 +49,7 @@ export default async function ModularTemplatePage({
       {modularTemplateData.modularContent.map(
         (component: HeroBlockFragmentQuery | ModularContentQuery) => {
           return GetModularTemplateBlock(component.__typename, component);
-        }
+        },
       )}
     </main>
   );

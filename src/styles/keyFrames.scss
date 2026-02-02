@@ -224,9 +224,9 @@
   }
 }
 
-@keyframes glassFadeOutScale {
+@keyframes fadeOutScale {
   to {
-    scale: 1.2;
+    scale: 1.2 1.2;
     opacity: 0;
   }
 }

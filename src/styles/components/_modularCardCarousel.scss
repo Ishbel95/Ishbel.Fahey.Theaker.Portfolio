@@ -15,7 +15,7 @@
       transition: 0.5s;
       opacity: 0;
       background: transparent;
-      z-index: 35;
+      z-index: 11;
       inset: 0;
       transition: 0.5s;
       transform: translateY(-20px);
@@ -24,7 +24,7 @@
     .card-overlay {
       position: absolute;
       inset: 0;
-      z-index: 30;
+      z-index: 10;
       transition: 0.5s;
       @extend .glass-basic-background-clear;
     }
@@ -34,8 +34,7 @@
     }
     &:hover,
     &:focus {
-      z-index: 50;
-
+      z-index: 12;
       @include desktop() {
         transform: translateY(-20px);
       }

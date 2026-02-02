@@ -7,6 +7,7 @@ export const AllModularTemplatePageQuery = `
   query ModularTemplatePageQuery($slug: string!) {
     modularTemplate(filter: { slug: { eq: $slug } }) {
       id
+      includeInNav
       internalTitle
       slug
       seo {
@@ -52,6 +53,7 @@ export const ModularTemplatePageQuery = `
     modularTemplate(filter: { slug: { eq: $slug } }) {
       id
       internalTitle
+      includeInNav
       slug
       seo {
         title
@@ -93,6 +95,7 @@ export const AllModularTemplateSlugsQuery = `
 query allModularTemplateSlugsQuery {
   allModularTemplates {
     internalTitle
+    includeInNav
     id
     slug
   }

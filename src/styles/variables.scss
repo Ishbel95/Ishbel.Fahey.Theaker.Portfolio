@@ -1,29 +1,16 @@
 //backgrounds
 //colors
-$darkestBlue: rgb(3, 11, 20); //
-$darkBlue: #071c2e; //
-$blue: rgb(15, 63, 92); //
-$lightBlue: rgb(11, 47, 74);
+
 $white: #fff;
 $black: #010204;
-//swirls
-// $blue: #00d4e8;
-$highlightGlow: #1fb6ff;
-$coreGlow: #ffffff;
-$midToneGlow: #3fa9d6;
-//stars
-
 $cyan: rgb(77, 251, 255);
-$aqua: #2ee6e6;
-
-$teal: #1fb6ff;
+$aqua: rgb(46, 230, 230);
+$teal: rgb(31, 182, 255);
 $blue: rgb(58, 123, 255);
-
 $deepBlue: rgb(26, 61, 111);
 $deepestBlue: rgb(11, 28, 45);
-
-$violet: #6a4cff;
-$purple: #8b5cf6;
+$violet: rgb(106, 76, 255);
+$purple: rgb(139, 92, 246);
 
 $glassBackground: rgba(58, 123, 255, 0.3);
 
@@ -32,16 +19,16 @@ $blending: hard-light;
 $radialGradient: radial-gradient(
   ellipse at center,
   $blue 0%,
-  $darkBlue 35%,
-  $darkestBlue 100%
+  $deepBlue 35%,
+  $deepestBlue 100%
 );
 
 $gradientCircleSize: 80%;
 
 $gradient-mouse-glow: radial-gradient(
   600px circle at center,
-  $highlightGlow 0%,
-  $darkBlue 50%,
+  $teal 0%,
+  $deepBlue 50%,
   transparent 100%
 );
 $radialTransparentGradient: radial-gradient(
@@ -54,8 +41,9 @@ $linearGradientTransparent: linear-gradient(
   0deg,
   transparent 0%,
   transparent 5%,
-  $darkestBlue 20%,
-  $darkestBlue 100%
+  $deepBlue 15%,
+  $deepestBlue 20%,
+  $deepestBlue 100%
 );
 //spacing
 $globalWidth: min(90%, 1000px);
@@ -88,7 +76,7 @@ $largeMobileBreakpoint: 1199px;
 
 //glow
 $shadowPixels: 0px 0px 106px 41px;
-$darkShadow: $shadowPixels $darkBlue;
+$darkShadow: $shadowPixels $deepBlue;
 $mediumShadow: $shadowPixels $blue;
 $lightShadow: $shadowPixels $white;
 
@@ -98,6 +86,7 @@ $lineHeight: 1.5em;
 
 //animation
 
-$easeInForwards: 300ms ease-in forwards;
+$easeInForwards: 350ms ease-in forwards;
 $easeInOutLonger: 500ms ease-in-out forwards;
 $easeInOut2Seconds: 2s ease-in-out forwards;
+$easeInOut1Seconds: 1s ease-in-out forwards;

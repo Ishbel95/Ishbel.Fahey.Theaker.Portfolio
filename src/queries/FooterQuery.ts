@@ -4,6 +4,7 @@ query FooterQuery {
     footerLinks {
       id
       socialIcon
+      socialLinkText
       socialLink
     }
   }
