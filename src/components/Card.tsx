@@ -13,7 +13,7 @@ export default function Card({
 }) {
   return (
     <Glass
-      classNames="map-child-margin glass-card card"
+      classNames="map-child-margin glass-card card "
       key={`${key + data.id}`}
     >
       <div className="card-overlay" />

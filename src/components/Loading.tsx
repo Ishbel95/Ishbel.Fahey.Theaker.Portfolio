@@ -20,7 +20,8 @@ export default function LoadingScreen() {
 
   return (
     <div className={` ${count === 100 && "loading-container-remove"}`}>
-      <div className="loading-container glass-basic-background">
+      <div className="loading-container ">
+        <div className="loading-spinner" />
         <div className="loading-text">
           <h3>Loading</h3>
           <p>{count}</p>

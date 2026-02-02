@@ -5,19 +5,15 @@
   z-index: 10;
   opacity: 0;
   animation: fadeIn $easeInForwards;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: $deepestBlue;
   .loading-text {
-    position: relative;
     padding: 3em;
     border-radius: 50%;
     h3,
     p {
       font-weight: 900;
       font-size: 2rem;
-      position: relative;
+
       z-index: 1;
       opacity: 0;
       animation: fadeIn $easeInForwards;
@@ -25,11 +21,16 @@
     }
     color: white;
     text-align: center;
-    @include primaryRadialGradient(
-      liquidShift 5s ease-in-out infinite alternate
-    );
-    width: 40vw;
-    height: 40vh;
+  }
+  .loading-spinner {
+    position: absolute;
+    @include loadingGradient(spin 1s ease-in infinite forwards);
+    width: 400px;
+    height: 400px;
+    top: 55%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
     z-index: -1;
   }
 }
@@ -43,6 +44,7 @@
   opacity: 1;
   animation: fadeOut $easeInForwards;
   animation-delay: 10ms;
+  background-color: $deepestBlue;
   .loading-text {
     opacity: 1;
     scale: 1 1;

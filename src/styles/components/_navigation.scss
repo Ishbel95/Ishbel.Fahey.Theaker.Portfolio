@@ -149,10 +149,11 @@
         }
         @include desktop() {
           opacity: 1;
+          scale: 1 1;
           transform: translateY(59px);
           animation: navigationTextScroll linear forwards;
           animation-timeline: scroll(root);
-          animation-duration: 1s;
+          animation-duration: 2s;
           animation-range-start: 2px;
           animation-range-end: 1000px;
         }

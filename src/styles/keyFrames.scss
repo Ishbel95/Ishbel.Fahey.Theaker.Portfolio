@@ -121,21 +121,18 @@
 }
 
 @keyframes navigationTextScroll {
-  1% {
+  15% {
     opacity: 0;
-  }
-  5% {
-    opacity: 0;
-    transform: translateY(-200px);
+    scale: 0 0;
   }
   100% {
     opacity: 0;
-    transform: translateY(-200px);
+    scale: 0 0;
   }
 }
 
 @keyframes navigationBurgerScroll {
-  5% {
+  15% {
     opacity: 1;
     scale: 1 1;
   }
