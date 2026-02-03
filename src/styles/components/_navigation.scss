@@ -1,4 +1,4 @@
-@import "../keyFrames.scss";
+@import "../animation/keyframes/navigationKeyframes";
 
 .glass-navigation {
   position: fixed;
@@ -7,34 +7,36 @@
   margin: 0 auto;
   z-index: 9;
   top: 20px;
+  transition: 0.5s;
+
   .glass-inner {
     margin: 0 auto;
     width: 100px;
     height: 100px;
-
+    border-radius: 50%;
+    padding: 2em;
+    @include desktop() {
+      width: 100%;
+      height: 100%;
+      border-radius: 200px;
+    }
     .navigation-content {
-      position: fixed;
-      top: 0;
       @include mobile() {
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         top: 0;
       }
-      @include desktop() {
-        left: 50%;
-        width: 100%;
-        transform: translateX(-50%);
-      }
+
       .navigation-content-inner {
-        height: 100%;
-        // transform: translateY(60px);
         @include mobile() {
+          height: 100%;
           @include flexBox(column, space-evenly, space-evenly);
         }
-
         @include desktop() {
-          @include flexBox(null, null, center);
+          @include flexBox();
         }
       }
     }
@@ -48,7 +50,7 @@
       @include desktop() {
         opacity: 1;
         margin: 0 1em;
-        font-size: 1em;
+        font-size: 1.1em;
       }
     }
     .navigation-burger {
@@ -76,6 +78,16 @@
 
 .glass-navigation-open {
   .glass-navigation {
+    width: 50%;
+    transition: 0.5s;
+    opacity: 1;
+    @include desktop() {
+      .navigation-burger {
+        opacity: 0;
+        width: 20px;
+        transform: translateY(-20px);
+      }
+    }
     .navigation-burger::before {
       transform: translateY(9px) rotate(135deg);
     }
@@ -86,32 +98,26 @@
       transform: scale(0);
     }
 
-    @include desktop() {
-      position: fixed;
-      animation: navigationOpenContentMove 350ms linear forwards;
-    }
     .glass-inner {
-      box-shadow: inset 0 0 13px #fff6;
       padding: 2em;
-      border-radius: 50%;
-      animation: navigationClosedToOpenGlass $easeInForwards;
+      @include mobile() {
+        box-shadow: inset 0 0 13px #fff6;
+        animation: navigation-closed-to-open-glass $easeInForwards;
+      }
+
       .navigation-content {
         height: 100%;
         .navigation-content-inner {
-          @include desktop() {
-            height: 100%;
-          }
           @extend .glass-basic-background-clear;
-          animation: blurIn $easeInForwards;
+          @include mobile() {
+            animation: glass-blur-background-in $easeInForwards;
+          }
         }
         a {
-          @include mobile() {
-            @include fadeInAnimation();
-          }
-
+          opacity: 0;
+          animation: opacity-fade-in $easeInForwards;
           @include desktop() {
-            @include fadeInAnimation(true, true);
-            font-size: 2rem;
+            animation-delay: 400ms;
           }
         }
       }
@@ -120,18 +126,22 @@
 }
 
 .glass-navigation-closed {
-  .glass-inner {
-    border-radius: 50%;
-    min-height: 100px;
-    @include mobile() {
-      padding: 2em;
-      animation: navigationOpenToClosedGlass $easeInForwards;
-    }
+  .glass-navigation {
     @include desktop() {
-      padding: 3em 5em;
-      border-radius: 200px;
       width: 50%;
+      animation: navigation-inner-scroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-duration: 0.5s;
+      animation-range-start: 2px;
+      animation-range-end: 1000px;
     }
+  }
+
+  .glass-inner {
+    @include mobile() {
+      animation: navigation-open-to-closed-glass $easeInForwards;
+    }
+
     .navigation-content {
       @include mobile() {
         animation: navigation-shrink-height 10ms forwards;
@@ -139,39 +149,31 @@
       }
       .navigation-content-inner {
         @include mobile() {
-          background: rgba(0, 0, 0, 0.2);
-          -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
-          animation: blurOut $easeInForwards;
+          @include glassBackground();
+          animation: glass-blur-background-out $easeInForwards;
           a {
-            @include fadeInAnimation(false, false);
+            opacity: 1;
+            animation: opacity-fade-out $easeInForwards;
           }
         }
         @include desktop() {
           opacity: 1;
           scale: 1 1;
-          transform: translateY(59px);
-          animation: navigationTextScroll linear forwards;
+          animation: navigation-text-scroll linear forwards;
           animation-timeline: scroll(root);
-          animation-duration: 2s;
+          animation-duration: 1s;
           animation-range-start: 2px;
           animation-range-end: 1000px;
         }
       }
     }
-    @include desktop() {
-      animation: navigationInnerScroll linear forwards;
-      animation-timeline: scroll(root);
-      animation-duration: 1s;
-      animation-range-start: 2px;
-      animation-range-end: 1000px;
-    }
   }
   .navigation-burger {
     @include desktop() {
+      position: absolute;
       opacity: 0;
       scale: 0 1;
-      animation: navigationBurgerScroll linear forwards;
+      animation: navigation-burger-scroll linear forwards;
       animation-timeline: scroll(root);
       animation-duration: 1s;
       animation-range-start: 2px;
@@ -179,10 +181,34 @@
     }
   }
 }
+@include desktop() {
+  .glass-navigation-desktop-open {
+    .glass-navigation {
+      width: 50%;
+      transition: 0.5s;
+      opacity: 1;
 
-@keyframes navigation-shrink-height {
-  to {
-    height: 0%;
-    transform: translateY(-100vh);
+      .navigation-burger {
+        transition: 0.5s;
+        width: 20px;
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+  }
+
+  .glass-navigation-desktop-closed {
+    .glass-navigation {
+      width: 100px;
+      transition: 0.5s;
+      opacity: 1;
+
+      .navigation-burger {
+        transition: 0.5s;
+        width: 50px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { BreakPoints } from "@/models/enums/BreakPoints";
 import { useState, useEffect } from "react";
 
 const useScreenSize = () => {
@@ -20,7 +21,7 @@ const useScreenSize = () => {
     };
   }, []);
 
-  return screenSize;
+  return screenSize.width >= BreakPoints.Desktop ? true : false;
 };
 
 export default useScreenSize;

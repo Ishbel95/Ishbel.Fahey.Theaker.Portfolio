@@ -145,25 +145,6 @@
   }
 }
 
-//stars
-@mixin stars-content(
-  $screen-width,
-  $color,
-  $density,
-  $speed,
-  $delay,
-  $width,
-  $height
-) {
-  width: $width;
-  height: $height;
-  border-radius: 50%;
-  opacity: 1;
-  box-shadow: generate-random-stars($screen-width, $color, $density);
-  // animation: glowing-stars $speed + s linear infinite alternate;
-  // animation-delay: $delay + s;
-}
-
 @mixin gradient(
   $name,
   $gradientColor,
@@ -173,7 +154,7 @@
     calc(50% - $gradientCircleSize / 2)
   ),
   $gradientTransformOrigin: center center,
-  $gradientAnimation: moveVertical 30s ease infinite,
+  $gradientAnimation: gradient-move-vertical 30s ease infinite,
   $opacity: 1
 ) {
   .gradient-#{$name} {
@@ -192,23 +173,6 @@
     transform-origin: $gradientTransformOrigin;
     animation: $gradientAnimation;
     opacity: $opacity;
-  }
-}
-
-@mixin fadeInAnimation($fadeIn: true, $fadeUp: false) {
-  @if ($fadeIn == false and $fadeUp == true) {
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeOutAndUp $easeInForwards;
-  } @else if ($fadeIn == false and $fadeUp == false) {
-    opacity: 1;
-    animation: fadeOut $easeInForwards;
-  } @else if($fadeIn == true and $fadeUp == true) {
-    opacity: 0;
-    animation: fadeInAndDown $easeInForwards;
-  } @else {
-    opacity: 0;
-    animation: fadeIn $easeInForwards;
   }
 }
 
@@ -286,5 +250,17 @@
 
     filter: blur(20px) saturate(135%);
     animation: $animation;
+  }
+}
+
+@mixin glassBackground($clear: false) {
+  @if ($clear == true) {
+    background: transparent;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  } @else {
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
   }
 }

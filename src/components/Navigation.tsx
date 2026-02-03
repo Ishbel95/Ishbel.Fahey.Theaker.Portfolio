@@ -10,6 +10,6 @@ export default async function Navigation() {
   const data = (await getDatoCmsData({
     query: AllModularTemplateSlugsQuery,
   })) as ModularTemplateQuery;
-  console.log(data);
+
   return <NavigationInner data={data} />;
 }

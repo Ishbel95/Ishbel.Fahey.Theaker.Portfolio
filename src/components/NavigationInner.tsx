@@ -7,24 +7,32 @@ import Glass from "./animation/Glass";
 import { usePathname } from "next/navigation";
 import useScreenSize from "@/hooks/useScreenSize";
 import ModularTemplateQuery from "@/models/queries/ModularTemplateQueryInterface";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 export default function NavigationInner({ data }: { data: any }) {
   const pathname = usePathname();
   const [navIsOpen, setNavIsOpen] = useState(false);
-
-  const handleBurgerClick = () => {
-    setNavIsOpen(!navIsOpen);
-  };
+  const [navDesktopAnimationEnded, setNavDesktopAnimationEnded] =
+    useState(false);
 
   useEffect(() => {
     pathname && setNavIsOpen(false);
   }, [pathname]);
 
-  const screenSize = useScreenSize();
-  console.log(data.allModularTemplates);
+  const { scrollY } = useScrollPosition();
+  const scrollPosition = scrollY >= 100;
+  const scrollAtTop = scrollY === 0;
+  useEffect(() => {
+    setNavIsOpen(false);
+  }, [scrollAtTop]);
+
   return (
     <div
-      className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"}`}
+      onAnimationEnd={(event) =>
+        event.animationName === "navigation-burger-scroll" &&
+        setNavDesktopAnimationEnded(true)
+      }
+      className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"} ${scrollPosition && `glass-navigation-desktop-${navIsOpen ? "open" : "closed"}`}`}
     >
       <Glass classNames={`glass-navigation`}>
         <div className="navigation-content">
@@ -53,7 +61,10 @@ export default function NavigationInner({ data }: { data: any }) {
             )}
           </div>
         </div>{" "}
-        <button className="navigation-burger" onClick={handleBurgerClick}>
+        <button
+          className="navigation-burger"
+          onClick={() => setNavIsOpen(!navIsOpen)}
+        >
           <div />
         </button>
       </Glass>

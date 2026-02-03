@@ -1,7 +1,7 @@
 @import "mixins.scss";
 @import "variables.scss";
 @import "base";
-@import "./animation/starryBackground";
+
 @import "./components/modularImageGallery";
 @import "./components/modularCardCarousel";
 @import "./components/modularTimeline";
@@ -10,7 +10,8 @@
 @import "./components/footer";
 @import "./components/heroBlock";
 @import "./components/loading";
-@import "./animation/gradientScroll";
-@import "./animation/gradientSphere";
 @import "./components/glass";
 @import "./components/modularLayoutWrapper";
+
+@import "./animation/gradientHero";
+@import "./animation/gradientBody";

@@ -3,7 +3,7 @@ import { cache } from "react";
 
 const dedupedFetch = cache(
   async (
-    body: any
+    body: any,
     // excludeInvalid = false,
     // visualEditingBaseUrl = null,
     // revalidate = null,
@@ -31,14 +31,14 @@ const dedupedFetch = cache(
     if (!response.ok) {
       throw new Error(
         `${response.status} ${response.statusText}: ${JSON.stringify(
-          responseBody
-        )}`
+          responseBody,
+        )}`,
       );
     }
-    console.log(responseBody);
+    // console.log(responseBody);
 
     return responseBody;
-  }
+  },
 );
 
 export async function performRequest({
@@ -53,7 +53,7 @@ export async function performRequest({
   // excludeInvalid?: boolean;
 }) {
   const { data } = await dedupedFetch(
-    JSON.stringify({ query, variables })
+    JSON.stringify({ query, variables }),
     // excludeInvalid,
     // visualEditingBaseUrl,
     // revalidate,

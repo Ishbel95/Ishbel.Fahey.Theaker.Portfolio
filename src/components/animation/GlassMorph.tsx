@@ -41,12 +41,10 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-  const screenSize = useScreenSize();
+  const desktop = useScreenSize();
   const morphGlass = useInView(
     cardRef,
-    screenSize.width >= BreakPoints.Desktop
-      ? "-100px"
-      : "-200px 0px -200px 0px",
+    desktop ? "-100px" : "-200px 0px -200px 0px",
     1,
   );
 

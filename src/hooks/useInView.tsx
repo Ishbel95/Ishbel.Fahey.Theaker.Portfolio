@@ -20,7 +20,6 @@ export default function useInView(
       },
     );
     observer.observe(ref.current);
-    console.log(ref.current.getBoundingClientRect());
 
     return () => {
       observer.disconnect();

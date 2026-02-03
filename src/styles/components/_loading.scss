@@ -1,10 +1,11 @@
-@import "./../keyFrames.scss";
+@import "../animation/keyframes/loadingKeyFrames";
+
 .loading-container {
   position: fixed;
   inset: 0;
   z-index: 10;
   opacity: 0;
-  animation: fadeIn $easeInForwards;
+  animation: opacity-fade-in $easeInForwards;
   background-color: $deepestBlue;
   .loading-text {
     padding: 3em;
@@ -16,7 +17,7 @@
 
       z-index: 1;
       opacity: 0;
-      animation: fadeIn $easeInForwards;
+      animation: opacity-fade-in $easeInForwards;
       animation-delay: 10ms;
     }
     color: white;
@@ -34,26 +35,21 @@
     z-index: -1;
   }
 }
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .loading-container-remove {
   opacity: 1;
-  animation: fadeOut $easeInForwards;
+  animation: opacity-fade-out $easeInForwards;
   animation-delay: 10ms;
   background-color: $deepestBlue;
   .loading-text {
     opacity: 1;
     scale: 1 1;
-    animation: fadeOutScale $easeInForwards;
+    animation: opacity-out-scale-up $easeInForwards;
     animation-delay: 10ms;
     h3,
     p {
       opacity: 1;
-      animation: fadeOut $easeInForwards;
+      animation: opacity-fade-out $easeInForwards;
     }
   }
 }
