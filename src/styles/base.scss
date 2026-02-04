@@ -9,7 +9,30 @@
     font-size: 18px;
   }
   h2 {
-    font-weight: 200;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0 0 0.5em;
+    line-height: $smallLineHeight;
+    @include desktop() {
+      line-height: $lineHeight;
+    }
+  }
+  h1 {
+    font-size: 5rem;
+    font-weight: 900;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+    margin: 0 0 2em 0;
+    line-height: $lineHeight;
   }
   a,
   button {
@@ -36,9 +59,7 @@
     @include flexBox(row-reverse, center, space-between);
   }
 }
-.display-flex-wrap {
-  @include flexBox(row, center, space-evenly, wrap);
-}
+
 .display-grid-3-columns {
   @include desktop() {
     @include customColumnGrid(49% 0% 49%);
@@ -49,6 +70,26 @@
 @include column($position: "3", $start: 3, $end: 4);
 @include column($position: "span", $start: 1, $end: 4);
 
+.align-left,
+.align-right {
+  .modular-content-container {
+    @include desktop() {
+      max-width: 60%;
+    }
+  }
+
+  .image-container {
+    @include desktop() {
+      max-width: 30%;
+    }
+    img {
+      max-width: 300px;
+      border-radius: $borderRadius;
+      box-shadow: 5px 5px 10px $black;
+    }
+  }
+}
+
 .align-left {
   @include alignText(left);
 }
@@ -58,12 +99,6 @@
 .align-right {
   @include alignText(right);
 }
-.align-left-opposite-position {
-  @include alignText(left, true);
-}
-.align-right-opposite-position {
-  @include alignText(right, true);
-}
 
 .card-padding {
   padding: $cardPaddingMobile;
@@ -72,14 +107,15 @@
   }
 }
 
+.large-global-width {
+  width: $largeGlobalWidth;
+  margin: 0 auto;
+}
 .global-width {
   width: $globalWidth;
   margin: 0 auto;
 }
-.small-global-width {
-  width: $smallGlobalWidth;
-  margin: 0 auto;
-}
+
 .map-child-margin {
   margin: $mobileMargin;
   @include desktop() {
@@ -116,37 +152,13 @@
 }
 
 .link {
-  @include pathMode(false);
+  @include linkHover;
 }
 
-h1,
-h2,
-h3 {
-  margin: 0 0 0.2em;
-  line-height: $smallLineHeight;
-  @include desktop() {
-    line-height: $lineHeight;
-  }
-}
-h1 {
-  font-size: 5rem;
-  font-weight: 900;
-}
-h2 {
-  font-size: 3rem;
-  font-weight: 400;
-}
-h3 {
-  font-size: 2.5rem;
-}
-p {
-  font-size: 1.2rem;
-  line-height: $lineHeight;
+.expanding-link-container {
+  @include expandingLink;
 }
 
-// .image-container,
-// .modular-content-container {
-//   @include desktop() {
-//     width: 50%;
-//   }
-// }
+.position-relative {
+  position: relative;
+}

@@ -1,4 +1,5 @@
-@import "./keyframes/gradientHeroKeyFrames";
+@import "../keyframes/gradientHeroKeyFrames";
+
 .gradient-hero-parallax {
   background-color: $deepestBlue;
 }
@@ -54,16 +55,16 @@
   mask: $linearGradientTransparent;
   z-index: 20;
   position: fixed;
-  animation: gradient-animate-expand-position $easeInForwards;
+  animation: gradient-animate-expand-position $easeInOutForwards;
   .gradient-hero-inner {
-    animation: gradient-animate-inner-expand $easeInForwards;
+    animation: gradient-animate-inner-expand $easeInOutForwards;
     .gradient-hero-text {
       z-index: 20;
-      animation: opacity-fade-out $easeInForwards;
+      animation: opacity-fade-out $easeInOutForwards;
     }
   }
   .modular-hero-container {
-    animation: gradient-animate-hero-show $easeInForwards;
+    animation: gradient-animate-hero-show $easeInOutForwards;
     animation-delay: 1s;
   }
 }

@@ -1,4 +1,3 @@
-@import "../keyFrames.scss";
 .modular-image-gallery-container {
   margin: 0 auto;
   @include desktop() {
@@ -6,7 +5,7 @@
   }
   .glass-wrapper {
     cursor: pointer;
-    transition: 0.5s;
+    transition: $globalTransition;
     scale: 1 1;
     &:hover,
     &:focus {

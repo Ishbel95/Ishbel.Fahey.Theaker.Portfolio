@@ -19,7 +19,7 @@ export default function LoadingScreen() {
   }, []);
 
   return (
-    <div className={` ${count === 100 && "loading-container-remove"}`}>
+    <section className={` ${count === 100 && "loading-container-remove"}`}>
       <div className="loading-container ">
         <div className="loading-spinner" />
         <div className="loading-text">
@@ -27,6 +27,6 @@ export default function LoadingScreen() {
           <p>{count}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

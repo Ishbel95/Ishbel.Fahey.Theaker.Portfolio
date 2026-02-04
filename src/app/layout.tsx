@@ -24,10 +24,10 @@ export default function RootLayout({
       </head>
       <body>
         <Navigation />
-        <main>
-          <GradientBackground />
-          {children}
-        </main>
+
+        <GradientBackground />
+        {children}
+
         <Footer />
       </body>
     </html>

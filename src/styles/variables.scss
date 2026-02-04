@@ -1,6 +1,4 @@
-//backgrounds
 //colors
-
 $white: #fff;
 $black: #010204;
 $cyan: rgb(77, 251, 255);
@@ -12,18 +10,17 @@ $purple: rgb(139, 92, 246);
 $deepBlue: rgb(26, 61, 111);
 $deepestBlue: rgb(11, 28, 45);
 
+//glass
 $glassBackground: rgba(58, 123, 255, 0.3);
 
-$blending: hard-light;
-
+//gradients
+$gradientCircleSize: 80%;
 $radialGradient: radial-gradient(
   ellipse at center,
   $blue 0%,
   $deepBlue 35%,
   $deepestBlue 100%
 );
-
-$gradientCircleSize: 80%;
 
 $gradient-mouse-glow: radial-gradient(
   600px circle at center,
@@ -45,10 +42,12 @@ $linearGradientTransparent: linear-gradient(
   $deepestBlue 20%,
   $deepestBlue 100%
 );
+
 //spacing
 $globalWidth: min(90%, 1000px);
-$smallGlobalWidth: min(100%, 800px);
-$globalTransition: all 250ms ease-in-out;
+$largeGlobalWidth: min(95%, 1500px);
+
+//padding and margin
 $mobilePadding: 4em 0;
 $desktopPadding: 8em 0;
 
@@ -61,32 +60,23 @@ $desktopBottomPaddingOnly: 0 0 8em 0;
 $mobileMargin: 0.1em;
 $desktopMargin: 0.2em;
 
+$cardPaddingMobile: 0.8em;
+$cardPaddingDesktop: 1em;
+
 $borderRadius: 10px;
 $borderBase: 2px solid;
-$cardPaddingMobile: 0.6em;
-$cardPaddingDesktop: 0.8em;
 
 //breakpoints
-
 $desktopBreakpoint: 758px;
 $mobileBreakpoint: 757px;
-$largeDesktopBreakpoint: 1200x;
-$largeMobileBreakpoint: 1199px;
-//glass
-
-//glow
-$shadowPixels: 0px 0px 106px 41px;
-$darkShadow: $shadowPixels $deepBlue;
-$mediumShadow: $shadowPixels $blue;
-$lightShadow: $shadowPixels $white;
 
 // text
 $smallLineHeight: 1em;
 $lineHeight: 1.5em;
 
 //animation
-
-$easeInForwards: 350ms ease-in forwards;
+$easeInOutForwards: 350ms ease-in-out forwards;
 $easeInOutLonger: 500ms ease-in-out forwards;
 $easeInOut2Seconds: 2s ease-in-out forwards;
 $easeInOut1Seconds: 1s ease-in-out forwards;
+$globalTransition: all 350ms ease-in-out;

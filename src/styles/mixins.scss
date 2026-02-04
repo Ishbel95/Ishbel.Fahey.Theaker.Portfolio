@@ -1,6 +1,4 @@
-@import "variables.scss";
-@import "functions.scss";
-@import "./keyFrames.scss";
+@import "./keyframes/baseKeyFrames";
 //get webkit mask gradient mixin
 @mixin desktop {
   @media (min-width: $desktopBreakpoint) {
@@ -9,17 +7,6 @@
 }
 @mixin mobile {
   @media (max-width: $mobileBreakpoint) {
-    @content;
-  }
-}
-@mixin largeDesktop {
-  @media (min-width: $largeDesktopBreakpoint) {
-    @content;
-  }
-}
-
-@mixin largeMobile {
-  @media (max-width: $largeMobileBreakpoint) {
     @content;
   }
 }
@@ -78,7 +65,7 @@
     }
   }
 }
-@mixin alignText($textAlign, $oppositeAlignPosition: false) {
+@mixin alignText($textAlign) {
   text-align: center;
   margin: 0 auto;
 
@@ -86,17 +73,11 @@
     @include desktop() {
       text-align: left;
       margin: 0 auto 0 0;
-      @if ($oppositeAlignPosition) {
-        margin: 0 0 0 auto;
-      }
     }
   } @else if ($textAlign == "right") {
     @include desktop() {
       text-align: right;
       margin: 0 0 0 auto;
-      @if ($oppositeAlignPosition) {
-        margin: 0 auto 0 0;
-      }
     }
   }
 }
@@ -116,31 +97,6 @@
     padding: $mobileBottomPaddingOnly;
     @include desktop() {
       padding: $desktopBottomPaddingOnly;
-    }
-  }
-}
-
-@mixin pathMode($isButton: true) {
-  transition: $globalTransition;
-  cursor: pointer;
-  @if ($isButton) {
-    border-radius: $borderRadius;
-    padding: 1em 1.2em;
-    width: 100%;
-    display: block;
-    color: $white;
-    text-align: center;
-    margin-top: $mobileMargin;
-    @include desktop() {
-      padding: 1em 1.4em;
-      margin-top: $desktopMargin;
-    }
-  } @else {
-    //neeed to sort this animation
-    display: inline;
-    border-bottom: $borderBase $white;
-    &:hover,
-    &:focus {
     }
   }
 }
@@ -169,7 +125,7 @@
     left: nth($position, 2);
     width: nth($size, 1);
     height: nth($size, 2);
-    mix-blend-mode: $blending;
+    mix-blend-mode: hard-light;
     transform-origin: $gradientTransformOrigin;
     animation: $gradientAnimation;
     opacity: $opacity;
@@ -188,13 +144,53 @@
     left: 0;
     scale: 0 0;
     opacity: 0;
-    transition: all 300ms;
+    transition: $globalTransition;
   }
   &:hover,
   &:focus {
     &::after {
       scale: 1 1;
       opacity: 1;
+    }
+  }
+}
+
+@mixin expandingLink {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 1em auto;
+  transition: $globalTransition;
+  svg {
+    opacity: 1;
+    transition: $globalTransition;
+    transition-delay: 0.25s;
+    font-size: 1.6rem;
+  }
+  .expanding-link {
+    opacity: 0;
+    position: absolute;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    scale: 0 0;
+    transition: $globalTransition;
+    transition-delay: 0s;
+    @include linkHover;
+  }
+  &:hover {
+    width: 180px;
+    svg {
+      scale: 0 0;
+      opacity: 0;
+      color: #fff;
+      transition-delay: 0s;
+    }
+    .expanding-link {
+      opacity: 1;
+      scale: 1 1;
+      transition-delay: 0.25s;
     }
   }
 }

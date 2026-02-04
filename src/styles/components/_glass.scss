@@ -1,4 +1,4 @@
-@import "../animation/keyframes/glassKeyFrames";
+@import "../keyframes/glassKeyFrames";
 
 .glass-path {
   cursor: pointer;
@@ -64,7 +64,8 @@
 
 .glass-card,
 .glass-path,
-.glass-round {
+.glass-round,
+.glass-pill {
   position: relative;
   border-radius: $borderRadius;
   .glass-glow-blob {

@@ -3,7 +3,6 @@
   @include desktop() {
     padding: 2.5em;
   }
-  text-align: left;
 }
 
 .form-input {
@@ -23,7 +22,7 @@
     color: $white;
     border: solid 1px transparent;
     margin: 1em auto;
-    transition: 0.5s;
+    transition: $globalTransition;
     &::placeholder,
     option {
       color: $white;
@@ -49,7 +48,7 @@
     svg {
       position: absolute;
       right: 1.5em;
-      transition: 0.5s;
+      transition: $globalTransition;
       transform: rotate(0);
       font-size: 1.2em;
     }
@@ -59,11 +58,6 @@
     //     transform: rotate(-180deg);
     //   }
     // }
-
-    select {
-      // opacity: 0;
-      // color: $white;
-    }
 
     p {
       opacity: 1;

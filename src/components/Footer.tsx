@@ -9,8 +9,8 @@ export default async function Footer() {
     query: FooterQuery,
   })) as FooterModelQuery;
   return (
-    <div
-      className={`footer-container display-flex-row-desktop padding-bottom-only`}
+    <footer
+      className={`position-relative display-flex-row-desktop padding-bottom-only`}
     >
       {data.footer.footerLinks.map(
         ({
@@ -39,6 +39,6 @@ export default async function Footer() {
           );
         },
       )}
-    </div>
+    </footer>
   );
 }

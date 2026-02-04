@@ -1,17 +1,16 @@
-@import "mixins.scss";
 @import "variables.scss";
+@import "mixins.scss";
 @import "base";
 
+@import "./components/modularLayoutWrapper";
 @import "./components/modularImageGallery";
-@import "./components/modularCardCarousel";
 @import "./components/modularTimeline";
 @import "./components/modularForm.scss";
+
 @import "./components/navigation";
-@import "./components/footer";
-@import "./components/heroBlock";
 @import "./components/loading";
 @import "./components/glass";
-@import "./components/modularLayoutWrapper";
+@import "./components/card";
 
-@import "./animation/gradientHero";
-@import "./animation/gradientBody";
+@import "./components/gradientHero";
+@import "./components/gradientBody";

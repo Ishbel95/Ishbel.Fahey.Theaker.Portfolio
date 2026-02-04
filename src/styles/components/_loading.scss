@@ -1,11 +1,11 @@
-@import "../animation/keyframes/loadingKeyFrames";
+@import "../keyframes/loadingKeyFrames";
 
 .loading-container {
   position: fixed;
   inset: 0;
   z-index: 10;
   opacity: 0;
-  animation: opacity-fade-in $easeInForwards;
+  animation: opacity-fade-in $easeInOutForwards;
   background-color: $deepestBlue;
   .loading-text {
     padding: 3em;
@@ -14,10 +14,9 @@
     p {
       font-weight: 900;
       font-size: 2rem;
-
       z-index: 1;
       opacity: 0;
-      animation: opacity-fade-in $easeInForwards;
+      animation: opacity-fade-in $easeInOutForwards;
       animation-delay: 10ms;
     }
     color: white;
@@ -30,7 +29,6 @@
     height: 400px;
     top: 55%;
     left: 50%;
-
     transform: translate(-50%, -50%);
     z-index: -1;
   }
@@ -38,18 +36,18 @@
 
 .loading-container-remove {
   opacity: 1;
-  animation: opacity-fade-out $easeInForwards;
+  animation: opacity-fade-out $easeInOutForwards;
   animation-delay: 10ms;
   background-color: $deepestBlue;
   .loading-text {
     opacity: 1;
     scale: 1 1;
-    animation: opacity-out-scale-up $easeInForwards;
+    animation: opacity-out-scale-up $easeInOutForwards;
     animation-delay: 10ms;
     h3,
     p {
       opacity: 1;
-      animation: opacity-fade-out $easeInForwards;
+      animation: opacity-fade-out $easeInOutForwards;
     }
   }
 }

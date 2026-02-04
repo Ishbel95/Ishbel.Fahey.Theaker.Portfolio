@@ -27,14 +27,14 @@ export default function NavigationInner({ data }: { data: any }) {
   }, [scrollAtTop]);
 
   return (
-    <div
+    <nav
       onAnimationEnd={(event) =>
         event.animationName === "navigation-burger-scroll" &&
         setNavDesktopAnimationEnded(true)
       }
-      className={`${navIsOpen ? "glass-navigation-open" : "glass-navigation-closed"} ${scrollPosition && `glass-navigation-desktop-${navIsOpen ? "open" : "closed"}`}`}
+      className={`${navIsOpen ? "navigation-container-open" : "navigation-container-closed"} ${scrollPosition && `navigation-container-desktop-${navIsOpen ? "open" : "closed"}`}`}
     >
-      <Glass classNames={`glass-navigation`}>
+      <Glass classNames={`navigation-container`}>
         <div className="navigation-content">
           <div className="navigation-content-inner">
             <Link href={"/"}>Home</Link>
@@ -68,6 +68,6 @@ export default function NavigationInner({ data }: { data: any }) {
           <div />
         </button>
       </Glass>
-    </div>
+    </nav>
   );
 }

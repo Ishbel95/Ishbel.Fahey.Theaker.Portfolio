@@ -18,7 +18,7 @@ export default function GradientHero({
   );
 
   return (
-    <div className="gradient-hero-parallax">
+    <header className="gradient-hero-parallax">
       <div
         className={`gradient-hero-container ${animateGradient ? "gradient-animate-expand" : "gradient-animate-contract"} display-flex`}
       >
@@ -49,6 +49,6 @@ export default function GradientHero({
         <span className=" blob blob-purple" /> */}
         </div>
       </div>
-    </div>
+    </header>
   );
 }

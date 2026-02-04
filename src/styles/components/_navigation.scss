@@ -1,13 +1,13 @@
-@import "../animation/keyframes/navigationKeyframes";
+@import "../keyframes/navigationKeyframes";
 
-.glass-navigation {
+.navigation-container {
   position: fixed;
   left: 0;
   right: 0;
   margin: 0 auto;
   z-index: 9;
   top: 20px;
-  transition: 0.5s;
+  transition: $globalTransition;
 
   .glass-inner {
     margin: 0 auto;
@@ -71,15 +71,15 @@
       height: 2px;
       border-radius: 3px;
       margin: 7px 0;
-      transition: 0.5s;
+      transition: $globalTransition;
     }
   }
 }
 
-.glass-navigation-open {
-  .glass-navigation {
+.navigation-container-open {
+  .navigation-container {
     width: 50%;
-    transition: 0.5s;
+    transition: $globalTransition;
     opacity: 1;
     @include desktop() {
       .navigation-burger {
@@ -102,7 +102,7 @@
       padding: 2em;
       @include mobile() {
         box-shadow: inset 0 0 13px #fff6;
-        animation: navigation-closed-to-open-glass $easeInForwards;
+        animation: navigation-closed-to-open-glass $easeInOutForwards;
       }
 
       .navigation-content {
@@ -110,12 +110,12 @@
         .navigation-content-inner {
           @extend .glass-basic-background-clear;
           @include mobile() {
-            animation: glass-blur-background-in $easeInForwards;
+            animation: glass-blur-background-in $easeInOutForwards;
           }
         }
         a {
           opacity: 0;
-          animation: opacity-fade-in $easeInForwards;
+          animation: opacity-fade-in $easeInOutForwards;
           @include desktop() {
             animation-delay: 400ms;
           }
@@ -125,8 +125,8 @@
   }
 }
 
-.glass-navigation-closed {
-  .glass-navigation {
+.navigation-container-closed {
+  .navigation-container {
     @include desktop() {
       width: 50%;
       animation: navigation-inner-scroll linear forwards;
@@ -139,7 +139,7 @@
 
   .glass-inner {
     @include mobile() {
-      animation: navigation-open-to-closed-glass $easeInForwards;
+      animation: navigation-open-to-closed-glass $easeInOutForwards;
     }
 
     .navigation-content {
@@ -150,10 +150,10 @@
       .navigation-content-inner {
         @include mobile() {
           @include glassBackground();
-          animation: glass-blur-background-out $easeInForwards;
+          animation: glass-blur-background-out $easeInOutForwards;
           a {
             opacity: 1;
-            animation: opacity-fade-out $easeInForwards;
+            animation: opacity-fade-out $easeInOutForwards;
           }
         }
         @include desktop() {
@@ -182,14 +182,14 @@
   }
 }
 @include desktop() {
-  .glass-navigation-desktop-open {
-    .glass-navigation {
+  .navigation-container-desktop-open {
+    .navigation-container {
       width: 50%;
-      transition: 0.5s;
+      transition: $globalTransition;
       opacity: 1;
 
       .navigation-burger {
-        transition: 0.5s;
+        transition: $globalTransition;
         width: 20px;
         opacity: 1;
         transform: translateY(-20px);
@@ -197,14 +197,14 @@
     }
   }
 
-  .glass-navigation-desktop-closed {
-    .glass-navigation {
+  .navigation-container-desktop-closed {
+    .navigation-container {
       width: 100px;
-      transition: 0.5s;
+      transition: $globalTransition;
       opacity: 1;
 
       .navigation-burger {
-        transition: 0.5s;
+        transition: $globalTransition;
         width: 50px;
         opacity: 1;
         transform: translateY(0);

@@ -61,7 +61,7 @@ export default function Form({
       data-netlify-honeypot="bot-field"
       name={data.formName}
       action={data.successPath}
-      className="form display-grid-3-columns"
+      className="form display-grid-3-columns align-left"
     >
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {

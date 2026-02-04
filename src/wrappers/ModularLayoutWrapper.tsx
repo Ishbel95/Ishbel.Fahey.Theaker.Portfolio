@@ -38,7 +38,7 @@ export default function ModularLayoutWrapper({
   const modularLayoutInView = useInView(modularLayoutDiv, "100px", 1);
 
   return (
-    <div
+    <section
       ref={modularLayoutDiv}
       id={data?.customId}
       key={key}
@@ -50,6 +50,6 @@ export default function ModularLayoutWrapper({
       >
         {children}
       </div>
-    </div>
+    </section>
   );
 }
