@@ -12,6 +12,39 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const variables = { slug: id };
+  const modularTemplateData = await getDatoCmsData({
+    query: ModularTemplatePageQuery,
+    variables,
+  });
+  const seo = modularTemplateData.modularTemplate.seo;
+
+  if (!seo) {
+    return {
+      title: "Ishbel Fahey Theaker Portfolio",
+      description: "explore my portfolio",
+      keywords: "blog, tutorials, keywords etc",
+      openGraph: {
+        // images: ["/some-specific-page-image.jpg"],
+      },
+    };
+  }
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: "blog, tutorials, keywords etc",
+    openGraph: {
+      images: [seo.image.responsiveImage.src],
+    },
+  };
+}
+
 export default async function ModularTemplatePage({
   params,
 }: {
@@ -25,7 +58,6 @@ export default async function ModularTemplatePage({
   });
 
   const modularTemplateData = data?.modularTemplate ?? [];
-
   const modularPageContent = getModularContent(
     modularTemplateData.modularContent,
   );

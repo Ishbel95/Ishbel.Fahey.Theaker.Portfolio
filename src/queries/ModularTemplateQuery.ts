@@ -13,6 +13,12 @@ export const AllModularTemplatePageQuery = `
       seo {
         title
         description
+           image {
+          responsiveImage {
+            src
+            alt
+          }
+        }
       }
       modularContent {
         ... on HeroBlockRecord {
@@ -58,6 +64,12 @@ export const ModularTemplatePageQuery = `
       seo {
         title
         description
+           image {
+          responsiveImage {
+            src
+            alt
+          }
+        }
       }
       modularContent {
         ... on HeroBlockRecord {

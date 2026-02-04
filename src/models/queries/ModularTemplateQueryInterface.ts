@@ -13,6 +13,9 @@ export default interface ModularTemplateQuery {
   seo: {
     title: string;
     description: string;
+    image?: {
+      responsiveImage: { src: string; alt: string };
+    };
   };
   hero: HeroBlockFragmentQuery;
   content: ModularContentQuery;

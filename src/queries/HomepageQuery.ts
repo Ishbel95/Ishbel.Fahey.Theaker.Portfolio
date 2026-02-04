@@ -13,6 +13,12 @@ export const HomepageQuery = `
       seo {
         title
         description
+        image {
+          responsiveImage {
+            src
+            alt
+          }
+        }
       }
       content {
         ... on HeroBlockRecord {

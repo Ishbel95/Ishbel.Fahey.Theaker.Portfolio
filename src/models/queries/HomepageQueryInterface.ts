@@ -8,6 +8,9 @@ export default interface HomepagePageQuery {
   seo?: {
     title?: string;
     description?: string;
+    image?: {
+      responsiveImage: { src: string; alt: string };
+    };
   };
   content: {
     HeroBlockRecord: HeroBlockFragmentQuery;
