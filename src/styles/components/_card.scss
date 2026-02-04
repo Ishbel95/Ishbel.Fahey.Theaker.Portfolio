@@ -31,7 +31,7 @@
   &:focus {
     z-index: 12;
     @include desktop() {
-      transform: translateY(-20px);
+      margin-top: (-20px);
     }
     .card-expanded-text {
       opacity: 1;

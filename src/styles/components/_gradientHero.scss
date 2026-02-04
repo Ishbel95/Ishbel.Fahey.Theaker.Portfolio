@@ -2,69 +2,82 @@
 
 .gradient-hero-parallax {
   background-color: $deepestBlue;
-}
-
-.gradient-hero-container,
-.gradient-animate-contract,
-.gradient-animate-expand {
   position: relative;
   min-height: 100vh;
-
-  .gradient-hero-inner {
-    @include primaryRadialGradient(
-      gradient-hero-liquid-morph 20s ease-in-out infinite forwards
-    );
-    .modular-hero-container {
-      width: 100%;
-    }
-  }
-}
-.gradient-hero-container {
   animation: gradient-hero-parallax linear forwards;
   animation-timeline: scroll(root);
   animation-duration: 1;
   animation-range-start: 2px;
   animation-range-end: 1000px;
-  .gradient-hero-inner {
-    width: 60vw;
-    height: 70vh;
-  }
+  // overflow: hidden;
+  // mask: $linearGradientTransparent;
 }
-.gradient-animate-contract,
-.gradient-animate-expand {
-  background-color: $deepestBlue;
+.gradient-hero-wave {
+  bottom: 20%;
+  position: absolute;
+  background-color: $teal;
+}
+.gradient-hero-wave:before,
+.gradient-hero-wave:after {
+  height: 40%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  min-width: 300vw;
+  min-height: 300vw;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation: 30s rotate infinite linear;
+  filter: blur(10px);
+}
+
+.gradient-hero-wave:before {
+  border-radius: 45%;
+  background-color: $violet;
+}
+
+.gradient-hero-wave:after {
+  opacity: 0.5;
+  border-radius: 47%;
+  animation-delay: 2s;
+  background-color: $cyan;
+}
+.gradient-hero-inner {
+  position: absolute;
   inset: 0;
-  .gradient-hero-inner {
-    width: 45vw;
-    height: 45vh;
-    .gradient-hero-text {
-      z-index: 20;
-    }
-  }
-  .modular-hero-container {
-    position: absolute;
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-}
-.gradient-animate-contract {
-  z-index: 20;
-  position: fixed;
-}
-.gradient-animate-expand {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   mask: $linearGradientTransparent;
-  z-index: 20;
-  position: fixed;
-  animation: gradient-animate-expand-position $easeInOutForwards;
-  .gradient-hero-inner {
-    animation: gradient-animate-inner-expand $easeInOutForwards;
-    .gradient-hero-text {
-      z-index: 20;
-      animation: opacity-fade-out $easeInOutForwards;
-    }
+}
+.gradient-hero {
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  margin: 0 auto;
+  z-index: 7;
+  @include desktop() {
+    width: 80vw;
+    height: 80vh;
   }
-  .modular-hero-container {
-    animation: gradient-animate-hero-show $easeInOutForwards;
-    animation-delay: 1s;
+  @include primaryRadialGradient(
+    gradient-hero-liquid-morph 10s infinite forwards
+  );
+}
+
+.modular-hero-container {
+  width: 100%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate(-50%, -2%) rotateZ(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) rotateZ(360deg);
   }
 }

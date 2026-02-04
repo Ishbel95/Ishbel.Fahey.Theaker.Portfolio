@@ -18,12 +18,12 @@ export default function GradientHero({
   );
 
   return (
-    <header className="gradient-hero-parallax">
-      <div
-        className={`gradient-hero-container ${animateGradient ? "gradient-animate-expand" : "gradient-animate-contract"} display-flex`}
-      >
-        <div className={`gradient-hero-inner display-flex`}>
-          {animate && (
+    <header className="gradient-hero-parallax display-flex ">
+      {" "}
+      <div className={`gradient-hero`} />
+      <div className="gradient-hero-inner" />
+      {/* <div className="gradient-hero-wave" /> */}
+      {/* {animate && (
             <div className="gradient-hero-text ">
               <MyPath
                 buttonPath=".."
@@ -42,13 +42,8 @@ export default function GradientHero({
                 </button>
               </MyPath>
             </div>
-          )}
-          {children}
-          {/* <span className=" blob blob-cyan" />
-        <span className=" blob blob-blue" />
-        <span className=" blob blob-purple" /> */}
-        </div>
-      </div>
+          )} */}
+      {children}
     </header>
   );
 }

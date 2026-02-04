@@ -196,7 +196,6 @@
 }
 
 @mixin primaryRadialGradient($animation) {
-  position: relative;
   border-radius: 50%;
   &::after {
     content: "";
