@@ -259,3 +259,30 @@
     backdrop-filter: blur(14px);
   }
 }
+
+@mixin falling-circles-map($config) {
+  $gradient-colors: ($cyan, $aqua, $teal, $blue, $violet, $purple);
+  animation: fall 25s ease-in-out infinite;
+  &:nth-of-type(2n) {
+    width: 60px;
+    height: 60px;
+  }
+
+  &:nth-of-type(3n) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @each $index, $data in $config {
+    &:nth-of-type(#{$index}) {
+      left: map-get($data, left);
+      animation-delay: map-get($data, delay);
+      $first-color: nth($gradient-colors, random(length($gradient-colors)));
+      $second-color: nth($gradient-colors, random(length($gradient-colors)));
+      background: linear-gradient(90deg, $first-color, $second-color);
+      &::before {
+        background: linear-gradient(90deg, $first-color, $second-color);
+      }
+    }
+  }
+}

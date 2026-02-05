@@ -8,4 +8,6 @@ export const layoutWrapperClassNames = {
   paddingTopOnly: "padding-top-only",
   paddingBottomOnly: "padding-bottom-only",
   paddingNone: "padding-none",
+  largeWidth: "large-global-width",
+  width: "global-width",
 };

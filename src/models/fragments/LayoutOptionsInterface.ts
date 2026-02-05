@@ -9,4 +9,5 @@ export default interface LayoutOptionsBlockFragmentQuery {
   rowReverse?: Boolean;
   textAlign?: string;
   topPadding?: Boolean;
+  largeWidth?: boolean;
 }

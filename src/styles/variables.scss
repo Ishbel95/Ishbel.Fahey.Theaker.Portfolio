@@ -43,6 +43,17 @@ $linearGradientTransparent: linear-gradient(
   $deepestBlue 100%
 );
 
+$linearGradientBlueTransparentBlue: linear-gradient(
+  180deg,
+  transparent 0%,
+  transparent 1%,
+  $deepestBlue 15%,
+  $deepestBlue 50%,
+  $deepestBlue 85%,
+  transparent 99%,
+  transparent 100%
+);
+
 //spacing
 $globalWidth: min(90%, 1000px);
 $largeGlobalWidth: min(95%, 1500px);
@@ -73,6 +84,7 @@ $mobileBreakpoint: 757px;
 // text
 $smallLineHeight: 1em;
 $lineHeight: 1.5em;
+$textShadow: 5px 5px 10px $black;
 
 //animation
 $easeInOutForwards: 350ms ease-in-out forwards;

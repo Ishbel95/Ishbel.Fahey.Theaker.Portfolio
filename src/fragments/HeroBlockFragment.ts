@@ -89,6 +89,7 @@ export const HeroBlockFragment = `
         rowReverse
         textAlign
         topPadding
+        largeWidth
       }
     }
   }

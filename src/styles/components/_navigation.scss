@@ -43,7 +43,6 @@
     a {
       font-size: 2.8em;
       font-weight: 300;
-      text-shadow: 5px 5px 10px $black;
       position: relative;
       transition: all 250ms;
       @include linkHover;

@@ -19,11 +19,10 @@ export default function GradientHero({
 
   return (
     <header className="gradient-hero-parallax display-flex ">
-      {" "}
-      <div className={`gradient-hero`} />
-      <div className="gradient-hero-inner" />
-      {/* <div className="gradient-hero-wave" /> */}
-      {/* {animate && (
+      <div className="gradient-hero-inner">
+        <div className={`gradient-hero`} />
+        {/* <div className="gradient-hero-wave" /> */}
+        {/* {animate && (
             <div className="gradient-hero-text ">
               <MyPath
                 buttonPath=".."
@@ -43,7 +42,8 @@ export default function GradientHero({
               </MyPath>
             </div>
           )} */}
-      {children}
+        {children}
+      </div>
     </header>
   );
 }

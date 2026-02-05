@@ -43,6 +43,10 @@ export default function ModularLayoutWrapper({
     { once: true },
   );
 
+  const globalWidthClassName = data?.largeWidth
+    ? layoutWrapperClassNames.largeWidth
+    : layoutWrapperClassNames.width;
+
   return (
     <section
       ref={modularLayoutDiv}
@@ -52,7 +56,7 @@ export default function ModularLayoutWrapper({
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div
-        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} global-width modular-layout-inner`}
+        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} ${globalWidthClassName} modular-layout-inner`}
       >
         {children}
       </div>

@@ -10,5 +10,6 @@ export const LayoutOptionsBlockFragment = `
     rowReverse
     textAlign
     topPadding
+    largeWidth
   }
 `;

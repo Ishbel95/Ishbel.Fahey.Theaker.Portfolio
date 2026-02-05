@@ -32,6 +32,8 @@ export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query }); //homepageinterface ??
   const homepageData = data?.homepage ?? [];
-  const homepageContent = getModularContent(homepageData.content);
+  const isHomepage = true;
+  const homepageContent = getModularContent(homepageData.content, isHomepage);
+
   return homepageContent;
 }

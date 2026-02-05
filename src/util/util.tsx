@@ -7,6 +7,7 @@ import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterfac
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
 import { ReactElement } from "react";
 import ErrorContent from "@/components/ErrorContent";
+import HomepageHero from "@/components/HomepageHero";
 
 export function getBlockData(data: any) {
   const result = data.reduce((acc: any, block?: any) => {
@@ -36,7 +37,10 @@ export async function getDatoCmsData({
 
 type ModularBlock = HeroBlockFragmentQuery | ModularContentQuery;
 
-export async function getModularContent(data: ModularBlock[]) {
+export async function getModularContent(
+  data: ModularBlock[],
+  isHomepage?: boolean,
+) {
   if (!data) return null;
 
   const hero = data.find(
@@ -51,9 +55,12 @@ export async function getModularContent(data: ModularBlock[]) {
 
   return (
     <>
-      {hero && (
-        <ModularHero data={hero} key={hero.id} siteEntryAnimation={true} />
-      )}
+      {hero &&
+        (isHomepage ? (
+          <HomepageHero data={hero} key={hero.id} />
+        ) : (
+          <ModularHero data={hero} key={hero.id} />
+        ))}
       {contentBlocks.length > 0 && (
         <main>
           {contentBlocks.map((component) => (
