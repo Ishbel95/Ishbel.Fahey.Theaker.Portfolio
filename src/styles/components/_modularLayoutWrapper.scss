@@ -1,94 +1,71 @@
 @import "../keyframes/modularLayoutWrapperKeyFrames";
 
-.modular-layout-enter {
-  .tech-stack-image {
-    animation: bounce-down-enter 1s ease 0s 1 normal forwards;
-  }
-  .modular-hero-content {
+@media (prefers-reduced-motion: no-preference) {
+  .modular-layout-wrapper:not(.modular-layout-enter) {
+    .tech-stack-image,
     h1,
     h2,
-    p {
+    p,
+    .card,
+    .glass-path {
       opacity: 0;
-      transform: translateY(-50px);
-      animation: fade-down-enter 1s ease 0s 1 normal forwards;
-    }
-    h2 {
-      animation-delay: 0.3s;
-    }
-    p {
-      animation-delay: 0.5s;
     }
   }
-  .modular-content-container {
-    h3,
-    p {
-      opacity: 0;
-      transform: translateY(-50px);
-      animation: fade-down-enter 1s ease 0s 1 normal forwards;
-    }
-    p {
-      animation-delay: 0.5s;
-    }
 
-    .glass-path {
-      animation: scale-down-enter 1.5s ease 0s 1 normal forwards;
-    }
-    .card {
+  .modular-layout-enter {
+    .tech-stack-image {
       animation: bounce-down-enter 1s ease 0s 1 normal forwards;
     }
-
-    @for $i from 1 through 20 {
-      .tech-stack-image:nth-child(#{$i}) {
-        animation-delay: #{random(200)}ms;
+    .modular-hero-content {
+      h1,
+      h2,
+      p {
+        animation: fade-down-enter 1s ease 0s 1 normal forwards;
+      }
+      h2 {
+        animation-delay: 0.3s;
+      }
+      p {
+        animation-delay: 0.5s;
       }
     }
-    @for $i from 1 through 20 {
-      .card:nth-child(#{$i}) {
-        animation-delay: #{random(400)}ms;
+    .modular-content-container {
+      h3,
+      p {
+        animation: fade-down-enter 1s ease 0s 1 normal forwards;
+      }
+      p {
+        animation-delay: 0.5s;
+      }
+
+      .glass-path {
+        animation: scale-down-enter 1.5s ease 0s 1 normal forwards;
+      }
+      .card {
+        animation: bounce-down-enter 1s ease 0s 1 normal forwards;
+      }
+
+      @for $i from 1 through 20 {
+        .tech-stack-image:nth-child(#{$i}) {
+          animation-delay: #{random(200)}ms;
+        }
+      }
+      @for $i from 1 through 20 {
+        .card:nth-child(#{$i}) {
+          animation-delay: #{random(400)}ms;
+        }
       }
     }
-  }
 
-  .align-left {
-    .image-container {
-      opacity: 0;
-      transform: translateX(50px);
-      animation: fade-right-enter 2s ease 0s 1 normal forwards;
+    .align-left {
+      .image-container {
+        animation: fade-right-enter 2s ease 0s 1 normal forwards;
+      }
     }
-  }
-  .align-right {
-    .image-container {
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: fade-left-enter 2s ease 0s 1 normal forwards;
+    .align-right {
+      .image-container {
+        animation: fade-left-enter 2s ease 0s 1 normal forwards;
+      }
     }
   }
 }
-// .modular-layout-exit {
-//   .tech-stack-image {
-//     opacity: 0;
-//     transform: translateY(-250px);
-//   }
-//   h3 {
-//     opacity: 0;
-//     transform: translateY(-50px);
-//   }
-//   p {
-//     opacity: 0;
-//     transform: translateY(-50px);
-//   }
-//   .align-left {
-//     .image-container {
-//     } //come from right
-//   }
-//   .align-right {
-//     .image-container {
-//     } //come from left
-//   }
-//   .glass-path {
-//   }
-//   .card {
-//     // opacity: 0;
-//     // transform: translateY(-250px);
-//   }
-// }

@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
 import { layoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
 import useInView from "@/hooks/useInView";
+import useScreenSize from "@/hooks/useScreenSize";
 export default function ModularLayoutWrapper({
   data,
   key,
@@ -34,8 +35,13 @@ export default function ModularLayoutWrapper({
   const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
     (className) => className === data?.textAlign,
   );
-
-  const modularLayoutInView = useInView(modularLayoutDiv, "100px", 1);
+  const desktop = useScreenSize();
+  const modularLayoutInView = useInView(
+    modularLayoutDiv,
+    desktop ? "100px" : "-200px 0px -200px 0px",
+    0.3,
+    { once: true },
+  );
 
   return (
     <section

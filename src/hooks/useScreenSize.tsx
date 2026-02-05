@@ -2,6 +2,8 @@ import { BreakPoints } from "@/models/enums/BreakPoints";
 import { useState, useEffect } from "react";
 
 const useScreenSize = () => {
+  if (typeof window === "undefined") return;
+
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,

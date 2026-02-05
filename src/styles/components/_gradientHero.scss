@@ -9,8 +9,7 @@
   animation-duration: 1;
   animation-range-start: 2px;
   animation-range-end: 1000px;
-  // overflow: hidden;
-  // mask: $linearGradientTransparent;
+  overflow: hidden;
 }
 .gradient-hero-wave {
   bottom: 20%;
@@ -38,10 +37,10 @@
 }
 
 .gradient-hero-wave:after {
-  opacity: 0.5;
+  opacity: 1;
   border-radius: 47%;
   animation-delay: 2s;
-  background-color: $cyan;
+  background-color: $deepestBlue;
 }
 .gradient-hero-inner {
   position: absolute;
@@ -61,9 +60,9 @@
     width: 80vw;
     height: 80vh;
   }
-  @include primaryRadialGradient(
-    gradient-hero-liquid-morph 10s infinite forwards
-  );
+  // @include primaryRadialGradient(
+  //   gradient-hero-liquid-morph 10s infinite forwards
+  // );
 }
 
 .modular-hero-container {
