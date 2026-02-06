@@ -55,7 +55,7 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  top: -100px;
+  top: -120px;
   background: $white;
   &::before {
     content: "";
@@ -140,7 +140,7 @@
 
 @keyframes fall {
   0% {
-    top: -100px;
+    top: -120px;
   }
   20% {
     top: 0%;
@@ -149,6 +149,6 @@
     top: 85%;
   }
   100% {
-    top: 100%;
+    top: 120%;
   }
 }
