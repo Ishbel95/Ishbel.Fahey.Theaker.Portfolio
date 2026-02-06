@@ -23,9 +23,9 @@ $radialGradient: radial-gradient(
 );
 
 $gradient-mouse-glow: radial-gradient(
-  600px circle at center,
+  250px circle at center,
   $teal 0%,
-  $deepBlue 50%,
+  $teal 40%,
   transparent 100%
 );
 $radialTransparentGradient: radial-gradient(

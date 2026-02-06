@@ -1,8 +1,5 @@
 .modular-image-gallery-container {
   margin: 0 auto;
-  @include desktop() {
-    @include grid(8, 2, max-content);
-  }
   .glass-wrapper {
     cursor: pointer;
     transition: $globalTransition;
@@ -13,7 +10,8 @@
     }
   }
   .tech-stack-image {
-    margin: 0.5em;
+    margin: 0.5em auto;
+    max-width: fit-content;
     @include desktop() {
       margin: 1em;
     }

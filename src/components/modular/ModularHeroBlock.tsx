@@ -6,8 +6,8 @@ import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "../data/MyImage";
 import { getBlockData } from "@/util/util";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
-import GradientHero from "../animation/GradientHero";
 import getCookie from "@/util/serverFunctions";
+import GradientBlobMorph from "../animation/GradientBlobMorph";
 
 export default async function ModularHero({
   data,
@@ -24,25 +24,18 @@ export default async function ModularHero({
     value: "true",
   });
   return (
-    <GradientHero
-      animate={siteEntryAnimation}
-      visitedPortfolio={visitedPortfolioCookie}
-    >
-      <div className="modular-hero-container">
-        <div className="modular-hero-inner">
-          <ModularLayoutWrapper
-            data={modularData.LayoutOptionBlockRecord}
-            key={key}
-          >
-            <div className="modular-hero-content">
-              <MyStructuredText data={modularData.BodyBlockRecord.body} />
-            </div>
-            {modularData?.ImageBlockRecord?.image && (
-              <MyImage img={modularData.ImageBlockRecord.image} />
-            )}
-          </ModularLayoutWrapper>
+    <GradientBlobMorph>
+      <ModularLayoutWrapper
+        data={modularData.LayoutOptionBlockRecord}
+        key={key}
+      >
+        <div className="modular-hero-content">
+          <MyStructuredText data={modularData.BodyBlockRecord.body} />
         </div>
-      </div>
-    </GradientHero>
+        {modularData?.ImageBlockRecord?.image && (
+          <MyImage img={modularData.ImageBlockRecord.image} />
+        )}
+      </ModularLayoutWrapper>
+    </GradientBlobMorph>
   );
 }

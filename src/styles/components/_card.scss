@@ -13,11 +13,12 @@
     inset: 0;
     transition: $globalTransition;
     transform: translateY(-20px);
-    padding: 1em;
+    padding: 1em 2em;
     top: 10%;
   }
   .card-overlay {
     position: absolute;
+
     inset: 0;
     z-index: 10;
     transition: $globalTransition;

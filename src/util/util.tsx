@@ -8,6 +8,7 @@ import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterfac
 import { ReactElement } from "react";
 import ErrorContent from "@/components/ErrorContent";
 import HomepageHero from "@/components/HomepageHero";
+import { div } from "motion/react-client";
 
 export function getBlockData(data: any) {
   const result = data.reduce((acc: any, block?: any) => {
@@ -70,4 +71,10 @@ export async function getModularContent(
       )}
     </>
   );
+}
+
+export function generateBlobs(count: number) {
+  return Array.from({ length: count }).map((_, index) => (
+    <div key={index} className="blob blob-inner" />
+  ));
 }

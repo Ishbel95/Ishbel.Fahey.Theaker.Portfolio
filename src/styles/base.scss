@@ -52,9 +52,13 @@
 .display-flex {
   @include flexBox();
 }
+.display-flex-wrap {
+  @include flexBox($flexWrap: wrap);
+}
 .display-flex-row-center {
   @include flexBox(row, center, center, center);
 }
+
 .display-flex-column-center {
   @include flexBox(column, center, center, center);
 }
@@ -94,7 +98,7 @@
     img {
       max-width: 300px;
       border-radius: $borderRadius;
-      box-shadow: 5px 5px 10px $black;
+      // box-shadow: 5px 5px 10px $black;
     }
   }
 }

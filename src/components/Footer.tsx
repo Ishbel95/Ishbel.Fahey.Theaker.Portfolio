@@ -12,7 +12,7 @@ export default async function Footer() {
     <footer
       className={`position-relative display-flex-row-desktop padding-bottom-only`}
     >
-      {data.footer.footerLinks.map(
+      {data.footer.footerLinks?.map(
         ({
           id,
           socialLink,

@@ -1,3 +1,5 @@
+"use client";
+
 import { BreakPoints } from "@/models/enums/BreakPoints";
 import { useState, useEffect } from "react";
 
