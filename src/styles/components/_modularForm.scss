@@ -1,5 +1,6 @@
 .form {
-  padding: 2em 1em;
+  padding: 1em 0.8em;
+  text-align: left;
   @include desktop() {
     padding: 2.5em;
   }
@@ -8,23 +9,27 @@
 .form-input {
   input,
   textarea,
-  .custom-select,
-  label {
+  label,
+  p {
     font-size: 0.8em;
   }
   input,
   textarea,
-  select {
+  .custom-select-inner,
+  .custom-select-menu-open,
+  .custom-select-menu-closed {
     @extend .glass-basic-background;
     width: 100%;
     border-radius: $borderRadius;
-    padding: 1.5em 4em;
+    padding: 1.5em 1.6em;
     color: $white;
     border: solid 1px transparent;
     margin: 1em auto;
     transition: $globalTransition;
-    &::placeholder,
-    option {
+    @include desktop() {
+      padding: 1.5em 3em;
+    }
+    &::placeholder {
       color: $white;
       opacity: 0.7;
       @extend .secondary-font;
@@ -34,36 +39,59 @@
       border: solid 1px $white;
     }
   }
-  select {
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  .custom-select {
+}
+.custom-select {
+  .custom-select-inner {
     position: relative;
     justify-content: space-between;
-    opacity: 0.7;
-
+    z-index: 30;
+    .custom-select-value {
+      opacity: 0.7 !important;
+      margin: 0;
+    }
+  }
+  svg {
+    font-size: 1.2em;
+    transition: $globalTransition;
+  }
+  .custom-select-button-open {
     svg {
-      position: absolute;
-      right: 1.5em;
-      transition: $globalTransition;
       transform: rotate(0);
-      font-size: 1.2em;
     }
-    // &:hover,
-    // &:focus {
-    //   svg {
-    //     transform: rotate(-180deg);
-    //   }
-    // }
+  }
+  .custom-select-button-closed {
+    svg {
+      transform: rotate(-180deg);
+    }
+  }
+  .custom-select-menu-open,
+  .custom-select-menu-closed {
+    position: absolute;
+    left: 0;
+    top: 4em;
+    z-index: 30;
 
-    p {
-      opacity: 1;
-      font-size: 0.8em;
-      position: relative;
-      @extend .glass-basic-background;
+    transition: $globalTransition;
+    background-color: $deepestBlue !important;
+    padding: 0 1em;
+    @include desktop() {
+      padding: 1.5em 1.6em;
     }
+    p {
+      margin: 0 auto;
+      padding: 2em 0;
+      border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+      &:last-of-type {
+        border: none;
+      }
+    }
+  }
+  .custom-select-menu-open {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .custom-select-menu-closed {
+    max-height: 0;
+    opacity: 0;
   }
 }

@@ -1,11 +1,14 @@
+"use client";
 import { InputTypes } from "@/models/enums/InputTypes";
 import FormBlockFragmentQuery, {
   FormInputInterface,
 } from "@/models/fragments/FormBlockInterface";
 import FormInputWrapper from "@/wrappers/FormInputWrapper";
-import React from "react";
+import React, { useState } from "react";
 import MyPath from "./data/MyPath";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Select from "react-dropdown-select";
+import CustomSelect from "./CustomSelect";
 
 export default function Form({
   data,
@@ -28,19 +31,7 @@ export default function Form({
           />
         );
       case InputTypes.Select:
-        return (
-          <div className="custom-select display-flex">
-            {/* <span>{data.selectTitle}</span>{" "} */}
-            <FontAwesomeIcon icon={data.selectIcon} />
-            <select id={data.name} name={data.name}>
-              {data.selectOptions.map(({ string, id }) => (
-                <option key={id} value={string}>
-                  {string}
-                </option>
-              ))}
-            </select>
-          </div>
-        );
+        return <CustomSelect selectData={data} />;
       default:
         return (
           <input
@@ -61,7 +52,7 @@ export default function Form({
       data-netlify-honeypot="bot-field"
       name={data.formName}
       action={data.successPath}
-      className="form display-grid-3-columns align-left"
+      className="form display-grid-3-columns "
     >
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {
