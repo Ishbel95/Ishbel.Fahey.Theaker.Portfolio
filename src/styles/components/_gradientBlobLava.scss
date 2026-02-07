@@ -20,13 +20,12 @@
     }
 
     h1 {
-      // @extend .home-heading-font;
+      @extend .home-heading-font;
       margin: 0.1em auto 0.5em !important;
       a {
         color: $cyan;
       }
       @include desktop() {
-        font-size: 8rem;
       }
     }
   }

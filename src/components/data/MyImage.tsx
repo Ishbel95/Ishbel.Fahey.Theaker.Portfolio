@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { ResponsiveImage } from "@/models/fragments/ImageBlockInterface";
 import { ImageFragmentQuery } from "@/models/fragments/ImageGalleryBlockInterface";
 export default function MyImage({
   img,
