@@ -38,26 +38,54 @@ $linearGradientTransparent: linear-gradient(
   0deg,
   transparent 0%,
   transparent 5%,
-  $darkBlue 15%,
-  $darkestBlue 20%,
+  $darkestBlue 15%,
+  $darkestBlue 90%,
+  $darkestBlue 100%
+);
+
+$linearGradientTransparentMask: linear-gradient(
+  180deg,
+  transparent 0%,
+  transparent 5%,
+  transparent 90%,
+  $darkestBlue 95%,
   $darkestBlue 100%
 );
 $linearDarkestBlueBackgroundGradient: linear-gradient(
   180deg,
-  transparent $darkestBlue 10%,
+  transparent 0%,
+  $darkestBlue 10%,
   $darkestBlue 50%,
   $darkestBlue 90%,
-  transparent
+  transparent 100%
 );
 
 $linearDarkBlueBackgroundGradient: linear-gradient(
   180deg,
-  transparent $darkBlue 10%,
+  transparent 0%,
+  $darkBlue 10%,
   $darkBlue 50%,
   $darkBlue 90%,
-  transparent
+  transparent 100%
 );
 
+$linearDarkestBlueBackgroundGradientNoTop: linear-gradient(
+  180deg,
+  $darkestBlue 0%,
+  $darkestBlue 10%,
+  $darkestBlue 50%,
+  $darkestBlue 90%,
+  transparent 100%
+);
+
+$linearDarkBlueBackgroundGradientNoTop: linear-gradient(
+  180deg,
+  $darkBlue 0%,
+  $darkBlue 10%,
+  $darkBlue 50%,
+  $darkBlue 90%,
+  transparent 100%
+);
 $linearGradientBlueTransparentBlue: linear-gradient(
   180deg,
   transparent 0%,

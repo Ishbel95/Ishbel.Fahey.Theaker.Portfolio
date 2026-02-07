@@ -18,7 +18,7 @@ export default async function ModularHero({
   const modularData = getBlockData(data?.hero);
 
   return (
-    <GradientBlobMorph align={modularData.LayoutOptionBlockRecord.textAlign}>
+    <GradientBlobMorph layout={modularData.LayoutOptionBlockRecord}>
       <ModularLayoutWrapper
         data={modularData.LayoutOptionBlockRecord}
         key={key}

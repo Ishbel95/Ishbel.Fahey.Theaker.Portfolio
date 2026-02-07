@@ -49,11 +49,3 @@
     }
   }
 }
-
-@keyframes card-show-text {
-  to {
-    background: $linearGradientTransparent;
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}

@@ -25,12 +25,6 @@ export default async function HomepageHero({
         >
           <div className="modular-hero-content">
             <MyStructuredText data={modularData.BodyBlockRecord.body} />
-
-            <h2 className="text-change-container ">
-              <span className="text-change">Software</span>{" "}
-              <span className="text-change">Creative</span>
-              <span className="text-no-change">Developer</span>
-            </h2>
           </div>
           {modularData?.ImageBlockRecord?.image && (
             <MyImage img={modularData.ImageBlockRecord.image} />

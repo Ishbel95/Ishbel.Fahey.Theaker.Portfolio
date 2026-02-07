@@ -1,14 +1,12 @@
 @import "../keyframes/gradientBlobLavaKeyFrames";
 
 .gradient-blob-lava-container {
+  min-height: 100vh;
   svg {
     width: 0;
     height: 0;
   }
-  min-height: 100vh;
   position: relative;
-
-  background-color: $darkestBlue;
 
   .modular-hero-container {
     width: 100%;
@@ -17,18 +15,18 @@
     position: relative;
     z-index: 40;
     p {
-      font-size: 2rem;
-      margin-bottom: 0;
+      font-size: 1.8rem;
+      margin: 0 auto !important;
     }
 
     h1 {
-      margin-bottom: 0;
       // @extend .home-heading-font;
-
-      font-size: 4rem;
-
+      margin: 0.1em auto 0.5em !important;
+      a {
+        color: $cyan;
+      }
       @include desktop() {
-        font-size: 10rem;
+        font-size: 8rem;
       }
     }
   }
@@ -40,15 +38,22 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    left: 20%;
+    left: 0;
     filter: url(#gooHero);
+    @include desktop() {
+      left: 20%;
+    }
   }
 
   .blob {
     position: absolute;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 10px;
+    height: 10px;
+    @include desktop() {
+      width: 100px;
+      height: 100px;
+    }
     top: -120px;
     background: $white;
     &::before {
@@ -130,82 +135,5 @@
         ),
       )
     );
-  }
-}
-
-.text-change-container {
-  position: relative;
-  margin: 0 0 1em;
-  &:hover,
-  &:focus {
-    .text-change:nth-of-type(1) {
-      opacity: 0;
-    }
-    .text-change:nth-of-type(2) {
-      opacity: 1;
-    }
-  }
-
-  .text-change {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    font-size: 3.5rem;
-    font-weight: 500;
-    text-shadow: $textShadow;
-    transition: $globalTransition;
-    &:nth-of-type(1) {
-      color: $cyan;
-      opacity: 1;
-    }
-    &:nth-of-type(2) {
-      color: $violet;
-      opacity: 0;
-    }
-  }
-  .text-no-change {
-    display: block;
-    @include desktop() {
-      position: absolute;
-      left: 320px;
-    }
-  }
-}
-
-@keyframes text-move-up {
-  0% {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(20%);
-  }
-
-  10%,
-  30% {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-
-  40%,
-  100% {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(-20%);
-  }
-}
-
-@keyframes fall {
-  0% {
-    top: -120px;
-  }
-  20% {
-    top: 0%;
-  }
-  80% {
-    top: 85%;
-  }
-  100% {
-    top: 120%;
   }
 }

@@ -12,7 +12,7 @@
     font-size: 2rem;
     font-weight: 200;
   }
-  h1,
+
   h2,
   h3 {
     margin: 0 0 0.5em;
@@ -22,6 +22,7 @@
     }
   }
   h1 {
+    line-height: $smallLineHeight;
     font-size: 3rem;
     font-weight: 900;
   }
@@ -68,11 +69,13 @@
 @include column($position: "2", $start: 2, $end: 3);
 @include column($position: "3", $start: 3, $end: 4);
 @include column($position: "span", $start: 1, $end: 4);
-
+svg {
+  width: 0;
+  height: 0;
+}
 .align-left,
 .align-right {
-  .modular-content-container,
-  .modular-hero-content {
+  .modular-content-container {
     @include desktop() {
       max-width: 60%;
     }
@@ -130,6 +133,12 @@
 }
 .background-color-dark-blue {
   background: $linearDarkBlueBackgroundGradient;
+}
+.background-color-darkest-blue-hero {
+  background: $linearDarkestBlueBackgroundGradientNoTop;
+}
+.background-color-dark-blue-hero {
+  background: $linearDarkBlueBackgroundGradientNoTop;
 }
 
 .padding-top-bottom {
