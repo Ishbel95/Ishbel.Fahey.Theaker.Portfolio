@@ -7,11 +7,18 @@ export const AllModularTemplatePageQuery = `
   query ModularTemplatePageQuery($slug: string!) {
     modularTemplate(filter: { slug: { eq: $slug } }) {
       id
+      includeInNav
       internalTitle
       slug
       seo {
         title
         description
+           image {
+          responsiveImage {
+            src
+            alt
+          }
+        }
       }
       modularContent {
         ... on HeroBlockRecord {
@@ -52,10 +59,17 @@ export const ModularTemplatePageQuery = `
     modularTemplate(filter: { slug: { eq: $slug } }) {
       id
       internalTitle
+      includeInNav
       slug
       seo {
         title
         description
+           image {
+          responsiveImage {
+            src
+            alt
+          }
+        }
       }
       modularContent {
         ... on HeroBlockRecord {
@@ -93,6 +107,7 @@ export const AllModularTemplateSlugsQuery = `
 query allModularTemplateSlugsQuery {
   allModularTemplates {
     internalTitle
+    includeInNav
     id
     slug
   }

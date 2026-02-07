@@ -1,8 +1,19 @@
-@import "mixins.scss";
 @import "variables.scss";
+@import "mixins.scss";
 @import "base";
-@import "./animation/starryBackground";
+
+@import "./components/modularLayoutWrapper";
 @import "./components/modularImageGallery";
-@import "./components/modularCardCarousel";
 @import "./components/modularTimeline";
 @import "./components/modularForm.scss";
+
+@import "./components/navigation";
+@import "./components/loading";
+@import "./components/glass";
+@import "./components/card";
+@import "./components/modal";
+@import "./components/videoCarousel";
+
+@import "./components/gradientBody";
+@import "./components/gradientBlob";
+@import "./components/gradientBlobLava";

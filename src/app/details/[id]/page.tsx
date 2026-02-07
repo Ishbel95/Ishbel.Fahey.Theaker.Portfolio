@@ -1,20 +1,48 @@
-import Loading from "@/components/Loading";
 import {
   AllModularTemplatePageQuery,
   ModularTemplatePageQuery,
 } from "@/queries/ModularTemplateQuery";
-import { getDatoCmsData } from "@/util/util";
-import ModularHero from "@/components/modular/ModularHeroBlock";
-import ModularContent from "@/components/modular/ModularContentBlock";
-import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
-import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
+import { getDatoCmsData, getModularContent } from "@/util/util";
 
 export async function generateStaticParams() {
-  const data = await getDatoCmsData({ query: AllModularTemplatePageQuery });
+  const data = await getDatoCmsData({ query: AllModularTemplatePageQuery }); ///modular template interface
   const allModularTemplatesData = data?.allModularTemplates ?? [];
   return allModularTemplatesData?.map((item: any) => ({
     params: { id: item.slug },
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const variables = { slug: id };
+  const modularTemplateData = await getDatoCmsData({
+    query: ModularTemplatePageQuery,
+    variables,
+  });
+  const seo = modularTemplateData.modularTemplate.seo;
+
+  if (!seo) {
+    return {
+      title: "Ishbel Fahey Theaker Portfolio",
+      description: "explore my portfolio",
+      keywords: "blog, tutorials, keywords etc",
+      openGraph: {
+        // images: ["/some-specific-page-image.jpg"],
+      },
+    };
+  }
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: "blog, tutorials, keywords etc",
+    openGraph: {
+      images: [seo.image.responsiveImage.src],
+    },
+  };
 }
 
 export default async function ModularTemplatePage({
@@ -30,27 +58,8 @@ export default async function ModularTemplatePage({
   });
 
   const modularTemplateData = data?.modularTemplate ?? [];
-
-  if (!modularTemplateData) {
-    return <Loading />;
-  }
-
-  const GetModularTemplateBlock = (type: string, component: any) => {
-    switch (type) {
-      case "HeroBlockRecord":
-        return <ModularHero data={component} key={component.id} />;
-      case "ContentBlockRecord":
-        return <ModularContent data={component} key={component.id} />;
-    }
-  };
-
-  return (
-    <main>
-      {modularTemplateData.modularContent.map(
-        (component: HeroBlockFragmentQuery | ModularContentQuery) => {
-          return GetModularTemplateBlock(component.__typename, component);
-        }
-      )}
-    </main>
+  const modularPageContent = getModularContent(
+    modularTemplateData.modularContent,
   );
+  return modularPageContent;
 }

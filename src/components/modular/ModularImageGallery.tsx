@@ -3,6 +3,8 @@ import MyImage from "../data/MyImage";
 import ImageGalleryFragmentQuery from "@/models/fragments/ImageGalleryBlockInterface";
 import { ImageFragmentQuery } from "@/models/fragments/ImageGalleryBlockInterface";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
+import Glass from "../animation/Glass";
+
 export default function ModularImageGallery({
   data,
   key,
@@ -16,9 +18,9 @@ export default function ModularImageGallery({
     <ModularLayoutWrapper data={data?.layoutOptions} key={key}>
       <div className="modular-image-gallery-container">
         {gallery.map((img: ImageFragmentQuery) => (
-          <div className="glass-card-dark tech-stack-image">
+          <Glass classNames="glass-card tech-stack-image" key={img.id}>
             <MyImage img={img} />
-          </div>
+          </Glass>
         ))}
       </div>
     </ModularLayoutWrapper>

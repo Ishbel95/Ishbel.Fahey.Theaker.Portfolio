@@ -1,55 +1,137 @@
-//backgrounds
 //colors
-$darkestBlue: #000108;
-$darkBlue: #001439;
-$lightBlue: #01378c;
-$blue: #01204ffa;
-$white: #fdfdfd;
+$white: #fff;
 $black: #010204;
+$cyan: rgb(77, 251, 255);
+$aqua: rgb(46, 230, 230);
+$teal: rgb(31, 182, 255);
+$blue: rgb(58, 123, 255);
+$violet: rgb(106, 76, 255);
+$purple: rgb(139, 92, 246);
+$darkBlue: rgb(26, 61, 111);
+$darkestBlue: rgb(11, 28, 45);
 
-$primaryGradient: linear-gradient(
-  90deg,
-  #000108 23%,
-  #001439 54%,
-  #01204ffa 74%,
-  #01378c 100%
-);
+//glass
+$glassBackground: rgba(58, 123, 255, 0.3);
+
+//gradients
+$gradientCircleSize: 80%;
 $radialGradient: radial-gradient(
-  ellipse at bottom,
-  #000108 15%,
-  #001439 64%,
-  #01204ffa 86%,
-  #01378c 100%
+  ellipse at center,
+  $blue 0%,
+  $darkBlue 35%,
+  $darkestBlue 100%
+);
+
+$gradient-mouse-glow: radial-gradient(
+  250px circle at center,
+  $teal 0%,
+  $teal 40%,
+  transparent 100%
+);
+$radialTransparentGradient: radial-gradient(
+  circle at center,
+  transparent 0%,
+  transparent 10%,
+  $darkestBlue 70%
+);
+$linearGradientTransparent: linear-gradient(
+  0deg,
+  transparent 0%,
+  transparent 5%,
+  $darkestBlue 15%,
+  $darkestBlue 90%,
+  $darkestBlue 100%
+);
+
+$linearGradientTransparentMask: linear-gradient(
+  180deg,
+  transparent 0%,
+  transparent 5%,
+  transparent 90%,
+  $darkestBlue 95%,
+  $darkestBlue 100%
+);
+$linearDarkestBlueBackgroundGradient: linear-gradient(
+  180deg,
+  transparent 0%,
+  $darkestBlue 10%,
+  $darkestBlue 50%,
+  $darkestBlue 90%,
+  transparent 100%
+);
+
+$linearDarkBlueBackgroundGradient: linear-gradient(
+  180deg,
+  transparent 0%,
+  $darkBlue 10%,
+  $darkBlue 50%,
+  $darkBlue 90%,
+  transparent 100%
+);
+
+$linearDarkestBlueBackgroundGradientNoTop: linear-gradient(
+  180deg,
+  $darkestBlue 0%,
+  $darkestBlue 10%,
+  $darkestBlue 50%,
+  $darkestBlue 90%,
+  transparent 100%
+);
+
+$linearDarkBlueBackgroundGradientNoTop: linear-gradient(
+  180deg,
+  $darkBlue 0%,
+  $darkBlue 10%,
+  $darkBlue 50%,
+  $darkBlue 90%,
+  transparent 100%
+);
+$linearGradientBlueTransparentBlue: linear-gradient(
+  180deg,
+  transparent 0%,
+  transparent 1%,
+  $darkestBlue 15%,
+  $darkestBlue 50%,
+  $darkestBlue 85%,
+  transparent 99%,
+  transparent 100%
 );
 
 //spacing
-$globalWidth: min(90%, 1000px);
-$globalTransition: all 250ms ease-in-out;
-$mobilePadding: 3em 0;
-$desktopPadding: 6em 0;
+$globalWidth: min(95%, 1100px);
+$largeGlobalWidth: min(95%, 1500px);
 
-$mobileTopPaddingOnly: 3em 0 0 0;
-$desktopTopPaddingOnly: 6em 0 0 0;
+//padding and margin
+$mobilePadding: 6em 0;
+$desktopPadding: 8em 0;
 
-$mobileBottomPaddingOnly: 0 0 3em 0;
-$desktopBottomPaddingOnly: 0 0 6em 0;
+$mobileTopPaddingOnly: 6em 0 0 0;
+$desktopTopPaddingOnly: 8em 0 0 0;
+
+$mobileBottomPaddingOnly: 0 0 6em 0;
+$desktopBottomPaddingOnly: 0 0 8em 0;
+
+$mobileMargin: 0.3em;
+$desktopMargin: 0.5em;
+
+$cardPaddingMobile: 0.8em;
+$cardPaddingDesktop: 1em;
 
 $borderRadius: 10px;
-$cardPaddingMobile: 0.6em;
-$cardPaddingDesktop: 0.8em;
+$borderBase: 2px solid;
 
 //breakpoints
-
 $desktopBreakpoint: 758px;
-
-//glass
-
-//glow
-$shadowPixels: 0px 0px 106px 41px;
-$darkShadow: $shadowPixels $darkBlue;
-$mediumShadow: $shadowPixels $blue;
-$lightShadow: $shadowPixels $white;
+$mobileBreakpoint: 757px;
 
 // text
 $smallLineHeight: 1em;
 $lineHeight: 1.5em;
+$textShadow: 5px 5px 10px $black;
+
+//animation
+$easeInOutForwards: 350ms ease-in-out forwards;
+$easeInOutLonger: 500ms ease-in-out forwards;
+$easeInOut2Seconds: 2s ease-in-out forwards;
+$easeInOut1Seconds: 1s ease-in-out forwards;
+$globalTransition: all 350ms ease-in-out;

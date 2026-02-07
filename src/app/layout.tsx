@@ -3,17 +3,50 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import GradientBackground from "@/components/animation/GradientBackground";
+import { Metadata } from "next";
+import Modal from "@/components/Modal";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://ishbelfaheytheaker.dev"),
+  generator: "Next.js",
+  applicationName: "ISHBEL.FAHEY.THEAKER.PORTFOLIO",
+  referrer: "origin-when-cross-origin",
+  keywords: ["Next.js", "React", "JavaScript", "Typescript"],
+  authors: [{ name: "Ishbel Fahey Theaker", url: "https://nextjs.org" }],
+  creator: "Ishbel Fahey Theaker",
+  publisher: "Ishbel Fahey Theaker",
+  title: "Ishbel Fahey Theaker dev portfolio",
+  description: "Explore my portfolio to see what I can code!.",
+  openGraph: {
+    title: "Ishbel Fahey Theaker dev portfolio",
+    description: "Explore my portfolio to see what I can code!.",
+  },
+};
+
 config.autoAddCss = false;
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //errorboundary
+
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <Navigation />
-        <main>{children}</main>
+        <GradientBackground />
+        <Modal />
+        {children}
         <Footer />
       </body>
     </html>

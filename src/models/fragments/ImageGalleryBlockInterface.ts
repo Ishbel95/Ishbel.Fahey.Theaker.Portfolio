@@ -8,7 +8,7 @@ export interface ImageFragmentQuery {
   id: string;
   width?: number;
   height?: number;
-  responsiveImage: ResponsiveImage;
+  responsiveImage?: ResponsiveImage;
 }
 
 export default interface ImageGalleryFragmentQuery {

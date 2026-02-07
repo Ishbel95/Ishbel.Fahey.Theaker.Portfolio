@@ -1,0 +1,215 @@
+@import "../keyframes/navigationKeyframes";
+
+.navigation-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 50;
+  top: 20px;
+  transition: $globalTransition;
+
+  .glass-inner {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 2em;
+    max-height: 100px;
+    @include desktop() {
+      width: 100%;
+      height: 100%;
+      border-radius: 200px;
+    }
+    .navigation-content {
+      @include mobile() {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+      }
+
+      .navigation-content-inner {
+        @include mobile() {
+          height: 100%;
+          @include flexBox(column, space-evenly, space-evenly);
+        }
+        @include desktop() {
+          @include flexBox();
+        }
+      }
+    }
+    a {
+      font-size: 2.8em;
+      font-weight: 300;
+      position: relative;
+      transition: all 250ms;
+      @include linkHover;
+      @include desktop() {
+        opacity: 1;
+        margin: 0 1em;
+        font-size: 0.9em;
+      }
+    }
+    .navigation-burger {
+      margin: 0 auto;
+      display: block;
+      width: 50px;
+      @include desktop() {
+        position: absolute;
+      }
+    }
+    .navigation-burger::after,
+    .navigation-burger::before,
+    .navigation-burger div {
+      content: "";
+      background: #fff;
+      content: "";
+      display: block;
+      height: 2px;
+      border-radius: 3px;
+      margin: 7px 0;
+      transition: $globalTransition;
+    }
+  }
+}
+
+.navigation-container-open {
+  .navigation-container {
+    width: 50%;
+    transition: $globalTransition;
+    opacity: 1;
+    @include desktop() {
+      .navigation-burger {
+        opacity: 0;
+        width: 20px;
+        transform: translateY(-20px);
+      }
+    }
+    .navigation-burger::before {
+      transform: translateY(9px) rotate(135deg);
+    }
+    .navigation-burger::after {
+      transform: translateY(-9px) rotate(-135deg);
+    }
+    .navigation-burger div {
+      transform: scale(0);
+    }
+
+    .glass-inner {
+      padding: 2em;
+      @include mobile() {
+        box-shadow: inset 0 0 13px #fff6;
+        animation: navigation-closed-to-open-glass $easeInOutForwards;
+      }
+
+      .navigation-content {
+        height: 100%;
+        .navigation-content-inner {
+          @extend .glass-basic-background-clear;
+          @include mobile() {
+            animation: glass-blur-background-in $easeInOutForwards;
+          }
+        }
+        a {
+          opacity: 0;
+          animation: opacity-fade-in $easeInOutForwards;
+          @include desktop() {
+            animation-delay: 400ms;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navigation-container-closed {
+  .navigation-container {
+    @include desktop() {
+      width: 50%;
+      animation: navigation-inner-scroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-duration: 0.5s;
+      animation-range-start: 2px;
+      animation-range-end: 1000px;
+    }
+  }
+
+  .glass-inner {
+    @include mobile() {
+      animation: navigation-open-to-closed-glass $easeInOutForwards;
+    }
+
+    .navigation-content {
+      @include mobile() {
+        animation: navigation-shrink-height 10ms forwards;
+        animation-delay: 400ms;
+      }
+
+      .navigation-content-inner {
+        @include mobile() {
+          @include glassBackground();
+          animation: glass-blur-background-out $easeInOutForwards;
+          a {
+            opacity: 1;
+            animation: opacity-fade-out $easeInOutForwards;
+          }
+        }
+        @include desktop() {
+          opacity: 1;
+          scale: 1 1;
+          animation: navigation-text-scroll linear forwards;
+          animation-timeline: scroll(root);
+          animation-duration: 1s;
+          animation-range-start: 2px;
+          animation-range-end: 1000px;
+        }
+      }
+    }
+  }
+  .navigation-burger {
+    @include desktop() {
+      position: absolute;
+      opacity: 0;
+      scale: 0 1;
+      animation: navigation-burger-scroll linear forwards;
+      animation-timeline: scroll(root);
+      animation-duration: 1s;
+      animation-range-start: 2px;
+      animation-range-end: 1000px;
+    }
+  }
+}
+@include desktop() {
+  .navigation-container-desktop-open {
+    .navigation-container {
+      width: 50%;
+      transition: $globalTransition;
+      opacity: 1;
+
+      .navigation-burger {
+        transition: $globalTransition;
+        width: 20px;
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+  }
+
+  .navigation-container-desktop-closed {
+    .navigation-container {
+      width: 100px;
+      transition: $globalTransition;
+      opacity: 1;
+
+      .navigation-burger {
+        transition: $globalTransition;
+        width: 50px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

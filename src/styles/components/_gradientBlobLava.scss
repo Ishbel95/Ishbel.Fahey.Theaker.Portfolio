@@ -1,0 +1,138 @@
+@import "../keyframes/gradientBlobLavaKeyFrames";
+
+.gradient-blob-lava-container {
+  min-height: 100vh;
+  svg {
+    width: 0;
+    height: 0;
+  }
+  position: relative;
+
+  .modular-hero-container {
+    width: 100%;
+
+    margin: 0 auto;
+    position: relative;
+    z-index: 40;
+    p {
+      font-size: 1.8rem;
+      margin: 0 auto !important;
+    }
+
+    h1 {
+      @extend .home-heading-font;
+      margin: 0.1em auto 0.5em !important;
+      a {
+        color: $cyan;
+      }
+      @include desktop() {
+      }
+    }
+  }
+
+  .gradient-blob-lava-inner {
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    filter: url(#gooHero);
+    @include desktop() {
+      left: 20%;
+    }
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    @include desktop() {
+      width: 100px;
+      height: 100px;
+    }
+    top: -120px;
+    background: $white;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      bottom: -50px;
+      right: -50px;
+      border-radius: 50%;
+      background-color: $white;
+      z-index: -1;
+      filter: blur(50px);
+    }
+  }
+
+  .blob-inner {
+    @include falling-circles-map(
+      (
+        1: (
+          left: 30%,
+          delay: 1s,
+        ),
+        2: (
+          left: 60%,
+          delay: 2s,
+        ),
+        3: (
+          left: 25%,
+          delay: 3s,
+        ),
+        4: (
+          left: 75%,
+          delay: 4s,
+        ),
+        5: (
+          left: 35%,
+          delay: 5s,
+        ),
+        6: (
+          left: 50%,
+          delay: 6s,
+        ),
+        7: (
+          left: 65%,
+          delay: 7s,
+        ),
+        8: (
+          left: 35%,
+          delay: 8s,
+        ),
+        9: (
+          left: 55%,
+          delay: 9s,
+        ),
+        10: (
+          left: 55%,
+          delay: 10s,
+        ),
+        11: (
+          left: 35%,
+          delay: 11s,
+        ),
+        12: (
+          left: 50%,
+          delay: 102,
+        ),
+        13: (
+          left: 65%,
+          delay: 13s,
+        ),
+        14: (
+          left: 40%,
+          delay: 14s,
+        ),
+        15: (
+          left: 60%,
+          delay: 15s,
+        ),
+      )
+    );
+  }
+}

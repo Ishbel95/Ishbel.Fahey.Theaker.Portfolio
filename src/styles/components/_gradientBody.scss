@@ -1,0 +1,93 @@
+@import "../keyframes/gradientBodyKeyFrames";
+
+.gradient-body-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  filter: blur(30px);
+  svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .gradient-body-filter {
+    filter: url(#goo) blur(40px);
+    width: 100%;
+    height: 100%;
+  }
+}
+.gradient-mouse {
+  position: absolute;
+  background: $gradient-mouse-glow no-repeat;
+  mix-blend-mode: hard-light;
+
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.3;
+}
+
+@include gradient($name: "1", $gradientColor: $darkBlue);
+
+@include gradient(
+  $name: "2",
+  $gradientColor: $blue,
+  $gradientTransformOrigin: (
+    calc(50% - 400px),
+  ),
+  $gradientAnimation: (
+    gradient-move-circle 20s reverse infinite,
+  )
+);
+
+@include gradient(
+  $name: "3",
+  $gradientColor: $violet,
+  $position: (
+    calc(50% - $gradientCircleSize / 2 + 200px),
+    calc(50% - $gradientCircleSize / 2 - 500px),
+  ),
+  $gradientTransformOrigin: (
+    calc(50% + 400px),
+  ),
+  $gradientAnimation: (
+    gradient-move-circle 40s linear infinite,
+  )
+);
+
+@include gradient(
+  $name: "4",
+  $gradientColor: $purple,
+  $gradientTransformOrigin: (
+    calc(50% - 200px),
+  ),
+  $gradientAnimation: (
+    gradient-move-horizontal 40s ease infinite,
+  ),
+  $opacity: 0.7
+);
+
+@include gradient(
+  $name: "5",
+  $gradientColor: $teal,
+
+  $position: (
+    calc($gradientCircleSize * 2),
+    calc($gradientCircleSize * 2),
+  ),
+  $gradientTransformOrigin: (
+    calc(50% - 800px),
+    calc(50% + 200px),
+  ),
+  $gradientAnimation: (
+    gradient-move-circle 20s ease infinite,
+  )
+);

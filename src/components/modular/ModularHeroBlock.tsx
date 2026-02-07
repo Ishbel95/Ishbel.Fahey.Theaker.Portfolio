@@ -1,33 +1,35 @@
+"use server";
 import React from "react";
-import { ReactNode } from "react";
 import MyStructuredText from "../data/MyStructuredText";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "../data/MyImage";
-import { blockTypes } from "@/util/util";
 import { getBlockData } from "@/util/util";
-import StarryBackground from "../animation/starryBackground";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
-export default function ModularHero({
+import GradientBlobMorph from "../animation/GradientBlobMorph";
+
+export default async function ModularHero({
   data,
   key,
 }: {
   data: HeroBlockFragmentQuery;
   key: string;
+  siteEntryAnimation?: boolean;
 }) {
   const modularData = getBlockData(data?.hero);
+
   return (
-    <StarryBackground>
+    <GradientBlobMorph layout={modularData.LayoutOptionBlockRecord}>
       <ModularLayoutWrapper
         data={modularData.LayoutOptionBlockRecord}
         key={key}
       >
-        <div className="modular-hero-container">
+        <div className="modular-hero-content">
           <MyStructuredText data={modularData.BodyBlockRecord.body} />
         </div>
         {modularData?.ImageBlockRecord?.image && (
           <MyImage img={modularData.ImageBlockRecord.image} />
         )}
       </ModularLayoutWrapper>
-    </StarryBackground>
+    </GradientBlobMorph>
   );
 }

@@ -1,0 +1,44 @@
+.modal-show,
+.modal-hide {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  .modal-inner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .modal-content {
+      position: absolute;
+      top: 0;
+      text-align: center;
+    }
+    .modal-exit {
+      svg {
+        margin: 1em auto;
+        font-size: 3rem;
+        transition: $globalTransition;
+        transform: rotate(0deg);
+        &:hover,
+        &:focus {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+.modal-show {
+  .modal-inner {
+    @extend .glass-basic-background-clear;
+    animation: glass-blur-background-in $easeInOutForwards;
+  }
+}
+
+.modal-hide {
+  animation: navigation-shrink-height 10ms forwards;
+  animation-delay: 400ms;
+  .modal-inner {
+    @include glassBackground();
+    animation: glass-blur-background-out $easeInOutForwards;
+  }
+}

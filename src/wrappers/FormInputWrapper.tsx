@@ -12,9 +12,7 @@ export default function FormInputWrapper({
 }) {
   return (
     <div className={`form-input column-${data.column} `} key={key}>
-      <label htmlFor={data.name} className="align-left">
-        {data.label}
-      </label>
+      <label htmlFor={data.name}>{data.label}</label>
       {children}
     </div>
   );

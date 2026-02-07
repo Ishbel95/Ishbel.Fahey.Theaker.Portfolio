@@ -5,6 +5,7 @@ export default interface NavigationQueryInterface {
     topLevelPath: {
       links: {
         id: string;
+
         slug: string;
       };
     };

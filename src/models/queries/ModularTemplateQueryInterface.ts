@@ -8,10 +8,14 @@ export default interface ModularTemplateQuery {
   __typename: "ModularTemplateRecord";
   id: string;
   internalTitle: string;
+  includeInNav: boolean;
   slug: string;
   seo: {
     title: string;
     description: string;
+    image?: {
+      responsiveImage: { src: string; alt: string };
+    };
   };
   hero: HeroBlockFragmentQuery;
   content: ModularContentQuery;

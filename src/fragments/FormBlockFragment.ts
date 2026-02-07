@@ -17,6 +17,8 @@ fragment FormBlockFragment on FormBlockRecord {
     maximumCharacters
     minimumCharacters
     rows
+    selectTitle
+    selectIcon
     selectOptions {
         string
         id

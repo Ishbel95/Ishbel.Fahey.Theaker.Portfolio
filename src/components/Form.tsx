@@ -1,10 +1,14 @@
+"use client";
 import { InputTypes } from "@/models/enums/InputTypes";
 import FormBlockFragmentQuery, {
   FormInputInterface,
 } from "@/models/fragments/FormBlockInterface";
 import FormInputWrapper from "@/wrappers/FormInputWrapper";
-import React from "react";
+import React, { useState } from "react";
 import MyPath from "./data/MyPath";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Select from "react-dropdown-select";
+import CustomSelect from "./CustomSelect";
 
 export default function Form({
   data,
@@ -27,13 +31,7 @@ export default function Form({
           />
         );
       case InputTypes.Select:
-        return (
-          <select id={data.name} name={data.name}>
-            {data.selectOptions.map(({ string, id }) => (
-              <option key={id}>{string}</option>
-            ))}
-          </select>
-        );
+        return <CustomSelect selectData={data} />;
       default:
         return (
           <input
@@ -54,7 +52,7 @@ export default function Form({
       data-netlify-honeypot="bot-field"
       name={data.formName}
       action={data.successPath}
-      className="form display-grid-3-columns"
+      className="form "
     >
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {
@@ -64,10 +62,8 @@ export default function Form({
           </FormInputWrapper>
         );
       })}
-      <MyPath color="light" buttonPath="/">
-        <button type="submit" className="">
-          Submit
-        </button>
+      <MyPath color="dark" buttonPath="/" customClassNames={"column-span"}>
+        <button type="submit">Submit</button>
       </MyPath>
     </form>
   );

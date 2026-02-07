@@ -7,6 +7,7 @@ import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
 import ModularTimelineBlock from "../modular/ModularTimelineBlock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModularFormBlock from "../modular/ModularFormBlock";
+import TimelineFragmentQuery from "@/models/fragments/TimelineBlockInterface";
 
 export default function MyStructuredText({
   data,
@@ -45,9 +46,9 @@ export default function MyStructuredText({
     switch (record.__typename) {
       case "ModularTemplateRecord":
         return (
-          <MyPath color={"light"} key={record.id}>
-            <Link href={`/details/${record.slug}`}>{children}</Link>
-          </MyPath>
+          <Link href={`/details/${record.slug}`} className="link-inline">
+            {children}
+          </Link>
         );
       default:
         return null;
@@ -66,6 +67,7 @@ export default function MyStructuredText({
             {getPathChildren(record)}
           </MyPath>
         );
+
       case "ImageGalleryBlockRecord":
         return <ModularImageGallery data={record} key={record.id} />;
       case "CardCarouselBlockRecord":
@@ -80,7 +82,6 @@ export default function MyStructuredText({
         return null;
     }
   };
-
   return (
     <StructuredText
       data={data}

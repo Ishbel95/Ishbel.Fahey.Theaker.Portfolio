@@ -2,10 +2,9 @@ import BodyBlockFragmentQuery from "./BodyBlockInterface";
 import ImageBlockFragmentQuery from "./ImageBlockInterface";
 import LayoutOptionsBlockFragmentQuery from "./LayoutOptionsInterface";
 
-export default interface ModularContentQuery {
+export default interface ContentBlockFragmentQuery {
   __typename: "ContentBlockRecord";
   id: string;
-
   content: {
     LayoutOptionBlockRecord: LayoutOptionsBlockFragmentQuery;
     ImageBlockRecord: ImageBlockFragmentQuery;

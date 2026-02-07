@@ -2,30 +2,14 @@ import React from "react";
 import { getDatoCmsData } from "@/util/util";
 import { AllModularTemplateSlugsQuery } from "@/queries/ModularTemplateQuery";
 import Link from "next/link";
+import Glass from "./animation/Glass";
+import NavigationInner from "./NavigationInner";
+import NavigationQueryInterface from "@/models/queries/NavigationQueryInterface";
+import ModularTemplateQuery from "@/models/queries/ModularTemplateQueryInterface";
 export default async function Navigation() {
-  const data = await getDatoCmsData({
+  const data = (await getDatoCmsData({
     query: AllModularTemplateSlugsQuery,
-  });
-  return (
-    <div className="navigation-container">
-      <Link href={"/"}>Home</Link>
-      {data.allModularTemplates.map(
-        ({
-          slug,
-          internalTitle,
-          id,
-        }: {
-          slug: string;
-          internalTitle: string;
-          id: string;
-        }) => {
-          return (
-            <Link href={`/details/${slug}`} key={id}>
-              {internalTitle}
-            </Link>
-          );
-        }
-      )}
-    </div>
-  );
+  })) as ModularTemplateQuery;
+
+  return <NavigationInner data={data} />;
 }

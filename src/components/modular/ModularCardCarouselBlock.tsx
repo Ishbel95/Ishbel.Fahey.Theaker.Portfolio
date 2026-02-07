@@ -12,13 +12,12 @@ export default function ModularCardCarouselBlock({
   key: string;
 }) {
   return (
-    <div
-      key={key}
-      className="modular-card-carousel-container display-flex-row-desktop"
-    >
-      {data.card.map((cardData: CardBlockInterface, index: number) => (
-        <Card data={cardData} key={index} />
-      ))}
+    <div key={key} className="position-relative">
+      <div className="display-flex-row-desktop">
+        {data.card.map((cardData: CardBlockInterface, index: number) => (
+          <Card data={cardData} key={index} />
+        ))}
+      </div>
     </div>
   );
 }

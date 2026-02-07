@@ -5,11 +5,22 @@ export const CardCarouselBlockFragment = `
         card {
            id
         githubLink
+        projectLink
             internalTitle
             position
              titleAndDescription {
                       value
                     }
+                      modal
+                      modalText{
+                      value
+                           links {
+            ... on ModularTemplateRecord {
+            id
+            slug
+            }
+        }
+                      }
           previewImage {
             url
             title

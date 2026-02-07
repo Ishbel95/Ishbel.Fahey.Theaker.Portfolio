@@ -1,24 +1,22 @@
 import React from "react";
 import Image from "next/image";
-import { ResponsiveImage } from "@/models/fragments/ImageBlockInterface";
 import { ImageFragmentQuery } from "@/models/fragments/ImageGalleryBlockInterface";
 export default function MyImage({
   img,
   key,
 }: {
-  img: ResponsiveImage | ImageFragmentQuery;
+  img: ImageFragmentQuery;
   key?: string;
 }) {
-  const src = "src" in img ? img.src : img.url;
   return (
     <div className="image-container">
       <Image
         key={key}
-        src={src}
+        src={img.url}
         width={img?.width}
         height={img?.height}
-        alt={img?.alt}
-        title={img?.title}
+        alt={img.alt}
+        title={img.title}
       />
     </div>
   );

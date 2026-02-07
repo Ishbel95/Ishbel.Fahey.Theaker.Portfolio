@@ -1,0 +1,53 @@
+@import "../keyframes/loadingKeyFrames";
+
+.loading-container {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0;
+  animation: opacity-fade-in $easeInOutForwards;
+  background-color: $darkestBlue;
+  .loading-text {
+    padding: 3em;
+    border-radius: 50%;
+    h3,
+    p {
+      font-weight: 900;
+      font-size: 2rem;
+      z-index: 1;
+      opacity: 0;
+      animation: opacity-fade-in $easeInOutForwards;
+      animation-delay: 10ms;
+    }
+    color: white;
+    text-align: center;
+  }
+  .loading-spinner {
+    position: absolute;
+    @include loadingGradient(spin 1s ease-in infinite forwards);
+    width: 400px;
+    height: 400px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.loading-container-remove {
+  opacity: 1;
+  animation: opacity-fade-out $easeInOutForwards;
+  animation-delay: 10ms;
+  background-color: $darkestBlue;
+  .loading-text {
+    opacity: 1;
+    scale: 1 1;
+    animation: opacity-out-scale-up $easeInOutForwards;
+    animation-delay: 10ms;
+    h3,
+    p {
+      opacity: 1;
+      animation: opacity-fade-out $easeInOutForwards;
+    }
+  }
+}

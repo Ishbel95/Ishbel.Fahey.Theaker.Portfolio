@@ -1,0 +1,53 @@
+@keyframes opacity-fade-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opacity-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity-fade-out-and-up {
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes div-disappear {
+  to {
+    transform: translateY(-10000vh);
+    display: none;
+  }
+}
+
+@keyframes opacity-out-scale-up {
+  to {
+    scale: 1.2 1.2;
+    opacity: 0;
+  }
+}
+
+@keyframes text-morph-out {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+}
+
+@keyframes text-morph-in {
+  0% {
+    opacity: 0;
+    filter: blur(1em);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}

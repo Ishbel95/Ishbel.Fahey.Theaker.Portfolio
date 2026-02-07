@@ -1,23 +1,31 @@
-@import "variables.scss";
-
+@import "./keyframes/baseKeyFrames";
+//get webkit mask gradient mixin
 @mixin desktop {
   @media (min-width: $desktopBreakpoint) {
     @content;
   }
 }
+@mixin mobile {
+  @media (max-width: $mobileBreakpoint) {
+    @content;
+  }
+}
 
+@mixin customBreakPoint($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
 //can include at breakpoint etc
-
 @mixin flexBox(
-  $flexDirection: null,
-  $alignItems: null,
-  $justifyContent: null,
-  $flexWrap: null
+  $flexDirection: "row",
+  $alignItems: "center",
+  $justifyContent: "center",
+  $flexWrap: "nowrap"
 ) {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-
+  justify-content: center;
   @if ($flexDirection) {
     flex-direction: $flexDirection;
   }
@@ -34,7 +42,7 @@
 
 @mixin grid($templateColumns, $templateRows, $templateWidth) {
   display: grid;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   @if ($templateColumns) {
     grid-template-columns: repeat($templateColumns, $templateWidth);
@@ -45,31 +53,36 @@
 }
 @mixin customColumnGrid($customColumns...) {
   display: grid;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   @if ($customColumns) {
     grid-template-columns: $customColumns;
   }
 }
-
-@mixin alignText($textAlign, $oppositeAlignPosition: false) {
+@mixin column($position, $start, $end) {
+  .column-#{$position} {
+    grid-column-start: $start;
+    grid-column-end: $end;
+    @if ($position == "span") {
+      width: 100%;
+    } @else {
+      width: 97%;
+    }
+  }
+}
+@mixin alignText($textAlign) {
   text-align: center;
   margin: 0 auto;
+
   @if ($textAlign == "left") {
     @include desktop() {
       text-align: left;
       margin: 0 auto 0 0;
-      @if ($oppositeAlignPosition) {
-        margin: 0 0 0 auto;
-      }
     }
   } @else if ($textAlign == "right") {
     @include desktop() {
       text-align: right;
       margin: 0 0 0 auto;
-      @if ($oppositeAlignPosition) {
-        margin: 0 auto 0 0;
-      }
     }
   }
 }
@@ -93,54 +106,246 @@
   }
 }
 
-@mixin pathMode($isButton, $isDark) {
-  transition: $globalTransition;
-  cursor: pointer;
-  @if ($isButton) {
+@mixin gradient(
+  $name,
+  $gradientColor,
+  $size: ($gradientCircleSize, $gradientCircleSize),
+  $position: (
+    calc(50% - $gradientCircleSize / 2),
+    calc(50% - $gradientCircleSize / 2)
+  ),
+  $gradientTransformOrigin: center center,
+  $gradientAnimation: gradient-move-vertical 30s ease infinite,
+  $opacity: 1
+) {
+  .gradient-#{$name} {
+    position: absolute;
+    background: radial-gradient(
+        circle at center,
+        rgba($gradientColor, 0.4) 0,
+        rgba($gradientColor, 0) 50%
+      )
+      no-repeat;
+    top: nth($position, 1);
+    left: nth($position, 2);
+    width: nth($size, 1);
+    height: nth($size, 2);
+    mix-blend-mode: hard-light;
+    transform-origin: $gradientTransformOrigin;
+    animation: $gradientAnimation;
+    opacity: $opacity;
+  }
+}
+
+@mixin linkHover {
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $white;
+    height: 2px;
     border-radius: $borderRadius;
-    padding: 1em 1.2em;
     width: 100%;
-    display: block;
-    @include desktop() {
-      padding: 1em 1.4em;
-      width: fit-content;
+    bottom: -5px;
+    left: 0;
+    scale: 0 0;
+    opacity: 0;
+    transition: $globalTransition;
+  }
+  &:hover,
+  &:focus {
+    &::after {
+      scale: 1 1;
+      opacity: 1;
     }
-    @if ($isDark) {
-      background-color: $black;
-      color: $white;
-      &:hover,
-      &:focus {
-        background-color: $blue;
-      }
-    } @else {
-      background-color: $white;
-      color: $darkestBlue;
-      &:hover,
-      &:focus {
-        background-color: $darkestBlue;
-        color: $white;
-      }
+  }
+}
+
+@mixin expandingLink {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 1em auto;
+  transition: $globalTransition;
+  svg {
+    opacity: 1;
+    transition: $globalTransition;
+    transition-delay: 0.25s;
+    font-size: 1.6rem;
+  }
+  .expanding-link {
+    opacity: 0;
+    position: absolute;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    scale: 0 0;
+    transition: $globalTransition;
+    transition-delay: 0s;
+    @include linkHover;
+  }
+  &:hover {
+    width: 180px;
+    svg {
+      scale: 0 0;
+      opacity: 0;
+      color: #fff;
+      transition-delay: 0s;
+    }
+    .expanding-link {
+      opacity: 1;
+      scale: 1 1;
+      transition-delay: 0.25s;
+    }
+  }
+}
+
+@mixin primaryRadialGradient($animation) {
+  border-radius: 50%;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    background: transparent;
+    border-radius: 22px;
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -28px;
+    border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+    box-shadow:
+      inset 0 0 90px $cyan,
+      inset 90px -40px 140px $blue,
+      inset -90px 40px 140px $violet,
+      inset 0 0 180px $darkBlue;
+
+    filter: blur(32px) saturate(135%);
+    animation: $animation;
+  }
+}
+
+@mixin loadingGradient($animation) {
+  position: relative;
+  border-radius: 50%;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    background: transparent;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    border-radius: 50%;
+    box-shadow:
+      inset 0 0 30px $cyan,
+      inset 30px -10px 110px $blue,
+      inset -30px 10px 110px $violet,
+      inset 0 0 90px $darkBlue;
+
+    filter: blur(20px) saturate(135%);
+    animation: $animation;
+  }
+}
+
+@mixin glassBackground($clear: false) {
+  @if ($clear == true) {
+    background: transparent;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  } @else {
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+
+@mixin falling-circles-map($config) {
+  $gradient-colors: ($cyan, $aqua, $teal, $blue, $violet, $purple);
+  animation: fall 25s ease-in-out infinite;
+
+  &:nth-of-type(2n) {
+    width: 20px;
+    height: 20px;
+    @include desktop() {
+      width: 60px;
+      height: 60px;
     }
   }
 
-  @if ($isButton == false) {
-    display: inline;
-    @if ($isDark) {
-      color: $black;
-      border-bottom: solid 2px $black;
-      &:hover,
-      &:focus {
-        color: $darkBlue;
-        border-bottom: solid 2px $darkBlue;
-      }
-    } @else {
-      color: $white;
-      border-bottom: solid 2px $white;
-      &:hover,
-      &:focus {
-        color: $lightBlue;
-        border-bottom: solid 2px $lightBlue;
+  &:nth-of-type(3n) {
+    width: 30px;
+    height: 30px;
+    @include desktop() {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  @each $index, $data in $config {
+    &:nth-of-type(#{$index}) {
+      left: map-get($data, left);
+      animation-delay: map-get($data, delay);
+      $first-color: nth($gradient-colors, random(length($gradient-colors)));
+      $second-color: nth($gradient-colors, random(length($gradient-colors)));
+      background: linear-gradient(90deg, $first-color, $second-color);
+      &::before {
+        background: linear-gradient(90deg, $first-color, $second-color);
       }
     }
   }
 }
+@mixin blob-map($config) {
+  $gradient-colors: ($cyan, $aqua, $teal, $blue, $violet, $purple);
+  &:nth-of-type(2n) {
+    width: 60px;
+    height: 60px;
+  }
+
+  &:nth-of-type(3n) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @each $index, $data in $config {
+    &:nth-of-type(#{$index}) {
+      animation: float-#{$index} 25s ease-in-out infinite;
+      left: map-get($data, left);
+      animation-delay: map-get($data, delay);
+      $first-color: nth($gradient-colors, random(length($gradient-colors)));
+      $second-color: nth($gradient-colors, random(length($gradient-colors)));
+      background: linear-gradient(90deg, $first-color, $second-color);
+      &::before {
+        background: linear-gradient(90deg, $first-color, $second-color);
+      }
+      @keyframes float-#{$index} {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(#{random(300) - 150}px, #{random(300) - 150}px);
+        }
+
+        50% {
+          transform: translate(#{random(300) - 150}px, #{random(300) - 150}px);
+        }
+
+        75% {
+          transform: translate(#{random(300) - 150}px, #{random(300) - 150}px);
+        }
+
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}
+
+//random color gen
+//random animation delay maybe??

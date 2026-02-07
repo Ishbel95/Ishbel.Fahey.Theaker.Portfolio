@@ -3,7 +3,8 @@ import MyImage from "./data/MyImage";
 import MyStructuredText from "./data/MyStructuredText";
 import MyPath from "./data/MyPath";
 import { CardBlockInterface } from "@/models/fragments/CardCarouselBlockInterface";
-
+import Glass from "./animation/Glass";
+import Link from "next/link";
 export default function Card({
   data,
   key,
@@ -12,16 +13,27 @@ export default function Card({
   key: number;
 }) {
   return (
-    <div className="glass-card-dark" key={`${key + data.id}`}>
-      <MyImage img={data?.previewImage} />
-      <div className="align-left">
-        <MyStructuredText data={data.titleAndDescription} />
+    <Glass
+      classNames="map-child-margin glass-card card"
+      key={`${key + data.id}`}
+    >
+      <div className="card-overlay" />
+      <MyImage img={data.previewImage} />
+      <div className="card-expanded-text">
+        <div className="align-center">
+          <MyStructuredText data={data.titleAndDescription} />
+        </div>
+        {data.modal ? (
+          <MyPath>
+            <Link href={data.projectLink}>Find out more</Link>
+          </MyPath>
+        ) : (
+          <div className="display-flex-row-desktop">
+            <MyPath buttonPath={data.githubLink}>Github</MyPath>
+            <MyPath buttonPath={data.projectLink}>Project</MyPath>
+          </div>
+        )}
       </div>
-      <div className="align-center">
-        <MyPath buttonPath={data.githubLink} color="dark" key={data.id}>
-          Discover
-        </MyPath>
-      </div>
-    </div>
+    </Glass>
   );
 }

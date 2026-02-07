@@ -1,41 +1,39 @@
-.modular-timeline-container-left,
-.modular-timeline-container-right {
-  .timeline-circle {
-    position: absolute;
-    height: fit-content;
-    width: fit-content;
-    top: 50%;
-    bottom: 0;
-    svg {
-      font-size: 1.5rem;
-    }
+.timeline-section {
+  margin: 3em auto;
+  .glass-wrapper {
+    overflow: visible;
   }
-  @include desktop() {
-    width: 50.1%;
-  }
-  .timeline-line {
-  }
-  .timeline-body {
+  .timeline-section-inner {
     position: relative;
+    width: 100%;
+    height: 100%;
   }
-}
-
-.modular-timeline-container-left {
-  @include desktop() {
-    padding-left: 1.5em;
-    border-left: solid 2px white;
-    .timeline-circle {
-      left: -2.5em;
+  .glass-inner {
+    margin: 0 auto;
+    height: min(200px, 60vh);
+    width: min(200px, 50vw);
+    @include desktop {
+      height: min(400px, 50vh);
+      width: min(400px, 40vw);
     }
-  }
-}
-
-.modular-timeline-container-right {
-  @include desktop() {
-    padding-right: 1.5em;
-    border-right: solid 2px white;
-    .timeline-circle {
-      right: -2.5em;
+    .timeline-title {
+      font-size: 2rem;
+    }
+    .timeline-body {
+      h3,
+      h4,
+      p {
+        font-size: 1rem;
+      }
+    }
+    .timeline-title,
+    .timeline-body {
+      position: absolute;
+      animation-delay: 450ms;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
   }
 }

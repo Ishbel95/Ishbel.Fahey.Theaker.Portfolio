@@ -1,6 +1,9 @@
+"use client";
+import React, { useRef } from "react";
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
-
-import { LayoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
+import { layoutWrapperClassNames } from "@/models/enums/LayoutWrapperClassNames";
+import useInView from "@/hooks/useInView";
+import useScreenSize from "@/hooks/useScreenSize";
 export default function ModularLayoutWrapper({
   data,
   key,
@@ -10,38 +13,53 @@ export default function ModularLayoutWrapper({
   key: string;
   children: React.ReactNode;
 }) {
+  const modularLayoutDiv = useRef<HTMLDivElement>(null);
   const getPadding = (bottomPadding?: Boolean, topPadding?: Boolean) => {
     if (!bottomPadding && topPadding)
-      return LayoutWrapperClassNames.PaddingTopOnly;
+      return layoutWrapperClassNames.paddingTopOnly;
     else if (!topPadding && bottomPadding)
-      return LayoutWrapperClassNames.PaddingBottomOnly;
+      return layoutWrapperClassNames.paddingBottomOnly;
     else if (topPadding && bottomPadding)
-      return LayoutWrapperClassNames.PaddingTopBottom;
-    else return null;
+      return layoutWrapperClassNames.paddingTopBottom;
+    else return layoutWrapperClassNames.paddingNone;
   };
 
   const paddingClassName = getPadding(data?.bottomPadding, data?.topPadding);
 
   const rowClassName = data?.rowReverse
-    ? LayoutWrapperClassNames.RowReverse
-    : LayoutWrapperClassNames.Row;
+    ? layoutWrapperClassNames.rowReverse
+    : data?.row
+      ? layoutWrapperClassNames.row
+      : null;
 
-  const textAlignClassName = Object.keys(LayoutWrapperClassNames).find(
-    (className) => className === data?.textAlign
+  const textAlignClassName = Object.keys(layoutWrapperClassNames).find(
+    (className) => className === data?.textAlign,
+  );
+  const desktop = useScreenSize();
+  const modularLayoutInView = useInView(
+    modularLayoutDiv,
+    desktop ? "100px" : "-200px 0px -200px 0px",
+    0.3,
+    { once: true },
   );
 
+  const globalWidthClassName = data?.largeWidth
+    ? layoutWrapperClassNames.largeWidth
+    : layoutWrapperClassNames.width;
+  const scrollAnimation = data?.scrollAnimation;
   return (
-    <div
+    <section
+      ref={modularLayoutDiv}
       id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper background-${data?.backgroundColor}`}
+      className={`modular-layout-wrapper ${modularLayoutInView && "modular-layout-enter"} ${scrollAnimation && "modular-layout-no-animation"} background-${data?.backgroundColor}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div
-        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} modular-inner`}
+        className={`${rowClassName} align-${textAlignClassName} ${paddingClassName} ${globalWidthClassName} modular-layout-inner`}
       >
         {children}
       </div>
-    </div>
+    </section>
   );
 }

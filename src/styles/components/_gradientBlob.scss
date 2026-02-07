@@ -1,0 +1,70 @@
+.gradient-blob-morph-container {
+  min-height: 80vh;
+  position: relative;
+  .gradient-blob-morph-inner-right,
+  .gradient-blob-morph-inner-left,
+  .gradient-blob-morph-inner-center {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 30%;
+
+    filter: url(#blobGoo);
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      top: 100px;
+      background: $white;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        bottom: -50px;
+        right: -50px;
+        border-radius: 50%;
+        background-color: $white;
+        z-index: -1;
+        filter: blur(50px);
+      }
+    }
+  }
+  .gradient-blob-morph-inner-left {
+    right: 5%;
+  }
+  .gradient-blob-morph-inner-right {
+    left: 5%;
+  }
+  .blob-inner {
+    @include blob-map(
+      (
+        1: (
+          left: 30%,
+          delay: 1s,
+        ),
+        2: (
+          left: 60%,
+          delay: 2s,
+        ),
+        3: (
+          left: 25%,
+          delay: 3s,
+        ),
+        4: (
+          left: 75%,
+          delay: 4s,
+        ),
+        5: (
+          left: 35%,
+          delay: 5s,
+        ),
+        6: (
+          left: 50%,
+          delay: 6s,
+        ),
+      )
+    );
+  }
+}
