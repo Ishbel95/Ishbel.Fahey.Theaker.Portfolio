@@ -15,6 +15,7 @@
     height: 100px;
     border-radius: 50%;
     padding: 2em;
+    max-height: 100px;
     @include desktop() {
       width: 100%;
       height: 100%;
@@ -49,7 +50,7 @@
       @include desktop() {
         opacity: 1;
         margin: 0 1em;
-        font-size: 1.1em;
+        font-size: 0.9em;
       }
     }
     .navigation-burger {
@@ -127,7 +128,7 @@
 .navigation-container-closed {
   .navigation-container {
     @include desktop() {
-      width: 50%;
+      width: 70%;
       animation: navigation-inner-scroll linear forwards;
       animation-timeline: scroll(root);
       animation-duration: 0.5s;
@@ -146,6 +147,7 @@
         animation: navigation-shrink-height 10ms forwards;
         animation-delay: 400ms;
       }
+
       .navigation-content-inner {
         @include mobile() {
           @include glassBackground();

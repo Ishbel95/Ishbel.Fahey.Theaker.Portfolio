@@ -13,7 +13,7 @@ export default function Card({
 }) {
   return (
     <Glass
-      classNames="map-child-margin glass-card card "
+      classNames="map-child-margin glass-card card"
       key={`${key + data.id}`}
     >
       <div className="card-overlay" />
@@ -22,7 +22,7 @@ export default function Card({
         <div className="align-left">
           <MyStructuredText data={data.titleAndDescription} />
         </div>
-        <MyPath color="dark" buttonPath={data.githubLink} isLink={true}>
+        <MyPath buttonPath={data.githubLink} isLink={true}>
           {data.internalTitle}
         </MyPath>
       </div>

@@ -2,8 +2,6 @@ import React from "react";
 import Glass from "../animation/Glass";
 
 export default function MyPath({
-  color,
-  buttonPath,
   key,
   children,
   customClassNames,

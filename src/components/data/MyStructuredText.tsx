@@ -46,9 +46,9 @@ export default function MyStructuredText({
     switch (record.__typename) {
       case "ModularTemplateRecord":
         return (
-          <MyPath color={"light"} key={record.id}>
-            <Link href={`/details/${record.slug}`}>{children}</Link>
-          </MyPath>
+          <Link href={`/details/${record.slug}`} className="link-inline">
+            {children}
+          </Link>
         );
       default:
         return null;
