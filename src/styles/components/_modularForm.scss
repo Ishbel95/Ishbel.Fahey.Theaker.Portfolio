@@ -1,6 +1,7 @@
 .form {
   padding: 1em 0.8em;
   text-align: left;
+  @include customColumnGrid(49% 0% 49%);
   @include desktop() {
     padding: 2.5em;
   }
@@ -72,7 +73,7 @@
     z-index: 30;
 
     transition: $globalTransition;
-    background-color: $deepestBlue !important;
+    background-color: $darkestBlue !important;
     padding: 0 1em;
     @include desktop() {
       padding: 1.5em 1.6em;

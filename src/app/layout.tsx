@@ -5,6 +5,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import GradientBackground from "@/components/animation/GradientBackground";
 import { Metadata } from "next";
+import Modal from "@/components/Modal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ishbelfaheytheaker.dev"),
@@ -20,11 +21,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ishbel Fahey Theaker dev portfolio",
     description: "Explore my portfolio to see what I can code!.",
-    // images: [
-    //   {
-    //     url: 'https://yourdomain.com/images/perfect-coffee.jpg',
-    //   },
-    // ],
   },
 };
 
@@ -35,6 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   //errorboundary
+
   return (
     <html lang="en">
       <head>
@@ -47,10 +44,9 @@ export default function RootLayout({
       </head>
       <body>
         <Navigation />
-
         <GradientBackground />
+        <Modal />
         {children}
-
         <Footer />
       </body>
     </html>

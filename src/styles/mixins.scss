@@ -11,16 +11,21 @@
   }
 }
 
+@mixin customBreakPoint($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
 //can include at breakpoint etc
 @mixin flexBox(
   $flexDirection: "row",
   $alignItems: "center",
-  $justifyContent: "space-evenly",
+  $justifyContent: "center",
   $flexWrap: "nowrap"
 ) {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   @if ($flexDirection) {
     flex-direction: $flexDirection;
   }
@@ -48,7 +53,7 @@
 }
 @mixin customColumnGrid($customColumns...) {
   display: grid;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   @if ($customColumns) {
     grid-template-columns: $customColumns;
@@ -214,7 +219,7 @@
       inset 0 0 90px $cyan,
       inset 90px -40px 140px $blue,
       inset -90px 40px 140px $violet,
-      inset 0 0 180px $deepBlue;
+      inset 0 0 180px $darkBlue;
 
     filter: blur(32px) saturate(135%);
     animation: $animation;
@@ -241,7 +246,7 @@
       inset 0 0 30px $cyan,
       inset 30px -10px 110px $blue,
       inset -30px 10px 110px $violet,
-      inset 0 0 90px $deepBlue;
+      inset 0 0 90px $darkBlue;
 
     filter: blur(20px) saturate(135%);
     animation: $animation;

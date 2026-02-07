@@ -11,6 +11,14 @@ export interface CardBlockInterface {
   internalTitle: string;
   position: number;
   titleAndDescription: { value: JSON };
+  modal?: boolean;
+  modalText: {
+    value: JSON;
+    links?: {
+      id: string;
+      slug: string;
+    };
+  };
   previewImage: {
     url: string;
     title?: string;

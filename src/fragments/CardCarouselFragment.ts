@@ -11,6 +11,16 @@ export const CardCarouselBlockFragment = `
              titleAndDescription {
                       value
                     }
+                      modal
+                      modalText{
+                      value
+                           links {
+            ... on ModularTemplateRecord {
+            id
+            slug
+            }
+        }
+                      }
           previewImage {
             url
             title

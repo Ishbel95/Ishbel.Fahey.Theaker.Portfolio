@@ -4,6 +4,7 @@ import MyStructuredText from "./data/MyStructuredText";
 import MyPath from "./data/MyPath";
 import { CardBlockInterface } from "@/models/fragments/CardCarouselBlockInterface";
 import Glass from "./animation/Glass";
+import Link from "next/link";
 export default function Card({
   data,
   key,
@@ -19,12 +20,19 @@ export default function Card({
       <div className="card-overlay" />
       <MyImage img={data.previewImage} />
       <div className="card-expanded-text">
-        <div className="align-left">
+        <div className="align-center">
           <MyStructuredText data={data.titleAndDescription} />
         </div>
-        <MyPath buttonPath={data.githubLink} isLink={true}>
-          {data.internalTitle}
-        </MyPath>
+        {data.modal ? (
+          <MyPath>
+            <Link href={data.projectLink}>Find out more</Link>
+          </MyPath>
+        ) : (
+          <div className="display-flex-row-desktop">
+            <MyPath buttonPath={data.githubLink}>Github</MyPath>
+            <MyPath buttonPath={data.projectLink}>Project</MyPath>
+          </div>
+        )}
       </div>
     </Glass>
   );

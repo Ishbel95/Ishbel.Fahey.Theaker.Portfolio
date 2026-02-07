@@ -3,10 +3,10 @@
 .loading-container {
   position: fixed;
   inset: 0;
-  z-index: 10;
+  z-index: 60;
   opacity: 0;
   animation: opacity-fade-in $easeInOutForwards;
-  background-color: $deepestBlue;
+  background-color: $darkestBlue;
   .loading-text {
     padding: 3em;
     border-radius: 50%;
@@ -38,7 +38,7 @@
   opacity: 1;
   animation: opacity-fade-out $easeInOutForwards;
   animation-delay: 10ms;
-  background-color: $deepestBlue;
+  background-color: $darkestBlue;
   .loading-text {
     opacity: 1;
     scale: 1 1;

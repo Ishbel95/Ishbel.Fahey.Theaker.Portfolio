@@ -104,7 +104,10 @@
     border-radius: 60px;
   }
 }
-
+.timeline-body,
+.timeline-title {
+  transition: $globalTransition;
+}
 .glass-morph-to-square {
   .glass-inner {
     border-radius: 50%;
@@ -112,10 +115,12 @@
     scale: 0.8;
     animation: glass-morph-to-square $easeInOutLonger;
     .timeline-body {
-      animation: text-morph-in $easeInOutLonger;
+      opacity: 1;
+      filter: blur(0);
     }
     .timeline-title {
-      animation: text-morph-out $easeInOutLonger;
+      opacity: 0;
+      filter: blur(1em);
     }
   }
 }
@@ -127,10 +132,12 @@
     border-radius: $borderRadius;
     animation: glass-morph-to-circle $easeInOutLonger;
     .timeline-body {
-      animation: text-morph-out $easeInOutLonger;
+      opacity: 0;
+      filter: blur(1em);
     }
     .timeline-title {
-      animation: text-morph-in $easeInOutLonger;
+      opacity: 1;
+      filter: blur(0);
     }
   }
 }

@@ -10,4 +10,5 @@ export default interface LayoutOptionsBlockFragmentQuery {
   textAlign?: string;
   topPadding?: Boolean;
   largeWidth?: boolean;
+  scrollAnimation?: boolean;
 }

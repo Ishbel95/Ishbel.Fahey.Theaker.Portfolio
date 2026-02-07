@@ -90,6 +90,7 @@ export const HeroBlockFragment = `
         textAlign
         topPadding
         largeWidth
+        scrollAnimation
       }
     }
   }

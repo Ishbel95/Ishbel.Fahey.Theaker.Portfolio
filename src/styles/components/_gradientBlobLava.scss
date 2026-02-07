@@ -6,11 +6,13 @@
     height: 0;
   }
   min-height: 100vh;
-  mask: $linearGradientBlueTransparentBlue;
   position: relative;
+
+  background-color: $darkestBlue;
 
   .modular-hero-container {
     width: 100%;
+
     margin: 0 auto;
     position: relative;
     z-index: 40;

@@ -5,7 +5,7 @@ import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "./data/MyImage";
 import { getBlockData } from "@/util/util";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
-import getCookie from "@/util/serverFunctions";
+
 import GradientBlobLava from "./animation/GradientBlobLava";
 export default async function HomepageHero({
   data,
@@ -15,10 +15,7 @@ export default async function HomepageHero({
   key: string;
 }) {
   const modularData = getBlockData(data?.hero);
-  const visitedPortfolioCookie = getCookie({
-    cookie: "Ishbel-Fahey-Theaker-Portfolio",
-    value: "true",
-  });
+
   return (
     <GradientBlobLava>
       <div className="modular-hero-container">

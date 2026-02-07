@@ -11,5 +11,6 @@ export const LayoutOptionsBlockFragment = `
     textAlign
     topPadding
     largeWidth
+    scrollAnimation
   }
 `;

@@ -1,13 +1,14 @@
 .gradient-blob-morph-container {
   min-height: 100vh;
   position: relative;
-  .gradient-blob-morph-inner {
+  .gradient-blob-morph-inner-right,
+  .gradient-blob-morph-inner-left {
     position: absolute;
     z-index: -1;
     height: 100%;
     width: 50%;
     top: 30%;
-    left: 20%;
+
     filter: url(#blobGoo);
     .blob {
       position: absolute;
@@ -29,6 +30,12 @@
         filter: blur(50px);
       }
     }
+  }
+  .gradient-blob-morph-inner-left {
+    right: 5%;
+  }
+  .gradient-blob-morph-inner-right {
+    left: 5%;
   }
   .blob-inner {
     @include blob-map(

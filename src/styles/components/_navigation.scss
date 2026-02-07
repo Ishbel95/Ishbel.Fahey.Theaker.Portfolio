@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 30;
+  z-index: 50;
   top: 20px;
   transition: $globalTransition;
 
@@ -128,7 +128,7 @@
 .navigation-container-closed {
   .navigation-container {
     @include desktop() {
-      width: 70%;
+      width: 50%;
       animation: navigation-inner-scroll linear forwards;
       animation-timeline: scroll(root);
       animation-duration: 0.5s;

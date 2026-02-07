@@ -54,7 +54,7 @@ export default function MyStructuredText({
         return null;
     }
   };
-  let allTimeLinkBlock: TimelineFragmentQuery[] = [];
+
   const getBlockRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {
       case "PathRecord":

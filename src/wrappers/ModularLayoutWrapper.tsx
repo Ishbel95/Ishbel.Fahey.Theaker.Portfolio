@@ -46,13 +46,13 @@ export default function ModularLayoutWrapper({
   const globalWidthClassName = data?.largeWidth
     ? layoutWrapperClassNames.largeWidth
     : layoutWrapperClassNames.width;
-
+  const scrollAnimation = data?.scrollAnimation;
   return (
     <section
       ref={modularLayoutDiv}
       id={data?.customId}
       key={key}
-      className={`modular-layout-wrapper ${modularLayoutInView && "modular-layout-enter"} background-${data?.backgroundColor}`}
+      className={`modular-layout-wrapper ${modularLayoutInView && "modular-layout-enter"} ${scrollAnimation && "modular-layout-no-animation"} background-${data?.backgroundColor}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >
       <div

@@ -35,7 +35,7 @@
   opacity: 0.3;
 }
 
-@include gradient($name: "1", $gradientColor: $deepBlue);
+@include gradient($name: "1", $gradientColor: $darkBlue);
 
 @include gradient(
   $name: "2",

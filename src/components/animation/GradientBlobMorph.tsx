@@ -4,13 +4,15 @@ import { generateBlobs } from "@/util/util";
 
 export default function GradientBlobMorph({
   children,
+  align,
 }: {
   children: React.ReactNode;
+  align: string;
 }) {
   const blobs = generateBlobs(6);
   return (
     <header className="gradient-blob-morph-container">
-      <div className="gradient-blob-morph-inner">{blobs}</div>
+      <div className={`gradient-blob-morph-inner-${align}`}>{blobs}</div>
       <Svg id={"blobGoo"}>
         {" "}
         <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />

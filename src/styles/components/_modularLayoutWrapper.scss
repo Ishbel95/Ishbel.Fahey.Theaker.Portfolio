@@ -1,7 +1,10 @@
 @import "../keyframes/modularLayoutWrapperKeyFrames";
 
 @media (prefers-reduced-motion: no-preference) {
-  .modular-layout-wrapper:not(.modular-layout-enter) {
+  .modular-layout-wrapper:not(
+    .modular-layout-enter,
+    .modular-layout-no-animation
+  ) {
     .tech-stack-image,
     h1,
     h2,
