@@ -8,10 +8,8 @@
   animation: opacity-fade-in $easeInOutForwards;
   background-color: $darkestBlue;
   .loading-text {
-    padding: 3em;
     border-radius: 50%;
-    h3,
-    p {
+    h3 {
       font-weight: 900;
       font-size: 2rem;
       z-index: 1;

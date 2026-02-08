@@ -91,9 +91,19 @@
     border-radius: 50%;
   }
 }
+.glass-card {
+  .glass-inner {
+    margin: 0 auto;
+  }
+}
+
 .glass-path {
+  @include desktop() {
+    width: 49%;
+  }
   .glass-inner {
     padding: 0.5em 1.5em;
+    width: 100%;
   }
 }
 .glass-round {
