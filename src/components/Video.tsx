@@ -1,6 +1,8 @@
+"use client";
 import React, { Suspense } from "react";
 import Glass from "./animation/Glass";
 import MyStructuredText from "./data/MyStructuredText";
+import useScreenSize from "@/hooks/useScreenSize";
 
 export default function VideoInner({
   video,
@@ -16,13 +18,14 @@ export default function VideoInner({
   index: number;
 }) {
   const isActive = currentIndex === index;
+  const desktop = useScreenSize();
   return (
     <div
       className={`video-carousel-slide-${isActive ? "active" : "inactive"} display-flex`}
       key={id}
       style={{
         transform: `translateX(${(index - currentIndex) * 100}%) `,
-        scale: `${isActive ? 1.2 : 0.8}`,
+        scale: `${isActive && desktop ? 1.2 : 0.8}`,
         opacity: isActive ? 1 : 0.4,
       }}
     >

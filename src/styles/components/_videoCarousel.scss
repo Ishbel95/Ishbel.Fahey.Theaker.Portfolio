@@ -1,21 +1,29 @@
 .video-carousel-container-show,
 .video-carousel-container-hide {
   transition: $globalTransition;
-  //   overflow: hidden;
-  position: relative;
   margin: 0 auto;
   width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   .video-carousel-arrow-prev,
   .video-carousel-arrow-next {
-    position: absolute;
     font-size: 1rem;
     z-index: 50;
+    margin: 1em;
+    position: absolute;
   }
-  .video-carousel-arrow-prev {
-    left: 5%;
+  .video-carousel-arrow-container {
+    width: min(90%, 200px);
+    margin: 0 auto;
+    position: relative;
+    bottom: 30%;
   }
   .video-carousel-arrow-next {
-    right: 5%;
+    right: 0;
+  }
+  .video-carousel-arrow-prev {
+    left: 0;
   }
   .video-carousel-inner {
     position: relative;
@@ -34,14 +42,12 @@
       margin: 0 auto;
     }
     .video-carousel-slide-active {
-      //   scale: 1.5 1.5;
       p {
         opacity: 1;
         margin-left: 2em;
       }
     }
     .video-carousel-slide-inactive {
-      //   scale: 0.8 0.8;
       p {
         opacity: 0;
         margin-left: 2em;

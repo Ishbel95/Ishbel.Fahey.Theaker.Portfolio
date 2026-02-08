@@ -10,22 +10,21 @@
 
   .modular-hero-container {
     width: 100%;
-
     margin: 0 auto;
     position: relative;
     z-index: 40;
-    p {
-      font-size: 1.8rem;
-      margin: 0 auto !important;
-    }
 
     h1 {
       @extend .home-heading-font;
       margin: 0.1em auto 0.5em !important;
-      a {
-        color: $cyan;
-      }
+    }
+    .glass-inner,
+    .glass-path,
+    .glass-wrapper {
+      width: fit-content;
+      margin: 0 auto;
       @include desktop() {
+        margin: 0;
       }
     }
   }
