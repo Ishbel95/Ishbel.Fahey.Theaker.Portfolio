@@ -25,6 +25,7 @@
     line-height: $smallLineHeight;
     font-size: 4.5rem;
     font-weight: 900;
+    margin-bottom: 0.5em;
   }
 
   h3 {
@@ -49,6 +50,40 @@
     text-shadow: $textShadow;
   }
 }
+h2,
+h3 {
+  a {
+    @extend .link-inline;
+  }
+}
+strong,
+em {
+  color: $cyan;
+}
+em {
+  font-weight: 900;
+  position: relative;
+  z-index: 50;
+}
+u {
+  @extend .glass-basic-background;
+  text-decoration: none;
+  padding: 0.1em;
+  border-radius: $borderRadius;
+  text-shadow: none;
+}
+.modular-hero-content {
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    &:last-of-type {
+      margin: 1em auto 1.5em;
+      a {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
 
 .display-flex {
   @include flexBox();
@@ -58,6 +93,9 @@
   @include desktop() {
     @include flexBox(row, center, space-between);
   }
+}
+.display-flex-space-between {
+  @include flexBox(row, center, space-between);
 }
 .display-flex-row-reverse-desktop {
   @include desktop() {
@@ -83,8 +121,6 @@ svg {
   .image-container {
     @include desktop() {
       max-width: 30%;
-    }
-    img {
     }
   }
 }

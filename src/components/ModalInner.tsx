@@ -18,7 +18,7 @@ export default function ModalInner({
   const search = searchParams.get("search");
   const router = useRouter();
   const showModal = data.allProjects.find(
-    ({ projectLink }) => projectLink === search,
+    ({ internalTitle }) => internalTitle === search,
   );
 
   const handleCloseModal = () => {
@@ -29,10 +29,13 @@ export default function ModalInner({
       window.history.pushState(null, "", newUrl);
     } else router.back();
   };
+  console.log(
+    data.allProjects.find(({ internalTitle }) => internalTitle === search),
+  );
   return (
     <div className={`modal-${showModal ? "show" : "hide"} `}>
       <div className="modal-inner display-flex">
-        {showModal?.modalText && (
+        {showModal?.modal && (
           <>
             <div className="modal-content ">
               <button
@@ -44,7 +47,10 @@ export default function ModalInner({
               </button>
               <MyStructuredText data={showModal.modalText} />
             </div>
-            <VideoCarousel data={showModal.demonstrationVideos} />
+            <VideoCarousel
+              data={showModal.demonstrationVideos}
+              showModal={showModal?.modal}
+            />
           </>
         )}
       </div>

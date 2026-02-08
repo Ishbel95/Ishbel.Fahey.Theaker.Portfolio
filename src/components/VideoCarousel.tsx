@@ -17,15 +17,6 @@ export default function VideoCarousel({
 
   return (
     <div className={`video-carousel-container-${showModal ? "show" : "hide"}`}>
-      {currentIndex > 0 && (
-        <button
-          className="video-carousel-arrow-prev"
-          type="button"
-          onClick={() => setCurrentIndex(currentIndex - 1)}
-        >
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
-      )}
       <div className="video-carousel-inner ">
         {data.map(
           (
@@ -52,15 +43,26 @@ export default function VideoCarousel({
           },
         )}
       </div>
-      {currentIndex < videoCarouselLength - 1 && (
-        <button
-          className="video-carousel-arrow-next"
-          type="button"
-          onClick={() => setCurrentIndex(currentIndex + 1)}
-        >
-          <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-      )}
+      <div className="video-carousel-arrow-container">
+        {currentIndex > 0 && (
+          <button
+            className="video-carousel-arrow-prev"
+            type="button"
+            onClick={() => setCurrentIndex(currentIndex - 1)}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+        )}
+        {currentIndex < videoCarouselLength - 1 && (
+          <button
+            className="video-carousel-arrow-next"
+            type="button"
+            onClick={() => setCurrentIndex(currentIndex + 1)}
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
