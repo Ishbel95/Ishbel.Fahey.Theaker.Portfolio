@@ -8,7 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import VideoCarousel from "./VideoCarousel";
-
+import { connection } from "next/server";
+import { Suspense } from "react";
+import SmallLoadingScreen from "./SmallLoading";
 export default function ModalInner({
   data,
 }: {
@@ -21,39 +23,39 @@ export default function ModalInner({
     ({ internalTitle }) => internalTitle === search,
   );
 
-  const handleCloseModal = () => {
+  function handleCloseModal() {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(searchParams.toString());
       params.delete("search");
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState(null, "", newUrl);
     } else router.back();
-  };
-  console.log(
-    data.allProjects.find(({ internalTitle }) => internalTitle === search),
-  );
+  }
+
   return (
-    <div className={`modal-${showModal ? "show" : "hide"} `}>
-      <div className="modal-inner display-flex">
-        {showModal?.modal && (
-          <>
-            <div className="modal-content ">
-              <button
-                type="button"
-                onClick={() => handleCloseModal()}
-                className="modal-exit"
-              >
-                <FontAwesomeIcon icon={faXmark} />
-              </button>
-              <MyStructuredText data={showModal.modalText} />
-            </div>
-            <VideoCarousel
-              data={showModal.demonstrationVideos}
-              showModal={showModal?.modal}
-            />
-          </>
-        )}
+    <Suspense fallback={<SmallLoadingScreen />}>
+      <div className={`modal-${showModal ? "show" : "hide"} `}>
+        <div className="modal-inner display-flex">
+          {showModal?.modal && (
+            <>
+              <div className="modal-content ">
+                <button
+                  type="button"
+                  onClick={() => handleCloseModal()}
+                  className="modal-exit"
+                >
+                  <FontAwesomeIcon icon={faXmark} />
+                </button>
+                <MyStructuredText data={showModal.modalText} />
+              </div>
+              <VideoCarousel
+                data={showModal.demonstrationVideos}
+                showModal={showModal?.modal}
+              />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }

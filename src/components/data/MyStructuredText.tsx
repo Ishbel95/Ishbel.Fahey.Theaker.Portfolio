@@ -9,13 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModularFormBlock from "../modular/ModularFormBlock";
 import TimelineFragmentQuery from "@/models/fragments/TimelineBlockInterface";
 
-export default function MyStructuredText({
-  data,
-  key = undefined,
-}: {
-  data: any;
-  key?: string;
-}) {
+export default function MyStructuredText({ data }: { data: any }) {
   function getPathChildren(record: any) {
     switch (record) {
       case record?.isExternalPath:
@@ -30,7 +24,11 @@ export default function MyStructuredText({
   const getInlineRecord = ({ record }: { record: any }) => {
     switch (record.__typename) {
       case "BlogPostRecord":
-        return <a href={`/blog/${record.slug}`}>{record.title}</a>;
+        return (
+          <a href={`/blog/${record.slug}`} key={record?.id}>
+            {record.title}
+          </a>
+        );
       default:
         return null;
     }
@@ -46,7 +44,11 @@ export default function MyStructuredText({
     switch (record.__typename) {
       case "ModularTemplateRecord":
         return (
-          <Link href={`/details/${record.slug}`} className="link">
+          <Link
+            href={`/details/${record.slug}`}
+            className="link"
+            key={record?.id}
+          >
             {children}
           </Link>
         );
@@ -85,7 +87,6 @@ export default function MyStructuredText({
   return (
     <StructuredText
       data={data}
-      key={key}
       renderBlock={getBlockRecord}
       renderInlineRecord={getInlineRecord}
       renderLinkToRecord={getLinkToRecord}

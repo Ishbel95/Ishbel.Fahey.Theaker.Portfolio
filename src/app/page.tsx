@@ -2,6 +2,8 @@ import { getDatoCmsData } from "@/util/util";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import type { Metadata } from "next";
 import { getModularContent } from "@/util/util";
+import { Suspense } from "react";
+import LoadingScreen from "@/components/Loading";
 
 export async function generateMetadata() {
   const query = HomepageQuery;
@@ -35,5 +37,5 @@ export default async function Home() {
   const isHomepage = true;
   const homepageContent = getModularContent(homepageData.content, isHomepage);
 
-  return homepageContent;
+  return <Suspense fallback={<LoadingScreen />}>{homepageContent}</Suspense>;
 }

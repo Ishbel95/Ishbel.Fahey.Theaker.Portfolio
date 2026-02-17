@@ -16,7 +16,6 @@ const dedupedFetch = cache(
         ? { "X-Environment": process.env.NEXT_DATOCMS_ENVIRONMENT }
         : {}),
     };
-    //try and catch here really
     const response = await fetch("https://graphql.datocms.com/", {
       method: "POST",
       headers,

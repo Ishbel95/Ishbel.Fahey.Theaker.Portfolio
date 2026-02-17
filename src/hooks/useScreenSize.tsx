@@ -1,6 +1,7 @@
 "use client";
 
 import { BreakPoints } from "@/models/enums/BreakPoints";
+import { connection } from "next/server";
 import { useState, useEffect } from "react";
 
 const useScreenSize = () => {

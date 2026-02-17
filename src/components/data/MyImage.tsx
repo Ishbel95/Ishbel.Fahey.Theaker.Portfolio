@@ -9,15 +9,17 @@ export default function MyImage({
   key?: string;
 }) {
   return (
-    <div className="image-container">
-      <Image
-        key={key}
-        src={img.url}
-        width={img?.width}
-        height={img?.height}
-        alt={img.alt}
-        title={img.title}
-      />
-    </div>
+    img.url && (
+      <div className="image-container">
+        <Image
+          key={key}
+          src={img.url}
+          width={img?.width}
+          height={img?.height}
+          alt={img.alt ?? "My alt text"}
+          title={img.title}
+        />
+      </div>
+    )
   );
 }

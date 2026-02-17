@@ -3,6 +3,8 @@ import {
   ModularTemplatePageQuery,
 } from "@/queries/ModularTemplateQuery";
 import { getDatoCmsData, getModularContent } from "@/util/util";
+import { Suspense } from "react";
+import LoadingScreen from "@/components/Loading";
 
 export async function generateStaticParams() {
   const data = await getDatoCmsData({ query: AllModularTemplatePageQuery }); ///modular template interface
@@ -63,5 +65,5 @@ export default async function ModularTemplatePage({
   const modularPageContent = getModularContent(
     modularTemplateData.modularContent,
   );
-  return modularPageContent;
+  return <Suspense fallback={<LoadingScreen />}>{modularPageContent}</Suspense>;
 }

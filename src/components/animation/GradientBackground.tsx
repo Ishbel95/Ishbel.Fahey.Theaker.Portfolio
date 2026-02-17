@@ -6,7 +6,7 @@ export default function GradientBackground() {
 
   useEffect(() => {
     const gradientPositionRef = gradient.current;
-    if (!gradientPositionRef) return;
+    if (!gradientPositionRef || typeof window === "undefined") return;
 
     let curX = 0;
     let curY = 0;

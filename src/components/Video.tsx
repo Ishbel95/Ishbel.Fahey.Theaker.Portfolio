@@ -29,7 +29,7 @@ export default function VideoInner({
         opacity: isActive ? 1 : 0.4,
       }}
     >
-      <Glass classNames="glass-card">
+      <Glass classNames="glass-card" key={id}>
         <Suspense fallback={<p>Loading video</p>}>
           <video width="320" height="240" controls preload="none">
             <source src={video.url} type="video/mp4" />
