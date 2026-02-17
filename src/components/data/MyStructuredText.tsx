@@ -46,7 +46,7 @@ export default function MyStructuredText({
     switch (record.__typename) {
       case "ModularTemplateRecord":
         return (
-          <Link href={`/details/${record.slug}`} className="link-inline">
+          <Link href={`/details/${record.slug}`} className="link">
             {children}
           </Link>
         );

@@ -12,12 +12,9 @@
     z-index: 11;
     inset: 0;
     transition: $globalTransition;
-    transform: translateY(-20px);
-    padding: 1em 2em;
-    top: 10%;
     & > * {
-      width: 100%;
-
+      width: 90%;
+      margin: 0 auto;
       .glass-inner {
         padding: 0.2em 0.5em;
       }
@@ -38,12 +35,8 @@
   &:hover,
   &:focus {
     z-index: 12;
-    @include desktop() {
-      margin-top: (-20px);
-    }
     .card-expanded-text {
       opacity: 1;
-      transform: translateY(0px);
     }
     .card-overlay {
       @extend .glass-basic-background;

@@ -18,7 +18,7 @@ export default function ModularContent({
   return (
     <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord} key={key}>
       <div className="modular-content-container">
-        <MyStructuredText data={modularData.BodyBlockRecord?.body} />
+        <MyStructuredText data={modularData.BodyBlockRecord.body} />
       </div>
       {modularData.ImageBlockRecord?.image && desktop && (
         <MyImage img={modularData.ImageBlockRecord.image} />

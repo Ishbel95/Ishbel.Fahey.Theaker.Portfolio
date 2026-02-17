@@ -19,7 +19,7 @@ export default function Card({
     >
       <div className="card-overlay" />
       <MyImage img={data.previewImage} />
-      <div className="card-expanded-text">
+      <div className="card-expanded-text display-flex-column">
         <div className="align-center">
           <MyStructuredText data={data.titleAndDescription} />
         </div>

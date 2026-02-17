@@ -35,10 +35,10 @@ $radialTransparentGradient: radial-gradient(
   $darkestBlue 70%
 );
 $linearGradientTransparent: linear-gradient(
-  0deg,
+  180deg,
   transparent 0%,
-  transparent 5%,
-  $darkestBlue 15%,
+  transparent 15%,
+  $darkestBlue 25%,
   $darkestBlue 90%,
   $darkestBlue 100%
 );

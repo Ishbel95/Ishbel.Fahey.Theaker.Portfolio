@@ -25,7 +25,10 @@ export default async function Footer() {
           socialIcon: any;
         }) => {
           return (
-            <Glass classNames="glass-pill expanding-link-container display-flex-row-center">
+            <Glass
+              classNames="glass-pill expanding-link-container display-flex-row-center"
+              key={id}
+            >
               <FontAwesomeIcon icon={socialIcon} />
               <a
                 key={id}

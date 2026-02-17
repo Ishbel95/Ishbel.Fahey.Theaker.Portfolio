@@ -23,9 +23,9 @@
   }
   h1 {
     line-height: $smallLineHeight;
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     font-weight: 900;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
   }
 
   h3 {
@@ -53,18 +53,13 @@
 h2,
 h3 {
   a {
-    @extend .link-inline;
+    @extend .link;
   }
 }
-strong,
-em {
-  color: $cyan;
+strong {
+  color: $blue;
 }
-em {
-  font-weight: 900;
-  position: relative;
-  z-index: 50;
-}
+
 u {
   @extend .glass-basic-background;
   text-decoration: none;
@@ -93,6 +88,9 @@ u {
   @include desktop() {
     @include flexBox(row, center, space-between);
   }
+}
+.display-flex-column {
+  @include flexBox(column, center, center);
 }
 .display-flex-space-between {
   @include flexBox(row, center, space-between);
@@ -208,7 +206,6 @@ svg {
   @include linkHover;
 }
 .link-inline {
-  display: inline;
   border-bottom: solid 2px $white;
   transition: $globalTransition;
   &:hover,

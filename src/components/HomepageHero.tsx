@@ -5,7 +5,6 @@ import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "./data/MyImage";
 import { getBlockData } from "@/util/util";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
-
 import GradientBlobLava from "./animation/GradientBlobLava";
 export default async function HomepageHero({
   data,

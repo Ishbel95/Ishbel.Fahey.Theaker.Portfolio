@@ -6,10 +6,12 @@ import { getDatoCmsData, getModularContent } from "@/util/util";
 
 export async function generateStaticParams() {
   const data = await getDatoCmsData({ query: AllModularTemplatePageQuery }); ///modular template interface
-  const allModularTemplatesData = data?.allModularTemplates ?? [];
-  return allModularTemplatesData?.map((item: any) => ({
-    params: { id: item.slug },
-  }));
+  const allModularTemplatesData = data?.allModularTemplates;
+  return allModularTemplatesData?.length > 0
+    ? allModularTemplatesData.map(({ slug }: { slug: string }) => ({
+        params: { id: slug },
+      }))
+    : [{ slug: "projects" }];
 }
 
 export async function generateMetadata({

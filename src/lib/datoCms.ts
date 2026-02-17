@@ -1,9 +1,8 @@
-import { executeQuery } from "@datocms/cda-client";
 import { cache } from "react";
 
 const dedupedFetch = cache(
   async (
-    body: any,
+    body: BodyInit | null | undefined,
     // excludeInvalid = false,
     // visualEditingBaseUrl = null,
     // revalidate = null,
@@ -17,17 +16,14 @@ const dedupedFetch = cache(
         ? { "X-Environment": process.env.NEXT_DATOCMS_ENVIRONMENT }
         : {}),
     };
-
+    //try and catch here really
     const response = await fetch("https://graphql.datocms.com/", {
       method: "POST",
       headers,
       body,
       cache: "no-store",
-      //   next: { revalidate },
     });
-    //error handling sort out please
     const responseBody = await response.json();
-
     if (!response.ok) {
       throw new Error(
         `${response.status} ${response.statusText}: ${JSON.stringify(
@@ -35,8 +31,6 @@ const dedupedFetch = cache(
         )}`,
       );
     }
-    // console.log(responseBody);
-
     return responseBody;
   },
 );
@@ -49,11 +43,12 @@ export async function performRequest({
 //   revalidate,
 {
   query: string;
-  variables?: {};
+  variables?: object;
   // excludeInvalid?: boolean;
 }) {
+  const requestBody = JSON.stringify({ query, variables });
   const { data } = await dedupedFetch(
-    JSON.stringify({ query, variables }),
+    requestBody,
     // excludeInvalid,
     // visualEditingBaseUrl,
     // revalidate,

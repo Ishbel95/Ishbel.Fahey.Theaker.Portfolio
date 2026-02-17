@@ -2,13 +2,13 @@ export default interface LayoutOptionsBlockFragmentQuery {
   __typename: "LayoutOptionsBlockRecord";
   id: string;
   customId: string;
-  bottomPadding?: Boolean;
+  bottomPadding?: boolean;
   backgroundColor?: string;
   backgroundGradient?: string;
   row?: boolean;
-  rowReverse?: Boolean;
+  rowReverse?: boolean;
   textAlign?: string;
-  topPadding?: Boolean;
+  topPadding?: boolean;
   largeWidth?: boolean;
   scrollAnimation?: boolean;
 }

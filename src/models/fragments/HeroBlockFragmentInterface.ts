@@ -8,6 +8,6 @@ export default interface HeroBlockFragmentQuery {
   hero: {
     BodyBlockRecord: BodyBlockFragmentQuery;
     ImageBlockRecord: ImageBlockFragmentQuery;
-    LayoutOptionsBlockRecord: LayoutOptionsBlockFragmentQuery;
+    LayoutOptionBlockRecord: LayoutOptionsBlockFragmentQuery;
   };
 }

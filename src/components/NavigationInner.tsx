@@ -5,8 +5,6 @@ import { AllModularTemplateSlugsQuery } from "@/queries/ModularTemplateQuery";
 import Link from "next/link";
 import Glass from "./animation/Glass";
 import { usePathname } from "next/navigation";
-import useScreenSize from "@/hooks/useScreenSize";
-import ModularTemplateQuery from "@/models/queries/ModularTemplateQueryInterface";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 export default function NavigationInner({ data }: { data: any }) {

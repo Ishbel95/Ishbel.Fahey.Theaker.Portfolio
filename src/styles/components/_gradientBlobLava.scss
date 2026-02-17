@@ -16,7 +16,11 @@
 
     h1 {
       @extend .home-heading-font;
-      margin: 0.1em auto 0.5em !important;
+      color: $blue;
+      strong {
+        display: block;
+        font-size: 0.8em;
+      }
     }
     .glass-inner,
     .glass-path,
