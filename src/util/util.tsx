@@ -1,4 +1,3 @@
-import { performRequest } from "@/lib/datoCms";
 import { BlockTypes } from "@/models/enums/BlockTypes";
 import ModularHero from "@/components/modular/ModularHeroBlock";
 import ModularContent from "@/components/modular/ModularContentBlock";
@@ -17,19 +16,6 @@ export function getBlockData(data: any) {
     return acc;
   }, {});
   return result;
-}
-
-export async function getDatoCmsData({
-  query,
-  variables,
-}: {
-  query: string;
-  variables?: {};
-}) {
-  const datoQuery = { query, variables };
-  const datoCmsData = await performRequest(datoQuery);
-
-  return datoCmsData;
 }
 
 type ModularBlock = HeroBlockFragmentQuery | ModularContentQuery;

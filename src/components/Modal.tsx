@@ -1,7 +1,7 @@
 import React from "react";
 
-import { getDatoCmsData } from "@/util/util";
-import { AllProjectsQuery, ProjectQuery } from "@/queries/ProjectQuery";
+import getDatoCmsData from "@/lib/datoCms";
+import { AllProjectsQuery } from "@/queries/ProjectQuery";
 import { AllProjectQueryInterface } from "@/models/queries/ProjectQueryInterface";
 import ModalInner from "./ModalInner";
 

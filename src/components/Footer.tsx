@@ -1,11 +1,10 @@
 import { FooterQuery } from "@/queries/FooterQuery";
-import { getDatoCmsData } from "@/util/util";
+import getDatoCmsData from "@/lib/datoCms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Glass from "./animation/Glass";
 import FooterModelQuery from "@/models/queries/FooterQueryInterface";
 import { Suspense } from "react";
 import SmallLoadingScreen from "./SmallLoading";
-
 export default async function Footer() {
   const data = (await getDatoCmsData({
     query: FooterQuery,

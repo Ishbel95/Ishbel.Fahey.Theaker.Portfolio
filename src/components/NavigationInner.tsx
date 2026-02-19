@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { getDatoCmsData } from "@/util/util";
-import { AllModularTemplateSlugsQuery } from "@/queries/ModularTemplateQuery";
 import Link from "next/link";
 import Glass from "./animation/Glass";
 import { usePathname } from "next/navigation";

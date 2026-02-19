@@ -1,14 +1,15 @@
 @import "../keyframes/loadingKeyFrames";
 
 .loading-container {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  opacity: 0;
   animation: opacity-fade-in $easeInOutForwards;
-  background-color: $darkestBlue;
+  background: $linearDarkestBlueBackgroundGradient;
+  height: 100vh;
+  z-index: 40;
+  width: 100vw;
+  position: relative;
   .loading-text {
     border-radius: 50%;
+
     h3 {
       font-weight: 900;
       font-size: 2rem;
@@ -23,8 +24,8 @@
   .loading-spinner {
     position: absolute;
     @include loadingGradient(spin 1s ease-in infinite forwards);
-    width: 400px;
-    height: 400px;
+    width: 50vh;
+    height: 50vh;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);

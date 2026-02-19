@@ -1,5 +1,5 @@
 import React from "react";
-import MyImage from "../data/MyImage";
+import MyImage from "../myContentWrappers/MyImage";
 import ImageGalleryFragmentQuery from "@/models/fragments/ImageGalleryBlockInterface";
 import { ImageFragmentQuery } from "@/models/fragments/ImageGalleryBlockInterface";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";

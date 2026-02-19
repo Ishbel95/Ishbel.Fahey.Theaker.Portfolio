@@ -50,7 +50,7 @@
       @include desktop() {
         opacity: 1;
         margin: 0 1em;
-        font-size: 0.9em;
+        font-size: 0.8em;
       }
     }
     .navigation-burger {
@@ -193,7 +193,7 @@
         transition: $globalTransition;
         width: 20px;
         opacity: 1;
-        transform: translateY(-20px);
+        transform: translateY(-25px);
       }
     }
   }

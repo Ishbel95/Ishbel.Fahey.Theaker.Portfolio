@@ -5,7 +5,7 @@ import FormBlockFragmentQuery, {
 } from "@/models/fragments/FormBlockInterface";
 import FormInputWrapper from "@/wrappers/FormInputWrapper";
 import React, { useState } from "react";
-import MyPath from "./data/MyPath";
+import MyPath from "./myContentWrappers/MyPath";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Select from "react-dropdown-select";
 import CustomSelect from "./CustomSelect";

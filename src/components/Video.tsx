@@ -1,7 +1,7 @@
 "use client";
 import React, { Suspense } from "react";
 import Glass from "./animation/Glass";
-import MyStructuredText from "./data/MyStructuredText";
+import MyStructuredText from "./myContentWrappers/MyStructuredText";
 import useScreenSize from "@/hooks/useScreenSize";
 
 export default function VideoInner({

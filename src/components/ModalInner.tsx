@@ -1,7 +1,7 @@
 "use client";
 import { section } from "motion/react-client";
 import React, { useEffect, useState } from "react";
-import MyStructuredText from "./data/MyStructuredText";
+import MyStructuredText from "./myContentWrappers/MyStructuredText";
 import { useSearchParams } from "next/navigation";
 import { AllProjectQueryInterface } from "@/models/queries/ProjectQueryInterface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

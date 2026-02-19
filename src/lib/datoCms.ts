@@ -1,57 +1,34 @@
-import { cache } from "react";
-
-const dedupedFetch = cache(
-  async (
-    body: BodyInit | null | undefined,
-    // excludeInvalid = false,
-    // visualEditingBaseUrl = null,
-    // revalidate = null,
-  ) => {
-    const includeDrafts = process.env.NEXT_DATOCMS_PREVIEW_MODE;
-    const headers = {
-      Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
-      ...(includeDrafts ? { "X-Include-Drafts": "true" } : {}),
-      // ...(excludeInvalid ? { "X-Exclude-Invalid": "true" } : {}),
-      ...(process.env.NEXT_DATOCMS_ENVIRONMENT
-        ? { "X-Environment": process.env.NEXT_DATOCMS_ENVIRONMENT }
-        : {}),
-    };
-    const response = await fetch("https://graphql.datocms.com/", {
-      method: "POST",
-      headers,
-      body,
-      cache: "no-store",
-    });
-    const responseBody = await response.json();
-    if (!response.ok) {
-      throw new Error(
-        `${response.status} ${response.statusText}: ${JSON.stringify(
-          responseBody,
-        )}`,
-      );
-    }
-    return responseBody;
-  },
-);
-
-export async function performRequest({
+export default async function getDatoCmsData({
   query,
   variables = {},
-}: // excludeInvalid = false,
-//   visualEditingBaseUrl,
-//   revalidate,
-{
+}: {
   query: string;
   variables?: object;
-  // excludeInvalid?: boolean;
 }) {
   const requestBody = JSON.stringify({ query, variables });
-  const { data } = await dedupedFetch(
-    requestBody,
-    // excludeInvalid,
-    // visualEditingBaseUrl,
-    // revalidate,
-  );
+  const includeDrafts = process.env.NEXT_DATOCMS_PREVIEW_MODE;
+  const headers = {
+    Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
+    ...(includeDrafts ? { "X-Include-Drafts": "true" } : {}),
+    ...(process.env.NEXT_DATOCMS_ENVIRONMENT
+      ? { "X-Environment": process.env.NEXT_DATOCMS_ENVIRONMENT }
+      : {}),
+  };
 
-  return data;
+  const response = await fetch("https://graphql.datocms.com/", {
+    method: "POST",
+    headers,
+    body: requestBody,
+    next: { revalidate: 3600 },
+  });
+  const responseBody = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `${response.status} ${response.statusText}: ${JSON.stringify(
+        responseBody,
+      )}`,
+    );
+  }
+
+  return responseBody.data;
 }

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import MyStructuredText from "../data/MyStructuredText";
+import MyStructuredText from "../myContentWrappers/MyStructuredText";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
-import MyImage from "../data/MyImage";
+import MyImage from "../myContentWrappers/MyImage";
 import { getBlockData } from "@/util/util";
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
 import useScreenSize from "@/hooks/useScreenSize";

@@ -1,13 +1,17 @@
+"use client";
 import React from "react";
 import Svg from "./Svg";
 import { generateBlobs } from "@/util/util";
+import useScreenSize from "@/hooks/useScreenSize";
 export default function GradientBlobLava({
   children,
 }: {
   animate?: boolean;
   children?: React.ReactNode;
 }) {
-  const blobs = generateBlobs(15);
+  const desktop = useScreenSize();
+
+  const blobs = desktop && generateBlobs(15);
   return (
     <header className="gradient-blob-lava-container display-flex">
       {" "}

@@ -1,5 +1,5 @@
 export const ProjectQuery = `
-query ProjectQuery($projectLink:String!, $hasModal: Boolean!) {
+query ProjectQuery($projectLink:String!, $hasModal: boolean!) {
   project(filter: {projectLink: {eq: $projectLink}, modal: {eq: $hasModal}}) {
     modalText {
       value

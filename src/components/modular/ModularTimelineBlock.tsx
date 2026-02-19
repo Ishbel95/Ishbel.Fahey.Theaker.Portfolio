@@ -1,6 +1,6 @@
 import TimelineFragmentQuery from "@/models/fragments/TimelineBlockInterface";
 import React from "react";
-import MyStructuredText from "../data/MyStructuredText";
+import MyStructuredText from "../myContentWrappers/MyStructuredText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import Glass from "../animation/Glass";
