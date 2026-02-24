@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactHTMLElement } from "react";
 
 interface UseInViewOptions {
   once?: boolean;

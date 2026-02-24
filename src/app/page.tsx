@@ -1,6 +1,6 @@
-import { getDatoCmsData } from "@/util/util";
+"use cache";
+import getDatoCmsData from "@/lib/datoCms";
 import { HomepageQuery } from "@/queries/HomepageQuery";
-import type { Metadata } from "next";
 import { getModularContent } from "@/util/util";
 
 export async function generateMetadata() {

@@ -138,6 +138,8 @@
 }
 
 @mixin linkHover {
+  display: inline;
+  text-transform: uppercase;
   &::after {
     content: "";
     position: absolute;

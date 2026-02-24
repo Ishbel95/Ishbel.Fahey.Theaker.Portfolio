@@ -10,11 +10,11 @@ export default function ModularLayoutWrapper({
   children,
 }: {
   data: LayoutOptionsBlockFragmentQuery;
-  key: string;
+  key?: string;
   children: React.ReactNode;
 }) {
   const modularLayoutDiv = useRef<HTMLDivElement>(null);
-  const getPadding = (bottomPadding?: Boolean, topPadding?: Boolean) => {
+  const getPadding = (bottomPadding?: boolean, topPadding?: boolean) => {
     if (!bottomPadding && topPadding)
       return layoutWrapperClassNames.paddingTopOnly;
     else if (!topPadding && bottomPadding)

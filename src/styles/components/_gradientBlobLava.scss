@@ -15,8 +15,9 @@
     z-index: 40;
 
     h1 {
-      @extend .home-heading-font;
-      margin: 0.1em auto 0.5em !important;
+      strong {
+        display: block;
+      }
     }
     .glass-inner,
     .glass-path,
@@ -52,7 +53,7 @@
       width: 100px;
       height: 100px;
     }
-    top: -120px;
+    top: -150px;
     background: $white;
     &::before {
       content: "";

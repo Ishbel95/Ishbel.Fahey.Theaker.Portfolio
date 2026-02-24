@@ -1,14 +1,9 @@
-import { performRequest } from "@/lib/datoCms";
 import { BlockTypes } from "@/models/enums/BlockTypes";
-import { Metadata } from "next";
 import ModularHero from "@/components/modular/ModularHeroBlock";
 import ModularContent from "@/components/modular/ModularContentBlock";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterface";
-import { ReactElement } from "react";
-import ErrorContent from "@/components/ErrorContent";
 import HomepageHero from "@/components/HomepageHero";
-import { div } from "motion/react-client";
 
 export function getBlockData(data: any) {
   const result = data.reduce((acc: any, block?: any) => {
@@ -21,19 +16,6 @@ export function getBlockData(data: any) {
     return acc;
   }, {});
   return result;
-}
-
-export async function getDatoCmsData({
-  query,
-  variables,
-}: {
-  query: string;
-  variables?: {};
-}) {
-  const datoQuery = { query, variables };
-  const datoCmsData = await performRequest(datoQuery);
-
-  return datoCmsData;
 }
 
 type ModularBlock = HeroBlockFragmentQuery | ModularContentQuery;
@@ -75,6 +57,6 @@ export async function getModularContent(
 
 export function generateBlobs(count: number) {
   return Array.from({ length: count }).map((_, index) => (
-    <div key={index} className="blob blob-inner" />
+    <span key={index} className="blob blob-inner" />
   ));
 }

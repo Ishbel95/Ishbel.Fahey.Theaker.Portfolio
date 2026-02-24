@@ -34,7 +34,6 @@
     &::placeholder {
       color: $white;
       opacity: 0.7;
-      @extend .secondary-font;
     }
     &:hover,
     &:focus {

@@ -8,7 +8,7 @@ $blue: rgb(58, 123, 255);
 $violet: rgb(106, 76, 255);
 $purple: rgb(139, 92, 246);
 $darkBlue: rgb(26, 61, 111);
-$darkestBlue: rgb(11, 28, 45);
+$darkestBlue: rgb(5, 12, 19);
 
 //glass
 $glassBackground: rgba(58, 123, 255, 0.3);
@@ -35,10 +35,10 @@ $radialTransparentGradient: radial-gradient(
   $darkestBlue 70%
 );
 $linearGradientTransparent: linear-gradient(
-  0deg,
+  180deg,
   transparent 0%,
-  transparent 5%,
-  $darkestBlue 15%,
+  transparent 15%,
+  $darkestBlue 25%,
   $darkestBlue 90%,
   $darkestBlue 100%
 );

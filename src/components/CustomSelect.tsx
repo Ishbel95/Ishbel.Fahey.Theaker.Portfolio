@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormInputInterface } from "@/models/fragments/FormBlockInterface";
 
@@ -15,7 +15,6 @@ export default function CustomSelect({
 
   const handleSelectMenu = (value: string) => {
     value && setSelectedValue(value);
-    setSelectOpen(false);
   };
 
   return (
@@ -36,7 +35,10 @@ export default function CustomSelect({
           {selectData.selectOptions.map(({ string, id }) => (
             <p
               key={id}
-              onClick={() => handleSelectMenu(string)}
+              onClick={() => {
+                handleSelectMenu(string);
+                setSelectOpen(false);
+              }}
               className="custom-select-item"
             >
               {string}
@@ -50,7 +52,7 @@ export default function CustomSelect({
         name={selectData.name}
         hidden
         aria-readonly
-        value={selectedValue}
+        defaultValue={selectedValue}
       >
         {selectData.selectOptions.map(({ string, id }) => (
           <option key={id} value={string}>

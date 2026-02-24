@@ -1,37 +1,37 @@
-.video-carousel-container-show,
-.video-carousel-container-hide {
+.carousel-container-show,
+.carousel-container-hide {
   transition: $globalTransition;
   margin: 0 auto;
   width: 100%;
   position: absolute;
   inset: 0;
   z-index: -1;
-  .video-carousel-arrow-prev,
-  .video-carousel-arrow-next {
+  .carousel-arrow-prev,
+  .carousel-arrow-next {
     font-size: 1rem;
     z-index: 50;
     margin: 1em;
     position: absolute;
   }
-  .video-carousel-arrow-container {
+  .carousel-arrow-container {
     width: min(90%, 200px);
     margin: 0 auto;
     position: relative;
     bottom: 30%;
   }
-  .video-carousel-arrow-next {
+  .carousel-arrow-next {
     right: 0;
   }
-  .video-carousel-arrow-prev {
+  .carousel-arrow-prev {
     left: 0;
   }
-  .video-carousel-inner {
+  .carousel-inner {
     position: relative;
     width: 100%;
     height: 100%;
 
-    .video-carousel-slide-active,
-    .video-carousel-slide-inactive {
+    .carousel-slide-active,
+    .carousel-slide-inactive {
       position: absolute;
       top: 0;
       left: 0;
@@ -41,13 +41,13 @@
       transition: $globalTransition;
       margin: 0 auto;
     }
-    .video-carousel-slide-active {
+    .carousel-slide-active {
       p {
         opacity: 1;
         margin-left: 2em;
       }
     }
-    .video-carousel-slide-inactive {
+    .carousel-slide-inactive {
       p {
         opacity: 0;
         margin-left: 2em;
@@ -56,9 +56,9 @@
   }
 }
 
-.video-carousel-container-show {
+.carousel-container-show {
   opacity: 1;
 }
-.video-carousel-container-hide {
+.carousel-container-hide {
   opacity: 0;
 }

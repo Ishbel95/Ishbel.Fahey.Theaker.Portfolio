@@ -1,10 +1,8 @@
-import IconBlockFragmentQuery from "../fragments/IconBlockInterface";
-
 export default interface FooterModelQuery {
   footer: {
     footerLinks: {
       id: string;
-      socialIcon: JSON;
+      socialIcon: object;
       socialLinkText: string;
       socialLink: string;
     }[];
