@@ -2,13 +2,15 @@
 
 import React, { useEffect, useRef } from "react";
 
-type GlassProps = {
+export default function Glass({
+  children,
+  classNames,
+  key,
+}: {
   children: React.ReactNode;
   classNames?: string;
-  key: string;
-};
-
-export default function Glass({ children, classNames, key }: GlassProps) {
+  key?: string;
+}) {
   const cardRef = useRef<HTMLDivElement>(null);
   const blobRef = useRef<HTMLDivElement>(null);
   const fakeBlobRef = useRef<HTMLDivElement>(null);

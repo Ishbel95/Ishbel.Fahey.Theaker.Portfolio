@@ -1,6 +1,6 @@
 "use client";
-import { section } from "motion/react-client";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import MyStructuredText from "./myContentWrappers/MyStructuredText";
 import { useSearchParams } from "next/navigation";
 import { AllProjectQueryInterface } from "@/models/queries/ProjectQueryInterface";
@@ -8,9 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import VideoCarousel from "./VideoCarousel";
-import { connection } from "next/server";
-import { Suspense } from "react";
-import SmallLoadingScreen from "./SmallLoading";
+
 export default function ModalInner({
   data,
 }: {
@@ -33,29 +31,28 @@ export default function ModalInner({
   }
 
   return (
-    <Suspense fallback={<SmallLoadingScreen />}>
-      <div className={`modal-${showModal ? "show" : "hide"} `}>
-        <div className="modal-inner display-flex">
-          {showModal?.modal && (
-            <>
-              <div className="modal-content ">
-                <button
-                  type="button"
-                  onClick={() => handleCloseModal()}
-                  className="modal-exit"
-                >
-                  <FontAwesomeIcon icon={faXmark} />
-                </button>
-                <MyStructuredText data={showModal.modalText} />
-              </div>
-              <VideoCarousel
-                data={showModal.demonstrationVideos}
-                showModal={showModal?.modal}
-              />
-            </>
-          )}
-        </div>
+    <div className={`modal-${showModal ? "show" : "hide"} `}>
+      <div className="modal-inner display-flex">
+        {showModal?.modal && (
+          <>
+            <div className="modal-content ">
+              <button
+                type="button"
+                onClick={() => handleCloseModal()}
+                className="modal-exit"
+              >
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
+              <MyStructuredText data={showModal.modalText} />
+            </div>
+
+            <VideoCarousel
+              data={showModal.demonstrationVideos}
+              showModal={showModal?.modal}
+            />
+          </>
+        )}
       </div>
-    </Suspense>
+    </div>
   );
 }

@@ -21,7 +21,7 @@ export default function VideoInner({
   const desktop = useScreenSize();
   return (
     <div
-      className={`video-carousel-slide-${isActive ? "active" : "inactive"} display-flex`}
+      className={`carousel-slide-${isActive ? "active" : "inactive"} display-flex`}
       key={id}
       style={{
         transform: `translateX(${(index - currentIndex) * 100}%) `,

@@ -7,15 +7,13 @@ import Glass from "../animation/Glass";
 
 export default function ModularImageGallery({
   data,
-  key,
 }: {
   data: ImageGalleryFragmentQuery;
-  key: string;
 }) {
   const gallery = data.imageGallery;
 
   return (
-    <ModularLayoutWrapper data={data?.layoutOptions} key={key}>
+    <ModularLayoutWrapper data={data?.layoutOptions}>
       <div className="modular-image-gallery-container">
         {gallery.map((img: ImageFragmentQuery) => (
           <Glass classNames="glass-card tech-stack-image" key={img.id}>

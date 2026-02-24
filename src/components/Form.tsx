@@ -8,9 +8,10 @@ import React, { useState } from "react";
 import MyPath from "./myContentWrappers/MyPath";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Select from "react-dropdown-select";
+import Form from "next/form";
 import CustomSelect from "./CustomSelect";
 
-export default function Form({
+export default function FormWrapper({
   data,
   key,
 }: {
@@ -45,14 +46,13 @@ export default function Form({
   }
 
   return (
-    <form
+    <Form
       key={key}
       data-netlify="true"
-      method="post"
       data-netlify-honeypot="bot-field"
       name={data.formName}
       action={data.successPath}
-      className="form "
+      className="form"
     >
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {
@@ -65,6 +65,6 @@ export default function Form({
       <MyPath color="dark" buttonPath="/" customClassNames={"column-span"}>
         <button type="submit">Submit</button>
       </MyPath>
-    </form>
+    </Form>
   );
 }

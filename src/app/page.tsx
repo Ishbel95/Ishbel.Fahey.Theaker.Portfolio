@@ -1,3 +1,4 @@
+"use cache";
 import getDatoCmsData from "@/lib/datoCms";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import { getModularContent } from "@/util/util";

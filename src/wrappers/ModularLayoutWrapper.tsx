@@ -10,7 +10,7 @@ export default function ModularLayoutWrapper({
   children,
 }: {
   data: LayoutOptionsBlockFragmentQuery;
-  key: string;
+  key?: string;
   children: React.ReactNode;
 }) {
   const modularLayoutDiv = useRef<HTMLDivElement>(null);

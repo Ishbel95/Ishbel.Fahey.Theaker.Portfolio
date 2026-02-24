@@ -12,16 +12,14 @@ export default function VideoCarousel({
   data: any;
   showModal?: boolean;
 }) {
-  const videoCarouselLength = data.length;
+  const carouselLength = data.length;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <Suspense fallback={<SmallLoadingScreen />}>
       {" "}
-      <div
-        className={`video-carousel-container-${showModal ? "show" : "hide"}`}
-      >
-        <div className="video-carousel-inner ">
+      <div className={`carousel-container-${showModal ? "show" : "hide"}`}>
+        <div className="carousel-inner ">
           {data.map(
             (
               {
@@ -48,19 +46,19 @@ export default function VideoCarousel({
             },
           )}
         </div>
-        <div className="video-carousel-arrow-container">
+        <div className="carousel-arrow-container">
           {currentIndex > 0 && (
             <button
-              className="video-carousel-arrow-prev"
+              className="carousel-arrow-prev"
               type="button"
               onClick={() => setCurrentIndex(currentIndex - 1)}
             >
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
-          {currentIndex < videoCarouselLength - 1 && (
+          {currentIndex < carouselLength - 1 && (
             <button
-              className="video-carousel-arrow-next"
+              className="carousel-arrow-next"
               type="button"
               onClick={() => setCurrentIndex(currentIndex + 1)}
             >
