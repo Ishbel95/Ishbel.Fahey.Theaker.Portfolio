@@ -1,18 +1,18 @@
 "use client";
 
 import { BreakPoints } from "@/models/enums/BreakPoints";
-import { connection } from "next/server";
 import { useState, useEffect } from "react";
 
 const useScreenSize = () => {
-  if (typeof window === "undefined") return;
-
+  const windowDefined = typeof window !== "undefined";
   const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: windowDefined ? window.innerWidth : 0,
+    height: windowDefined ? window.innerHeight : 0,
   });
 
   useEffect(() => {
+    if (!windowDefined) return;
+
     const handleResize = () => {
       setScreenSize({
         width: window.innerWidth,

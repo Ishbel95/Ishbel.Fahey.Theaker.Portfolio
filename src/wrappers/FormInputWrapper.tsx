@@ -4,14 +4,12 @@ import React from "react";
 export default function FormInputWrapper({
   data,
   children,
-  key,
 }: {
   data: FormInputInterface;
   children: React.ReactNode;
-  key: string;
 }) {
   return (
-    <div className={`form-input column-${data.column} `} key={key}>
+    <div className={`form-input column-${data.column} `}>
       <label htmlFor={data.name}>{data.label}</label>
       {children}
     </div>

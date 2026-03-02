@@ -6,11 +6,9 @@ import useInView from "@/hooks/useInView";
 import useScreenSize from "@/hooks/useScreenSize";
 export default function ModularLayoutWrapper({
   data,
-  key,
   children,
 }: {
   data: LayoutOptionsBlockFragmentQuery;
-  key?: string;
   children: React.ReactNode;
 }) {
   const modularLayoutDiv = useRef<HTMLDivElement>(null);
@@ -51,7 +49,6 @@ export default function ModularLayoutWrapper({
     <section
       ref={modularLayoutDiv}
       id={data?.customId}
-      key={key}
       className={`modular-layout-wrapper ${modularLayoutInView && "modular-layout-enter"} ${scrollAnimation && "modular-layout-no-animation"} background-${data?.backgroundColor}`}
       style={{ background: `${data?.backgroundGradient}` }}
     >

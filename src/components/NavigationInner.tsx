@@ -33,7 +33,7 @@ export default function NavigationInner({ data }: { data: any }) {
         }
         className={`${navIsOpen ? "navigation-container-open" : "navigation-container-closed"} ${scrollPosition && `navigation-container-desktop-${navIsOpen ? "open" : "closed"}`}`}
       >
-        <Glass classNames={`navigation-container`} key={data?.id}>
+        <Glass classNames={`navigation-container`}>
           <div className="navigation-content">
             <div className="navigation-content-inner">
               <Link href={"/"}>Home</Link>

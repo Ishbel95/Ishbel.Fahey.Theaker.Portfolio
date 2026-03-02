@@ -32,12 +32,7 @@ export default async function Footer() {
                 key={id}
               >
                 <FontAwesomeIcon icon={socialIcon} />
-                <a
-                  key={id}
-                  href={socialLink}
-                  target="_blank"
-                  className="expanding-link"
-                >
+                <a href={socialLink} target="_blank" className="expanding-link">
                   {socialLinkText}
                 </a>
               </Glass>

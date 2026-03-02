@@ -47,7 +47,8 @@ $linearGradientTransparentMask: linear-gradient(
   180deg,
   transparent 0%,
   transparent 5%,
-  transparent 90%,
+  transparent 70%,
+  $darkestBlue 89%,
   $darkestBlue 95%,
   $darkestBlue 100%
 );
@@ -89,11 +90,11 @@ $linearDarkBlueBackgroundGradientNoTop: linear-gradient(
 $linearGradientBlueTransparentBlue: linear-gradient(
   180deg,
   transparent 0%,
-  transparent 1%,
-  $darkestBlue 15%,
+  rgba($darkestBlue, 0.15) 10%,
+  rgba($darkestBlue, 0.6) 25%,
   $darkestBlue 50%,
-  $darkestBlue 85%,
-  transparent 99%,
+  rgba($darkestBlue, 0.6) 75%,
+  rgba($darkestBlue, 0.15) 90%,
   transparent 100%
 );
 

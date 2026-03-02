@@ -40,9 +40,9 @@ export async function getModularContent(
     <>
       {hero &&
         (isHomepage ? (
-          <HomepageHero data={hero} key={hero.id} />
+          <HomepageHero data={hero} />
         ) : (
-          <ModularHero data={hero} key={hero.id} />
+          <ModularHero data={hero} />
         ))}
       {contentBlocks.length > 0 && (
         <main>

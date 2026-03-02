@@ -5,18 +5,9 @@ import MyPath from "./myContentWrappers/MyPath";
 import { CardBlockInterface } from "@/models/fragments/CardCarouselBlockInterface";
 import Glass from "./animation/Glass";
 import Link from "next/link";
-export default function Card({
-  data,
-  key,
-}: {
-  data: CardBlockInterface;
-  key: number;
-}) {
+export default function Card({ data }: { data: CardBlockInterface }) {
   return (
-    <Glass
-      classNames="map-child-margin glass-card card"
-      key={`${key + data.id}`}
-    >
+    <Glass classNames="map-child-margin glass-card card">
       <div className="card-overlay" />
       <MyImage img={data.previewImage} />
       <div className="card-expanded-text display-flex-column">
