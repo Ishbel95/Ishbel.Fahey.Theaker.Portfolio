@@ -19,7 +19,9 @@
     "react": "19.2.1",
     "react-datocms": "^7.2.4",
     "react-dom": "19.2.1",
-    "react-dropdown-select": "^4.12.2"
+    "react-dropdown-select": "^4.12.2",
+    "react-hook-form": "^7.75.0",
+    "zod": "^4.4.2"
   },
   "devDependencies": {
     "@types/node": "^20",
