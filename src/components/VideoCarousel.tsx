@@ -19,7 +19,7 @@ export default function VideoCarousel({
     <Suspense fallback={<SmallLoadingScreen />}>
       {" "}
       <div className={`carousel-container-${showModal ? "show" : "hide"}`}>
-        <div className="carousel-inner ">
+        <div className="carousel-inner">
           {data.map(
             (
               {
@@ -37,7 +37,6 @@ export default function VideoCarousel({
                 <VideoInner
                   video={video}
                   description={description}
-                  id={id}
                   currentIndex={currentIndex}
                   index={index}
                   key={id}

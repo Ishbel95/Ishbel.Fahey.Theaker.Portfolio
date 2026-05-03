@@ -1,7 +1,6 @@
 @keyframes bounce-down-enter {
   0% {
     animation-timing-function: ease-in;
-    opacity: 0;
     transform: translateY(-250px);
   }
 
@@ -12,31 +11,37 @@
   }
 
   55% {
+    opacity: 1;
     animation-timing-function: ease-in;
     transform: translateY(-65px);
   }
 
   72% {
+    opacity: 1;
     animation-timing-function: ease-out;
     transform: translateY(0);
   }
 
   81% {
+    opacity: 1;
     animation-timing-function: ease-in;
     transform: translateY(-28px);
   }
 
   90% {
+    opacity: 1;
     animation-timing-function: ease-out;
     transform: translateY(0);
   }
 
   95% {
+    opacity: 1;
     animation-timing-function: ease-in;
     transform: translateY(-8px);
   }
 
   100% {
+    opacity: 1;
     animation-timing-function: ease-out;
     transform: translateY(0);
   }

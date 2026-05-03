@@ -1,9 +1,7 @@
-"use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Svg from "./Svg";
 import { generateBlobs } from "@/util/util";
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
-import useScreenSize from "@/hooks/useScreenSize";
 
 export default function GradientBlobMorph({
   children,
@@ -12,14 +10,13 @@ export default function GradientBlobMorph({
   children: React.ReactNode;
   layout: LayoutOptionsBlockFragmentQuery;
 }) {
-  const desktop = useScreenSize();
-  const blobs = desktop && generateBlobs(6);
+  const blobs = generateBlobs(6);
   return (
     <header
       className={`background-${layout?.backgroundColor} gradient-blob-morph-container display-flex`}
     >
       <div className={`gradient-blob-morph-inner-${layout.textAlign}`}>
-        {blobs}
+        <Suspense fallback>{blobs}</Suspense>
       </div>
       <Svg id={"blobGoo"}>
         {" "}

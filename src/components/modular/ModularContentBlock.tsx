@@ -8,15 +8,13 @@ import ModularContentQuery from "@/models/fragments/ContentBlockFragmentInterfac
 import useScreenSize from "@/hooks/useScreenSize";
 export default function ModularContent({
   data,
-  key,
 }: {
   data: ModularContentQuery;
-  key: string;
 }) {
   const modularData = getBlockData(data.content);
   const desktop = useScreenSize();
   return (
-    <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord} key={key}>
+    <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord}>
       <div className="modular-content-container">
         <MyStructuredText data={modularData.BodyBlockRecord.body} />
       </div>

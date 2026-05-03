@@ -12,7 +12,7 @@ export default async function Footer() {
   return (
     <Suspense fallback={<SmallLoadingScreen />}>
       <footer
-        className={`position-relative display-flex-row-desktop padding-bottom-only`}
+        className={`position-relative display-flex-row-desktop padding-top-bottom`}
       >
         {data.footer.footerLinks?.map(
           ({
@@ -32,12 +32,7 @@ export default async function Footer() {
                 key={id}
               >
                 <FontAwesomeIcon icon={socialIcon} />
-                <a
-                  key={id}
-                  href={socialLink}
-                  target="_blank"
-                  className="expanding-link"
-                >
+                <a href={socialLink} target="_blank" className="expanding-link">
                   {socialLinkText}
                 </a>
               </Glass>

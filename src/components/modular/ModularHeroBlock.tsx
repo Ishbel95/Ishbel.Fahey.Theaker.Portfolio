@@ -9,27 +9,23 @@ import GradientBlobMorph from "../animation/GradientBlobMorph";
 
 export default async function ModularHero({
   data,
-  key,
 }: {
   data: HeroBlockFragmentQuery;
-  key: string;
-  siteEntryAnimation?: boolean;
 }) {
   const modularData = getBlockData(data?.hero);
 
   return (
     <GradientBlobMorph layout={modularData.LayoutOptionBlockRecord}>
-      <ModularLayoutWrapper
-        data={modularData.LayoutOptionBlockRecord}
-        key={key}
-      >
-        <div className="modular-hero-content">
-          <MyStructuredText data={modularData.BodyBlockRecord.body} />
-        </div>
-        {modularData?.ImageBlockRecord?.image && (
-          <MyImage img={modularData.ImageBlockRecord.image} />
-        )}
-      </ModularLayoutWrapper>
+      <div className="modular-hero-container">
+        <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord}>
+          <div className="modular-hero-content">
+            <MyStructuredText data={modularData.BodyBlockRecord.body} />
+          </div>
+          {modularData?.ImageBlockRecord?.image && (
+            <MyImage img={modularData.ImageBlockRecord.image} />
+          )}
+        </ModularLayoutWrapper>
+      </div>
     </GradientBlobMorph>
   );
 }

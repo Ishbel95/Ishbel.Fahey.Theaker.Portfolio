@@ -1,7 +1,6 @@
 @import "../keyframes/gradientBlobLavaKeyFrames";
 
 .gradient-blob-lava-container {
-  min-height: 100vh;
   svg {
     width: 0;
     height: 0;
@@ -9,25 +8,13 @@
   position: relative;
 
   .modular-hero-container {
+    @extend .display-flex;
+    height: 100vh;
     width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 40;
-
-    h1 {
-      strong {
-        display: block;
-      }
-    }
-    .glass-inner,
-    .glass-path,
-    .glass-wrapper {
-      width: fit-content;
-      margin: 0 auto;
-      @include desktop() {
-        margin: 0;
-      }
-    }
+    background: $linearGradientTransparentMask;
   }
 
   .gradient-blob-lava-inner {
@@ -38,6 +25,7 @@
     width: 100%;
     overflow: hidden;
     left: 0;
+
     filter: url(#gooHero);
     @include desktop() {
       left: 20%;

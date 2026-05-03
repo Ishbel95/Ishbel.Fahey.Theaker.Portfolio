@@ -13,10 +13,8 @@ import CustomSelect from "./CustomSelect";
 
 export default function FormWrapper({
   data,
-  key,
 }: {
   data: FormBlockFragmentQuery;
-  key: string;
 }) {
   function getFormInput(data: FormInputInterface) {
     switch (data.inputType) {
@@ -47,7 +45,6 @@ export default function FormWrapper({
 
   return (
     <Form
-      key={key}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       name={data.formName}

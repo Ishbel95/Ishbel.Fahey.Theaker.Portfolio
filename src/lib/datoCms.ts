@@ -19,6 +19,7 @@ export default async function getDatoCmsData({
     method: "POST",
     headers,
     body: requestBody,
+    cache: "force-cache",
     next: { revalidate: 3600 },
   });
   const responseBody = await response.json();

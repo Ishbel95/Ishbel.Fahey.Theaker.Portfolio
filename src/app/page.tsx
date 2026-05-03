@@ -22,6 +22,7 @@ export async function generateMetadata() {
     title: seo.title,
     description: seo.description,
     keywords: "blog, tutorials, keywords etc",
+    icons: {},
     openGraph: {
       images: [seo.image.responsiveImage.src],
     },

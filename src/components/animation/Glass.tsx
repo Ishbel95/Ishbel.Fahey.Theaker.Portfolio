@@ -5,11 +5,9 @@ import React, { useEffect, useRef } from "react";
 export default function Glass({
   children,
   classNames,
-  key,
 }: {
   children: React.ReactNode;
   classNames?: string;
-  key?: string;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const blobRef = useRef<HTMLDivElement>(null);
@@ -44,11 +42,7 @@ export default function Glass({
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className={`glass-wrapper ${classNames ?? ""}`}
-      key={key}
-    >
+    <div ref={cardRef} className={`glass-wrapper ${classNames ?? ""}`}>
       <div className="glass-inner display-flex">{children}</div>
       <div ref={blobRef} className="glass-glow-blob" />
       <div ref={fakeBlobRef} className="glass-glow-fake-blob" />

@@ -1,11 +1,11 @@
 import { StructuredText } from "react-datocms";
 import Link from "next/link";
 import MyPath from "./MyPath";
-import ModularImageGallery from "../modular/ModularImageGallery";
-import ModularCardCarouselBlock from "../modular/ModularCardCarouselBlock";
-import ModularTimelineBlock from "../modular/ModularTimelineBlock";
+import ModularImageGallery from "../../components/modular/ModularImageGallery";
+import ModularCardCarouselBlock from "../../components/modular/ModularCardCarouselBlock";
+import ModularTimelineBlock from "../../components/modular/ModularTimelineBlock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ModularFormBlock from "../modular/ModularFormBlock";
+import ModularFormBlock from "../../components/modular/ModularFormBlock";
 
 export default function MyStructuredText({ data }: { data: any }) {
   function getPathChildren(record: any) {
