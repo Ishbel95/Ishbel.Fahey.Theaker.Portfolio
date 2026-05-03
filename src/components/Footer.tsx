@@ -12,7 +12,7 @@ export default async function Footer() {
   return (
     <Suspense fallback={<SmallLoadingScreen />}>
       <footer
-        className={`position-relative display-flex-row-desktop padding-bottom-only`}
+        className={`position-relative display-flex-row-desktop padding-top-bottom`}
       >
         {data.footer.footerLinks?.map(
           ({

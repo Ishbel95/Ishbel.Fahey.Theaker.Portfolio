@@ -16,14 +16,16 @@ export default async function ModularHero({
 
   return (
     <GradientBlobMorph layout={modularData.LayoutOptionBlockRecord}>
-      <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord}>
-        <div className="modular-hero-content">
-          <MyStructuredText data={modularData.BodyBlockRecord.body} />
-        </div>
-        {modularData?.ImageBlockRecord?.image && (
-          <MyImage img={modularData.ImageBlockRecord.image} />
-        )}
-      </ModularLayoutWrapper>
+      <div className="modular-hero-container">
+        <ModularLayoutWrapper data={modularData.LayoutOptionBlockRecord}>
+          <div className="modular-hero-content">
+            <MyStructuredText data={modularData.BodyBlockRecord.body} />
+          </div>
+          {modularData?.ImageBlockRecord?.image && (
+            <MyImage img={modularData.ImageBlockRecord.image} />
+          )}
+        </ModularLayoutWrapper>
+      </div>
     </GradientBlobMorph>
   );
 }

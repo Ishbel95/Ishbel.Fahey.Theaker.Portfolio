@@ -2,8 +2,6 @@
 import getDatoCmsData from "@/lib/datoCms";
 import { HomepageQuery } from "@/queries/HomepageQuery";
 import { getModularContent } from "@/util/util";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export async function generateMetadata() {
   const query = HomepageQuery;

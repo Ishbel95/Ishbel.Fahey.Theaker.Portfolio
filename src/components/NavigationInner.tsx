@@ -4,14 +4,10 @@ import Link from "next/link";
 import Glass from "./animation/Glass";
 import { usePathname } from "next/navigation";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
-import SmallLoadingScreen from "./SmallLoading";
-import { Suspense } from "react";
 
 export default function NavigationInner({ data }: { data: any }) {
   const pathname = usePathname();
   const [navIsOpen, setNavIsOpen] = useState(false);
-  const [navDesktopAnimationEnded, setNavDesktopAnimationEnded] =
-    useState(false);
 
   useEffect(() => {
     pathname && setNavIsOpen(false);
@@ -25,49 +21,43 @@ export default function NavigationInner({ data }: { data: any }) {
   }, [scrollAtTop]);
 
   return (
-    <Suspense fallback={<SmallLoadingScreen />}>
-      <nav
-        onAnimationEnd={(event) =>
-          event.animationName === "navigation-burger-scroll" &&
-          setNavDesktopAnimationEnded(true)
-        }
-        className={`${navIsOpen ? "navigation-container-open" : "navigation-container-closed"} ${scrollPosition && `navigation-container-desktop-${navIsOpen ? "open" : "closed"}`}`}
-      >
-        <Glass classNames={`navigation-container`}>
-          <div className="navigation-content">
-            <div className="navigation-content-inner">
-              <Link href={"/"}>Home</Link>
-              {data.allModularTemplates.map(
-                ({
-                  slug,
-                  includeInNav,
-                  internalTitle,
-                  id,
-                }: {
-                  slug: string;
-                  includeInNav: boolean;
-                  internalTitle: string;
-                  id: string;
-                }) => {
-                  return (
-                    includeInNav && (
-                      <Link href={`/details/${slug}`} key={id}>
-                        {internalTitle}
-                      </Link>
-                    )
-                  );
-                },
-              )}
-            </div>
-          </div>{" "}
-          <button
-            className="navigation-burger"
-            onClick={() => setNavIsOpen(!navIsOpen)}
-          >
-            <div />
-          </button>
-        </Glass>
-      </nav>
-    </Suspense>
+    <nav
+      className={`${navIsOpen ? "navigation-container-open" : "navigation-container-closed"} ${scrollPosition && `navigation-container-desktop-${navIsOpen ? "open" : "closed"}`}`}
+    >
+      <Glass classNames={`navigation-container`}>
+        <div className="navigation-content">
+          <div className="navigation-content-inner">
+            <Link href={"/"}>Home</Link>
+            {data.allModularTemplates.map(
+              ({
+                slug,
+                includeInNav,
+                internalTitle,
+                id,
+              }: {
+                slug: string;
+                includeInNav: boolean;
+                internalTitle: string;
+                id: string;
+              }) => {
+                return (
+                  includeInNav && (
+                    <Link href={`/details/${slug}`} key={id}>
+                      {internalTitle}
+                    </Link>
+                  )
+                );
+              },
+            )}
+          </div>
+        </div>{" "}
+        <button
+          className="navigation-burger"
+          onClick={() => setNavIsOpen(!navIsOpen)}
+        >
+          <div />
+        </button>
+      </Glass>
+    </nav>
   );
 }
