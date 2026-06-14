@@ -1,7 +1,7 @@
 "use cache";
 import getDatoCmsData from "@/lib/datoCms";
 import { HomepageQuery } from "@/queries/HomepageQuery";
-import { getModularContent } from "@/util/util";
+import { getModularContent } from "@/util/getModularContent";
 
 export async function generateMetadata() {
   const query = HomepageQuery;

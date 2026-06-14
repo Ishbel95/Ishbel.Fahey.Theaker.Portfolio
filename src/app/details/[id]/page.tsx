@@ -3,7 +3,7 @@ import {
   AllModularTemplatePageQuery,
   ModularTemplatePageQuery,
 } from "@/queries/ModularTemplateQuery";
-import { getModularContent } from "@/util/util";
+import { getModularContent } from "@/util/getModularContent";
 import getDatoCmsData from "@/lib/datoCms";
 export async function generateStaticParams() {
   const data = await getDatoCmsData({ query: AllModularTemplatePageQuery }); ///modular template interface

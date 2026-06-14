@@ -3,7 +3,7 @@ import React from "react";
 import MyStructuredText from "../myContentWrappers/MyStructuredText";
 import ModularLayoutWrapper from "@/wrappers/ModularLayoutWrapper";
 import MyImage from "../myContentWrappers/MyImage";
-import { getBlockData } from "@/util/util";
+import { getBlockData } from "@/util/getBlockData";
 import HeroBlockFragmentQuery from "@/models/fragments/HeroBlockFragmentInterface";
 import GradientBlobMorph from "../animation/GradientBlobMorph";
 

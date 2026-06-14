@@ -2,7 +2,6 @@
 
 import useInView from "@/hooks/useInView";
 import useScreenSize from "@/hooks/useScreenSize";
-import { BreakPoints } from "@/models/enums/BreakPoints";
 import React, { useEffect, useRef } from "react";
 
 type GlassProps = {
@@ -41,6 +40,7 @@ export default function GlassMorph({ children, classNames }: GlassProps) {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
   const desktop = useScreenSize();
   const morphGlass = useInView(
     cardRef,

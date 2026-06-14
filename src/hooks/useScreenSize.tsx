@@ -24,7 +24,7 @@ const useScreenSize = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [windowDefined]);
 
   return screenSize.width >= BreakPoints.Desktop ? true : false;
 };

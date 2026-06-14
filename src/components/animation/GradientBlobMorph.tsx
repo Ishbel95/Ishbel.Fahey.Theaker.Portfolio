@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import Svg from "./Svg";
-import { generateBlobs } from "@/util/util";
+import { generateBlobs } from "@/util/generateBlobs";
 import LayoutOptionsBlockFragmentQuery from "@/models/fragments/LayoutOptionsInterface";
 
 export default function GradientBlobMorph({

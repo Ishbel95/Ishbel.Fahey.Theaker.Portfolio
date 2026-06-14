@@ -1,0 +1,32 @@
+.align-left,
+.align-right {
+  .modular-content-container {
+    @include desktop() {
+      max-width: 60%;
+    }
+  }
+  .image-container {
+    @include desktop() {
+      max-width: 30%;
+    }
+  }
+}
+
+.align-left {
+  @include alignText(left);
+  .glass-path {
+    @include alignText(left);
+  }
+}
+.align-center {
+  @include alignText(center);
+  .glass-path {
+    @include alignText(center);
+  }
+}
+.align-right {
+  @include alignText(right);
+  .glass-path {
+    @include alignText(right);
+  }
+}
