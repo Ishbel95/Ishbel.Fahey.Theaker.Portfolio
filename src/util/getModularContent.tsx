@@ -24,12 +24,7 @@ export async function getModularContent(
 
   return (
     <>
-      {hero &&
-        (isHomepage ? (
-          <HomepageHero data={hero} />
-        ) : (
-          <ModularHero data={hero} />
-        ))}
+      {hero && <ModularHero data={hero} />}
       {contentBlocks.length > 0 && (
         <main>
           {contentBlocks.map((component) => (
