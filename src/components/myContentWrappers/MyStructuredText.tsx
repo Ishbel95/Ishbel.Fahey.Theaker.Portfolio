@@ -1,4 +1,5 @@
-import { StructuredText } from "react-datocms";
+import { StructuredText, renderNodeRule } from "react-datocms";
+import { isHeading, renderRule } from "datocms-structured-text-utils";
 import Link from "next/link";
 import MyPath from "./MyPath";
 import ModularImageGallery from "../../components/modular/ModularImageGallery";
@@ -6,6 +7,7 @@ import ModularCardCarouselBlock from "../../components/modular/ModularCardCarous
 import ModularTimelineBlock from "../../components/modular/ModularTimelineBlock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModularFormBlock from "../../components/modular/ModularFormBlock";
+import { poppins, sansCode } from "@/styles/fonts/fonts";
 
 export default function MyStructuredText({ data }: { data: any }) {
   function getPathChildren(record: any) {
@@ -82,12 +84,27 @@ export default function MyStructuredText({ data }: { data: any }) {
         return null;
     }
   };
+
   return (
     <StructuredText
       data={data}
       renderBlock={getBlockRecord}
       renderInlineRecord={getInlineRecord}
       renderLinkToRecord={getLinkToRecord}
+      customNodeRules={[
+        renderNodeRule(isHeading, ({ node, children, key }) => {
+          const HeadingTag = `h${node.level}`;
+          const headingTag = node.level === 1 || node.level === 3;
+          return (
+            <HeadingTag
+              key={key}
+              className={headingTag ? sansCode.className : poppins.className}
+            >
+              {children}
+            </HeadingTag>
+          );
+        }),
+      ]}
     />
   );
 }

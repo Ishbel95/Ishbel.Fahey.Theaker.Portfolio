@@ -1,7 +1,7 @@
 "use cache";
 import getDatoCmsData from "@/lib/datoCms";
 import { HomepageQuery } from "@/queries/HomepageQuery";
-import { getModularContent } from "@/util/util";
+import { getModularContent } from "@/util/getModularContent";
 
 export async function generateMetadata() {
   const query = HomepageQuery;
@@ -33,8 +33,8 @@ export default async function Home() {
   const query = HomepageQuery;
   const data = await getDatoCmsData({ query }); //homepageinterface ??
   const homepageData = data?.homepage ?? [];
-  const isHomepage = true;
-  const homepageContent = getModularContent(homepageData.content, isHomepage);
+
+  const homepageContent = getModularContent(homepageData.content);
 
   return homepageContent;
 }

@@ -1,0 +1,25 @@
+.card-padding {
+  padding: $cardPaddingMobile;
+  @include desktop() {
+    padding: $cardPaddingDesktop;
+  }
+}
+
+.map-child-margin {
+  margin: $mobileMargin;
+  @include desktop() {
+    margin: $desktopMargin;
+  }
+}
+.padding-top-bottom {
+  @include padding();
+}
+.padding-top-only {
+  @include padding(true, false);
+}
+.padding-bottom-only {
+  @include padding(false, true);
+}
+.padding-none {
+  padding: 0;
+}

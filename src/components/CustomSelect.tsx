@@ -14,7 +14,7 @@ export default function CustomSelect({
   const [selectOpen, setSelectOpen] = useState(false);
 
   const handleSelectMenu = (value: string) => {
-    value && setSelectedValue(value);
+    setSelectedValue(value);
   };
 
   return (

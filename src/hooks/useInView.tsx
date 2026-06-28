@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect, ReactHTMLElement } from "react";
+import { useState, useEffect, RefObject } from "react";
 
 interface UseInViewOptions {
   once?: boolean;
 }
 
 export default function useInView(
-  ref: any,
+  ref: RefObject<HTMLDivElement | null>,
   rootMarginValue?: string,
   thresholdValue?: number,
   options?: UseInViewOptions,

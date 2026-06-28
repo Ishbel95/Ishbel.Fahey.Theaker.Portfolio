@@ -1,6 +1,6 @@
 import React from "react";
 import Svg from "./Svg";
-import { generateBlobs } from "@/util/util";
+import { generateBlobs } from "@/util/generateBlobs";
 
 export default function GradientBlobLava({
   children,

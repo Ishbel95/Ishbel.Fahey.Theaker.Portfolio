@@ -1,66 +1,43 @@
 "use client";
-import { InputTypes } from "@/models/enums/InputTypes";
+
 import FormBlockFragmentQuery, {
   FormInputInterface,
 } from "@/models/fragments/FormBlockInterface";
 import FormInputWrapper from "@/wrappers/FormInputWrapper";
-import React, { useState } from "react";
+import React, { useActionState } from "react";
 import MyPath from "./myContentWrappers/MyPath";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Select from "react-dropdown-select";
 import Form from "next/form";
-import CustomSelect from "./CustomSelect";
-
+import { getFormInput } from "@/util/getFormInput";
+import { useForm, ValidationError } from "@formspree/react";
+import FormSubmitted from "./FormSubmitted";
 export default function FormWrapper({
   data,
 }: {
   data: FormBlockFragmentQuery;
 }) {
-  function getFormInput(data: FormInputInterface) {
-    switch (data.inputType) {
-      case InputTypes.Textarea:
-        return (
-          <textarea
-            id={data.name}
-            name={data.name}
-            placeholder={data.placeholder}
-            rows={data.rows}
-            maxLength={data.maximumCharacters}
-            minLength={data.minimumCharacters}
-          />
-        );
-      case InputTypes.Select:
-        return <CustomSelect selectData={data} />;
-      default:
-        return (
-          <input
-            id={data.name}
-            name={data.name}
-            type={data.inputType}
-            placeholder={data.placeholder}
-          />
-        );
-    }
-  }
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
 
   return (
-    <Form
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      name={data.formName}
-      action={data.successPath}
-      className="form"
-    >
+    <Form name={data.formName} action={handleSubmit} className="form">
       <input type="hidden" name={data.formName} value={data.formName} />
       {data?.formContent.map((input: FormInputInterface) => {
         return (
-          <FormInputWrapper data={input} key={input.id}>
-            {getFormInput(input)}
-          </FormInputWrapper>
+          <>
+            <FormInputWrapper data={input} key={input.id}>
+              {getFormInput(input)}
+            </FormInputWrapper>
+            <ValidationError
+              prefix={input.label}
+              field={input.name}
+              errors={state.errors}
+            />
+          </>
         );
       })}
       <MyPath color="dark" buttonPath="/" customClassNames={"column-span"}>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={state.submitting}>
+          Submit
+        </button>
       </MyPath>
     </Form>
   );

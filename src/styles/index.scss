@@ -2,6 +2,12 @@
 @import "mixins.scss";
 @import "base";
 
+@import "./structure/align";
+@import "./structure/backgroundColor";
+@import "./structure/paddingMargin";
+@import "./structure/width";
+@import "./structure/layout";
+
 @import "./components/modularLayoutWrapper";
 @import "./components/modularImageGallery";
 @import "./components/modularTimeline";

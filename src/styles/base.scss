@@ -68,10 +68,6 @@ h3 {
     @extend .link;
   }
 }
-strong {
-  font-weight: 400;
-  color: $blue;
-}
 
 u {
   @extend .glass-basic-background;
@@ -80,146 +76,17 @@ u {
   border-radius: $borderRadius;
   text-shadow: none;
 }
-.modular-hero-content {
-  p {
-    font-size: 1.4rem;
-    margin-bottom: 0;
-    &:last-of-type {
-      margin: 1em auto 1.5em;
-      a {
-        text-transform: uppercase;
-      }
-    }
-  }
-}
 
-.display-flex {
-  @include flexBox();
-}
-
-.display-flex-row-desktop {
-  @include desktop() {
-    @include flexBox(row, center, space-between);
-  }
-}
-.display-flex-column {
-  @include flexBox(column, center, center);
-}
-.display-flex-space-between {
-  @include flexBox(row, center, space-between);
-}
-.display-flex-row-reverse-desktop {
-  @include desktop() {
-    @include flexBox(row-reverse, center, space-between);
-  }
-}
-
-@include column($position: "1", $start: 1, $end: 2);
-@include column($position: "2", $start: 2, $end: 3);
-@include column($position: "3", $start: 3, $end: 4);
-@include column($position: "span", $start: 1, $end: 4);
 svg {
   width: 0;
   height: 0;
 }
-.align-left,
-.align-right {
-  .modular-content-container {
-    @include desktop() {
-      max-width: 60%;
-    }
-  }
-  .image-container {
-    @include desktop() {
-      max-width: 30%;
-    }
-  }
-}
+
 .image-container {
   img {
     border-radius: $borderRadius;
     max-width: 300px;
   }
-}
-
-.align-left {
-  @include alignText(left);
-  .glass-path {
-    @include alignText(left);
-  }
-}
-.align-center {
-  @include alignText(center);
-  .glass-path {
-    @include alignText(center);
-  }
-}
-.align-right {
-  @include alignText(right);
-  .glass-path {
-    @include alignText(right);
-  }
-}
-
-.card-padding {
-  padding: $cardPaddingMobile;
-  @include desktop() {
-    padding: $cardPaddingDesktop;
-  }
-}
-
-.large-global-width {
-  width: $largeGlobalWidth;
-  margin: 0 auto;
-}
-.global-width {
-  width: $globalWidth;
-  margin: 0 auto;
-}
-
-.map-child-margin {
-  margin: $mobileMargin;
-  @include desktop() {
-    margin: $desktopMargin;
-  }
-}
-
-.background-color-darkest-blue {
-  background-color: $darkestBlue;
-  @include desktop() {
-    background: $linearDarkestBlueBackgroundGradient;
-  }
-}
-.background-color-dark-blue {
-  background-color: $darkBlue;
-  @include desktop() {
-    background: $linearDarkBlueBackgroundGradient;
-  }
-}
-.background-color-darkest-blue-hero {
-  background-color: $darkestBlue;
-  @include desktop() {
-    background: $linearDarkestBlueBackgroundGradientNoTop;
-  }
-}
-.background-color-dark-blue-hero {
-  background-color: $darkBlue;
-  @include desktop() {
-    background: $linearDarkBlueBackgroundGradientNoTop;
-  }
-}
-
-.padding-top-bottom {
-  @include padding();
-}
-.padding-top-only {
-  @include padding(true, false);
-}
-.padding-bottom-only {
-  @include padding(false, true);
-}
-.padding-none {
-  padding: 0;
 }
 
 .button {

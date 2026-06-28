@@ -1,0 +1,24 @@
+.background-color-darkest-blue {
+  background-color: $darkestBlue;
+  @include desktop() {
+    background: $linearDarkestBlueBackgroundGradient;
+  }
+}
+.background-color-dark-blue {
+  background-color: $darkBlue;
+  @include desktop() {
+    background: $linearDarkBlueBackgroundGradient;
+  }
+}
+.background-color-darkest-blue-hero {
+  background-color: $darkestBlue;
+  @include desktop() {
+    background: $linearDarkestBlueBackgroundGradientNoTop;
+  }
+}
+.background-color-dark-blue-hero {
+  background-color: $darkBlue;
+  @include desktop() {
+    background: $linearDarkBlueBackgroundGradientNoTop;
+  }
+}
